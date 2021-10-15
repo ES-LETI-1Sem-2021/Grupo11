@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Annotation profile for Project" enabled="true">
+        <sourceOutputDir name="Project/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="Project/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ES-LETI-1Sem-2021-Grupo11" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ES-LETI-1Sem-2021-Grupo11" target="17" />
+      <module name="pom.xml" target="17" />
+      <module name="Project" target="17" />
+      <module name="untitled" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
