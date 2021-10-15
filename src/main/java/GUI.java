@@ -4,8 +4,6 @@ import java.awt.*;
 public class GUI extends JFrame{
     private JPasswordField passwordField1;
     private JPanel panel1;
-    private JPanel panel2;
-    private JButton button1;
 
     public GUI(){
         add(panel1);
