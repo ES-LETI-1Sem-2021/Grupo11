@@ -12,7 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ES-LETI-1Sem-2021-Grupo11" target="17" />
-      <module name="Project" target="17" />
+      <module name="Project" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>
