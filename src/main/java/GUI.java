@@ -1,37 +1,48 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
+import java.net.*;
 
-public class GUI{
-    JFrame frame;
-    JPanel panel;
-    JPasswordField pw;
+public class GUI extends JFrame{
+    private JPanel mainPanel;
+    private JLabel img1;
+    private JLabel img2;
+    private JLabel text;
+    private JButton iniciarLogInButton;
+    private JButton button;
 
-    public GUI(){
-        frame = new JFrame();
-        panel = new JPanel();
-        pw = new JPasswordField(15);
-        pw.setMaximumSize(new Dimension(3,2));
-        pw.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.BLACK));
-        pw.setEchoChar('*');
+    public GUI(String title){
+        super(title);
 
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setContentPane(mainPanel);
+        this.pack();
+        this.setResizable(false);
 
-        panel.setBorder(BorderFactory.createEmptyBorder(300, 300, 10, 10));
-        panel.setLayout(new GridLayout(0,1));
-        panel.setBackground(Color.GRAY);
-        panel.add(pw);
-
-        frame.add(panel, BorderLayout.CENTER);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Project");
-        frame.pack();
-        frame.setVisible(true);
-
-        frame.add(pw);
     }
 
-    public static void main(String[] args) {
-        new GUI();
+    public static void main(String[] args) throws Exception{
+        final URI uri = new URI("https://github.com/miguelrato18/ES-LETI-1Sem-2021-Grupo11");
 
+        JFrame frame = new GUI("TrelloHub");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500, 500);
+        frame.setVisible(true);
+        JButton button= new JButton();
+
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (Desktop.isDesktopSupported()) {
+                    Desktop desktop = Desktop.getDesktop();
+                    try {
+                        desktop.browse(uri);
+                    } catch (Exception ex) {
+                    }
+                } else {
+                }
+            }
+        });
     }
 
 }
+
