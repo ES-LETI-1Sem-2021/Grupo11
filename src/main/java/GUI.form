@@ -14,7 +14,7 @@
       <color color="-4473925"/>
     </border>
     <children>
-      <component id="e27da" class="javax.swing.JLabel" binding="img2">
+      <component id="e27da" class="javax.swing.JLabel" binding="TrelloImg">
         <constraints>
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="150" height="150"/>
@@ -52,7 +52,7 @@
           <text value="Iniciar Log-in"/>
         </properties>
       </component>
-      <component id="b32b0" class="javax.swing.JLabel" binding="img1">
+      <component id="b32b0" class="javax.swing.JLabel" binding="GithubImg">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="150" height="150"/>
@@ -75,7 +75,7 @@
           <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="1ebef" class="javax.swing.JButton" binding="button">
+      <component id="1ebef" class="javax.swing.JButton" binding="button_GithubRepository">
         <constraints>
           <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="25" height="25"/>
@@ -98,6 +98,7 @@
         </constraints>
         <properties>
           <background color="-16744760"/>
+          <foreground color="-1"/>
           <hideActionText value="true"/>
           <text value="Log-in GitHub"/>
         </properties>
@@ -113,6 +114,7 @@
         </constraints>
         <properties>
           <background color="-16744760"/>
+          <foreground color="-1"/>
           <hideActionText value="true"/>
           <text value="Log-in Trello"/>
         </properties>

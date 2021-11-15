@@ -5,20 +5,23 @@ import java.net.*;
 
 public class GUI extends JFrame{
     private JPanel mainPanel;
-    private JLabel img1;
-    private JLabel img2;
+    private JLabel GithubImg;
+    private JLabel TrelloImg;
     private JLabel text;
     private JButton iniciarLogInButton;
-    private JButton button;
+    private JButton button_GithubRepository;
     private JButton button_github;
     private JButton button_trello;
 
     public GUI(String title){
         super(title);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
+        this.setSize(500, 500);
         this.setResizable(false);
+
         button_github.setVisible(false);
         button_trello.setVisible(false);
         iniciarLogInButton.addActionListener(new ActionListener() {
@@ -30,23 +33,57 @@ public class GUI extends JFrame{
         });
         button_trello.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-           // GUI_Github = new GUI_Github();
-
+               new GUI_Trello("Trello").setVisible(true);
+               button_trello.setEnabled(false);
+                //implementar close window
             }
         });
         button_github.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+               new GUI_Github("Github");
+                button_github.setEnabled(false);
+                //implementar close window
+            }
+        });
+        button_GithubRepository.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                URI uri;
+                try {
+                    uri = new URI("https://github.com/miguelrato18/ES-LETI-1Sem-2021-Grupo11");
+                    openWebpage(uri);
+                } catch (URISyntaxException ex) {
+                    ex.printStackTrace();
+                }
 
             }
         });
 
     }
-
-    public static void main(String[] args){
-        JFrame frame = new GUI("TrelloHub");
-        frame.setSize(500, 500);
-        frame.setVisible(true);
+    //encontrado num forum
+    public static boolean openWebpage(URI uri) {
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.browse(uri);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
     }
 
+    public static boolean openWebpage(URL url) {
+        try {
+            return openWebpage(url.toURI());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
 
