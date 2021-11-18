@@ -9,6 +9,7 @@ public class GUI_Github extends JFrame {
     private JPasswordField password_repositoryOwner;
     private JPasswordField password_repositoryName;
     private JTextArea caixaTexto_repositoryName;
+    private JButton button_login;
 
     public GUI_Github(String title){
         super(title);
