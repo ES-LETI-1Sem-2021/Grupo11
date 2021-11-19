@@ -7,10 +7,13 @@ public class GUI_Trello extends JFrame {
     private JLabel TrelloImg;
     private JTextArea CaixaTexto_token;
     private JTextArea CaixaTexto_key;
+    private JTextArea CaixaTexto_user;
     private JPasswordField password_token;
     private JPasswordField password_key;
+    private JPasswordField password_user;
     private String password_token_text;
     private String password_key_text;
+    private String password_user_text;
     private JButton button_login;
 
     public GUI_Trello(String title){
@@ -27,6 +30,11 @@ public class GUI_Trello extends JFrame {
         });
         password_key.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) { SetPassword(); }
+        });
+        password_user.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                SetPassword();
+            }
         });
         button_login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -49,11 +57,18 @@ public class GUI_Trello extends JFrame {
             password_key.setText(password_key_text);
         }
     }
+    private void PasswordValidation_User(){
+        if(password_user_text.isEmpty()){
+            password_user_text = JOptionPane.showInputDialog(null, "Por favor insira o User do Trello", "User Trello",2);
+            password_user.setText(password_user_text);
+        }
+    }
 
     private void PasswordValidation(){
-        while( password_token_text.isEmpty() || password_key_text.isEmpty() ) {
+        while( password_token_text.isEmpty() || password_key_text.isEmpty() || password_user_text.isEmpty()) {
             PasswordValidation_Token();
             PasswordValidation_Key();
+            PasswordValidation_User();
         }
     }
 
@@ -62,6 +77,8 @@ public class GUI_Trello extends JFrame {
         System.out.println(password_token_text);
         password_key_text = String.valueOf(password_key.getPassword());
         System.out.println(password_key_text);
+        password_user_text = String.valueOf(password_user.getPassword());
+        System.out.println(password_user_text);
         PasswordValidation();
     }
 
