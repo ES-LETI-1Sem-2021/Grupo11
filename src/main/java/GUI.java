@@ -5,21 +5,47 @@ import java.net.*;
 
 public class GUI extends JFrame{
     private JPanel mainPanel;
-    private JLabel img1;
-    private JLabel img2;
-    private JLabel text;
+    private JLabel GithubImg;
+    private JLabel TrelloImg;
     private JButton iniciarLogInButton;
-    private JButton button;
+    private JButton button_GithubRepository;
+    private JButton button_github;
+    private JButton button_trello;
+    private JLabel text;
 
-    public GUI(String title) throws URISyntaxException {
+    public GUI(String title){
         super(title);
-
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
-        this.setResizable(true);
+        this.setSize(500, 500);
+        this.setResizable(false);
 
-        button.addActionListener(new ActionListener() {
+        button_github.setVisible(false);
+        button_trello.setVisible(false);
+        iniciarLogInButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                iniciarLogInButton.setVisible(false);
+                button_github.setVisible(true);
+                button_trello.setVisible(true);
+                }
+        });
+        button_trello.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+               new GUI_Trello("Trello").setVisible(true);
+               button_trello.setEnabled(false);
+                //implementar close window
+            }
+        });
+        button_github.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+               new GUI_Github("Github");
+                button_github.setEnabled(false);
+                //implementar close window
+            }
+        });
+        button_GithubRepository.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 URI uri;
                 try {
@@ -31,20 +57,9 @@ public class GUI extends JFrame{
 
             }
         });
-    }
-    
-    
-    
-    public static void main(String[] args) throws Exception{
-
-        JFrame frame = new GUI("TrelloHub");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
-        frame.setVisible(true);
-        JButton button= new JButton();
 
     }
-//encontrado num forum
+    //encontrado num forum
     public static boolean openWebpage(URI uri) {
         Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
         if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
