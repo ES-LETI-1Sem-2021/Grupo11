@@ -1,6 +1,11 @@
+import org.trello4j.Trello;
+import org.trello4j.TrelloImpl;
+import org.trello4j.model.Board;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class GUI_Trello extends JFrame {
     private JPanel mainPanel;
@@ -15,6 +20,7 @@ public class GUI_Trello extends JFrame {
     public String password_key_text;
     public String password_user_text;
     private JButton button_login;
+    private Trello trello;
 
     public GUI_Trello(String title){
         super(title);
@@ -77,6 +83,11 @@ public class GUI_Trello extends JFrame {
         System.out.println(password_token_text);
         System.out.println(password_key_text);
         System.out.println(password_user_text);
+
+        Trello trello = new TrelloImpl(password_key_text,password_token_text);
+        List <Board> boards = trello.getBoardsByMember(password_user_text);
+        for(int i=0; i<boards.size(); i++)
+        System.out.println(boards.get(i).getName());
     }
 
     private void SetPassword(){
