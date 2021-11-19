@@ -7,11 +7,11 @@ public class GUI extends JFrame{
     private JPanel mainPanel;
     private JLabel GithubImg;
     private JLabel TrelloImg;
-    private JLabel text;
     private JButton iniciarLogInButton;
     private JButton button_GithubRepository;
     private JButton button_github;
     private JButton button_trello;
+    private JLabel text;
 
     public GUI(String title){
         super(title);

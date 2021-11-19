@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI">
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="7" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="10" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="1" left="1" bottom="1" right="1"/>
     <constraints>
-      <xy x="20" y="20" width="489" height="565"/>
+      <xy x="20" y="20" width="433" height="517"/>
     </constraints>
     <properties>
       <background color="-1"/>
     </properties>
-    <border type="line" title="Projecto" title-position="1">
+    <border type="line" title-position="1">
       <font/>
       <title-color color="-4473925"/>
       <color color="-4473925"/>
@@ -16,7 +16,7 @@
     <children>
       <component id="e27da" class="javax.swing.JLabel" binding="TrelloImg">
         <constraints>
-          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="150" height="150"/>
             <preferred-size width="150" height="150"/>
             <maximum-size width="150" height="150"/>
@@ -27,21 +27,10 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="c8008" class="javax.swing.JLabel" binding="text">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Source Code Pro" size="28" style="1"/>
-          <text value="Trellohub"/>
-        </properties>
-      </component>
       <component id="675e0" class="javax.swing.JButton" binding="iniciarLogInButton" default-binding="true">
         <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="60"/>
-            <preferred-size width="150" height="60"/>
-            <maximum-size width="150" height="60"/>
+          <grid row="6" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="70" height="60"/>
           </grid>
         </constraints>
         <properties>
@@ -51,10 +40,14 @@
           <hideActionText value="true"/>
           <text value="Iniciar Log-in"/>
         </properties>
+        <clientProperties>
+          <hideActionText class="java.lang.Boolean" value="false"/>
+          <html.disable class="java.lang.Boolean" value="false"/>
+        </clientProperties>
       </component>
       <component id="b32b0" class="javax.swing.JLabel" binding="GithubImg">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="150" height="150"/>
             <preferred-size width="150" height="150"/>
             <maximum-size width="150" height="150"/>
@@ -63,38 +56,17 @@
         <properties>
           <icon value="GITHUB.png"/>
           <text value=""/>
+          <verticalAlignment value="1"/>
         </properties>
-      </component>
-      <vspacer id="8387a">
-        <constraints>
-          <grid row="4" column="0" row-span="3" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
-      <vspacer id="3001">
-        <constraints>
-          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
-      <component id="1ebef" class="javax.swing.JButton" binding="button_GithubRepository">
-        <constraints>
-          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="25" height="25"/>
-            <preferred-size width="25" height="25"/>
-            <maximum-size width="25" height="25"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-1"/>
-          <enabled value="true"/>
-          <foreground color="-1"/>
-          <hideActionText value="true"/>
-          <icon value="MINI_GITHUB.png"/>
-          <text value=""/>
-        </properties>
+        <clientProperties>
+          <html.disable class="java.lang.Boolean" value="false"/>
+        </clientProperties>
       </component>
       <component id="7d957" class="javax.swing.JButton" binding="button_github">
         <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="70" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <background color="-16744760"/>
@@ -105,18 +77,97 @@
       </component>
       <vspacer id="8211b">
         <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="60"/>
+          </grid>
         </constraints>
       </vspacer>
+      <vspacer id="8cfb">
+        <constraints>
+          <grid row="8" column="2" row-span="2" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="60"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <vspacer id="b5fcd">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <preferred-size width="11" height="28"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <hspacer id="9d8cb">
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="30" height="-1"/>
+          </grid>
+        </constraints>
+      </hspacer>
+      <hspacer id="593ad">
+        <constraints>
+          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="5" height="-1"/>
+          </grid>
+        </constraints>
+      </hspacer>
+      <component id="38dd3" class="javax.swing.JLabel" binding="text">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="1" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="153" height="35"/>
+          </grid>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <font name="Source Code Pro" size="28" style="1"/>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="11"/>
+          <text value="TrelloHub"/>
+        </properties>
+      </component>
       <component id="dcfb1" class="javax.swing.JButton" binding="button_trello">
         <constraints>
-          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="70" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <background color="-16744760"/>
           <foreground color="-1"/>
           <hideActionText value="true"/>
           <text value="Log-in Trello"/>
+        </properties>
+      </component>
+      <vspacer id="cc0be">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="30"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <vspacer id="86e28">
+        <constraints>
+          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="30"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <component id="1ebef" class="javax.swing.JButton" binding="button_GithubRepository">
+        <constraints>
+          <grid row="9" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="6" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="25" height="25"/>
+            <preferred-size width="25" height="25"/>
+            <maximum-size width="25" height="25"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <enabled value="true"/>
+          <focusPainted value="false"/>
+          <focusable value="true"/>
+          <foreground color="-1"/>
+          <hideActionText value="false"/>
+          <icon value="MINI_GITHUB.png"/>
+          <text value=""/>
         </properties>
       </component>
     </children>
