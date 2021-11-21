@@ -26,16 +26,19 @@ public class Main {
 
         for (int i = 0; i < lista.size(); i++) {
 
-           List <Card> completed= trello.getItemsCompletedBySprint(lista.get(i), "Sprint #2" );
+            for (int i2 = 1; i2 <= trello.numberOfSprints(board); i2++) {
+                String p = Integer.toString(i2 );
+                List<Card> completed = trello.getItemsCompletedBySprint(lista.get(i), "Sprint #".concat(p));
 
 
-           for(int n=0; n< completed.size(); n++)
-            System.out.println(completed.get(n).getName());
+                for (int n = 0; n < completed.size(); n++)
+                    System.out.println(completed.get(n).getName());
 
+            }
+        }
         }
 
-
     }
-}
+
 
 
