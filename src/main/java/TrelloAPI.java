@@ -190,7 +190,6 @@ public class TrelloAPI {
         List <String> descs = new ArrayList<>();
 
 
-
         List <org.trello4j.model.List> lists = getLists(board);
         for (int i =0; i<lists.size(); i++){
             if(lists.get(i).getName().equals("Sprint Meetings")){
@@ -204,7 +203,6 @@ public class TrelloAPI {
 
         return descs;
     }
-
 
  /*   public void getSprintDates(Board board){
         List <org.trello4j.model.List> lists = getLists(board);

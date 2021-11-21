@@ -1,4 +1,8 @@
 
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import org.trello4j.Trello;
 import org.trello4j.model.Board;
 import org.trello4j.model.Card;
 import org.trello4j.model.Member;
@@ -9,6 +13,8 @@ import java.util.List;
 import javax.swing.*;
 
 public class Main {
+
+    private static Card card;
 
     public static void main(String[] args) {
 
@@ -24,18 +30,19 @@ public class Main {
          for(int p =0; p<list.size(); p++) System.out.println(list.get(p));
 
 
-
+    for (int j=1; j<4;j++) {
         for (int i = 0; i < lista.size(); i++) {
 
-           List <Card> completed= trello.getItemsCompletedBySprint(lista.get(i), "Sprint #2" );
+            List<Card> completed = trello.getItemsCompletedBySprint(lista.get(i), "Sprint #".concat((String.valueOf(j))));
 
 
-           for(int n=0; n< completed.size(); n++)
-            System.out.println(completed.get(n).getName());
+            for (int n = 0; n < completed.size(); n++) {
+                System.out.println(completed.get(n).getName());
 
+
+            }
         }
-
-
+    }
     }
 }
 
