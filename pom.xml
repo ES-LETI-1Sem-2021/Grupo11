@@ -24,7 +24,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
-
     <repositories>
         <repository>
             <id>joelso-mvn-repo</id>
@@ -32,9 +31,7 @@
             <url>https://raw.github.com/joelso/joelso-mvn-repo/master/snapshots/</url>
         </repository>
     </repositories>
-
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.taskadapter/trello-java-wrapper -->
         <dependency>
             <groupId>org.trello4j</groupId>
             <artifactId>trello4j</artifactId>
