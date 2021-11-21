@@ -62,6 +62,7 @@ public class GUI_Trello extends JFrame {
             password_user_text = JOptionPane.showInputDialog(null, "Por favor insira o User do Trello", "User Trello",2);
             password_user.setText(password_user_text);
         }
+
     }
 
     private void PasswordValidation(){
