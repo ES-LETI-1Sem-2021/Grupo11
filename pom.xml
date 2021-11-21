@@ -25,4 +25,20 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>joelso-mvn-repo</id>
+            <name>joelso github mvn repo</name>
+            <url>https://raw.github.com/joelso/joelso-mvn-repo/master/snapshots/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.taskadapter/trello-java-wrapper -->
+        <dependency>
+            <groupId>org.trello4j</groupId>
+            <artifactId>trello4j</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
