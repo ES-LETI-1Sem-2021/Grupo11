@@ -41,6 +41,9 @@ public class GUI_Trello extends JFrame {
                 SetPassword();
             }
         });
+
+
+
     }
 
     //os InputDialog estão a dar erro ao carregar no botão cancel
