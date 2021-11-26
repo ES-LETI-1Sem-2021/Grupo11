@@ -14,14 +14,14 @@ public class TrelloAPI {
     private static String trelloKey;
     private static String trelloAccessToken;
     private static Trello trelloApi;
-    private static String username;
+    public static String username;
 
 
     public TrelloAPI(String Key_utilizado, String Token_utilizador, String username) {
         this.trelloKey = Key_utilizado;
         this.trelloAccessToken = Token_utilizador;
         this.username = username;
-        trelloApi = new TrelloImpl(trelloKey, trelloAccessToken);
+        this.trelloApi = new TrelloImpl(trelloKey, trelloAccessToken );
 
     }
 
@@ -52,19 +52,17 @@ public class TrelloAPI {
         }
         return list;
     }
-
-
-    public List<org.trello4j.model.List> getLists(Board board) {
-        List<org.trello4j.model.List> lists = trelloApi.getListByBoard(board.getId());
-
-        return lists;
-
+    public List <org.trello4j.model.List> getLists(Board board){
+        return trelloApi.getListByBoard(board.getId());
     }
+
+
+
 
 
     public org.trello4j.model.List getList(Board board, String listname) {
         org.trello4j.model.List list;
-        List<org.trello4j.model.List> lists = getLists(board);
+        List<org.trello4j.model.List> lists = trelloApi.getListByBoard(board.getId());
         for (int i = 0; i < lists.size(); i++) {
             if (lists.get(i).getName().equals(listname)) {
                 list = lists.get(i);
@@ -76,13 +74,10 @@ public class TrelloAPI {
         return null;
     }
 
+public List <Card> getCards(org.trello4j.model.List list){
+        return trelloApi.getCardsByList(list.getId());
+}
 
-    public List<Card> getCards(org.trello4j.model.List list) {
-        List<Card> cards = trelloApi.getCardsByList(list.getId());
-
-
-        return cards;
-    }
 
 
     public Card getCard(org.trello4j.model.List list, String cardname) {
@@ -206,28 +201,31 @@ public class TrelloAPI {
     }
 
 
-    public void getSprintDates(Board board){
-        List <org.trello4j.model.List> lists = getLists(board);
-        for(int i=0; i< lists.size(); i++){
+    public void getSprintDates(Board board) {
+        List<org.trello4j.model.List> lists = getLists(board);
+        for (int i = 0; i < lists.size(); i++) {
 
-            if (lists.get(i).getName().equals("Sprint Meetings")){
-                List <Card> cards = getCards(lists.get(i));
-                for(int i2=0; i2<cards.size(); i2++){
+            if (lists.get(i).getName().equals("Sprint Meetings")) {
+                List<Card> cards = getCards(lists.get(i));
+                for (int i2 = 0; i2 < cards.size(); i2++) {
 
-                    if(cards.get(i2).getName().equals("Sprint Planning")){
-                        List <Card.Label> labels = cards.get(i2).getLabels();
-                        System.out.println(cards.get(i2).getName());
-                        for(int i3=0; i3< labels.size(); i3++){
-                            if(labels.get(i3).getName().equals("Sprint #1") ){
-                                List<Action> actions=  trelloApi.getActionsByCard(cards.get(i2).getId());
-                                System.out.println(labels.get(i3).getName());
-                                for(int i4=0; i4< actions.size(); i4++){
-                                   System.out.println(labels.get(i3).getName() + ":"+ actions.get(i4).getDate());
+                    if (cards.get(i2).getName().equals("Sprint Planning")) {
+                        List<Card.Label> labels = cards.get(i2).getLabels();
+
+                        // System.out.println(cards.get(i2).getName());
+                        for (int i3 = 0; i3 < labels.size(); i3++) {
+                            //  System.out.println(labels.get(i3).getName());
+                            for (int i5 = 1; i5 <= numberOfSprints(board); i5++) {
+
+                                if (labels.get(i3).getName().equals("Sprint #" +i5 ) ) {
+                                    System.out.println(labels.get(i3).getName());
+                                    String desc = cards.get(i2).getDesc();
+                                    String[] duration = desc.split(":");
+                                    System.out.println(duration[1]);
 
                                 }
 
                             }
-
                         }
                     }
                 }
@@ -252,6 +250,27 @@ public class TrelloAPI {
         }
 
         return n;
+    }
+
+
+
+    public void getHoursOfWork(Board board, Member member){
+        List <org.trello4j.model.List> lists= getLists(board);
+
+            System.out.println(member.getUsername());
+            List <Card> cards = trelloApi.getCardsByMember(member.getId());
+            for(int i2=0; i2<cards.size(); i2++){
+                List <Action> actions = trelloApi.getActionsByCard(cards.get(i2).getId());
+                for(int i3= 0; i3<actions.size(); i3++) {
+                    String l = actions.get(i3).getData().getText();
+                    if(l!=null) {
+                        String[] lines = l.split(" ");
+                        for(int i4=0; i4<lines.length-1; i4++)
+                        System.out.println(lines[i4]);
+                    }
+                }
+            }
+
     }
         }
 
