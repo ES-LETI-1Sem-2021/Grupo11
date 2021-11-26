@@ -2,11 +2,13 @@
 
 import org.trello4j.Trello;
 import org.trello4j.TrelloImpl;
-import org.trello4j.model.*;
+import org.trello4j.model.Action;
+import org.trello4j.model.Board;
+import org.trello4j.model.Card;
+import org.trello4j.model.Member;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.List;
 
 public class TrelloAPI {
 
@@ -158,8 +160,6 @@ public class TrelloAPI {
                 List<Card> cards = getCards(lists.get(i));
                 for (int i2 = 0; i2 < cards.size(); i2++) {
                     if (cards.get(i2).getName().equals("Sprint Planning")) {
-
-
                         List<Card.Label> labels = cards.get(i2).getLabels();
                         for (int i3 = 0; i3 < labels.size(); i3++) {
                             if (labels.get(i3).getName().equals("Sprint #1")) {
@@ -190,7 +190,6 @@ public class TrelloAPI {
         List <String> descs = new ArrayList<>();
 
 
-
         List <org.trello4j.model.List> lists = getLists(board);
         for (int i =0; i<lists.size(); i++){
             if(lists.get(i).getName().equals("Sprint Meetings")){
@@ -205,8 +204,7 @@ public class TrelloAPI {
         return descs;
     }
 
-
-    public void getSprintDates(Board board){
+ /*   public void getSprintDates(Board board){
         List <org.trello4j.model.List> lists = getLists(board);
         for(int i=0; i< lists.size(); i++){
 
@@ -233,26 +231,7 @@ public class TrelloAPI {
                 }
             }
         }
-    }
-
-    public int numberOfSprints(Board board){
-        int n=0;
-        List <org.trello4j.model.List> lists =getLists(board);
-        for(int i =0; i< lists.size(); i++){
-
-            if(lists.get(i).getName().equals("Sprint Meetings")){
-                List <Card> cards = getCards(lists.get(i));
-                for(int i2= 0; i2< cards.size();i2++){
-                    if(cards.get(i2).getName().equals("Sprint Planning")){
-                        n++;
-                    }
-                }
-            }
-
-        }
-
-        return n;
-    }
+    }*/
         }
 
 
