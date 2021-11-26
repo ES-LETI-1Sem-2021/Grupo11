@@ -37,5 +37,15 @@
             <artifactId>trello4j</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.kohsuke/github-api -->
+        <dependency>
+            <groupId>org.kohsuke</groupId>
+            <artifactId>github-api</artifactId>
+            <version>1.301</version>
+        </dependency>
+
+
     </dependencies>
 </project>
