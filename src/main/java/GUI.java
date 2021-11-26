@@ -12,6 +12,8 @@ public class GUI extends JFrame{
     private JButton button_github;
     private JButton button_trello;
     private JLabel text;
+    public GUI_Trello trello_gui;
+    public GUI_Github github_gui;
 
     public GUI(String title){
         super(title);
@@ -21,6 +23,10 @@ public class GUI extends JFrame{
         this.pack();
         this.setSize(500, 500);
         this.setResizable(false);
+        this.trello_gui = new GUI_Trello("Trello");
+        this.trello_gui.setVisible(false);
+        this.github_gui = new GUI_Github("GitHub");
+        this.github_gui.setVisible(false);
 
         button_github.setVisible(false);
         button_trello.setVisible(false);
@@ -33,14 +39,14 @@ public class GUI extends JFrame{
         });
         button_trello.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               new GUI_Trello("Trello").setVisible(true);
-               button_trello.setEnabled(false);
+                trello_gui.setVisible(true);
+                button_trello.setEnabled(false);
                 //implementar close window
             }
         });
         button_github.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               new GUI_Github("Github");
+                github_gui.setVisible(true);
                 button_github.setEnabled(false);
                 //implementar close window
             }

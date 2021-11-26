@@ -35,6 +35,7 @@ public class GUI_Github extends JFrame {
         button_login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SetPassword();
+                GithubLogin();
             }
         });
     }
@@ -68,14 +69,30 @@ public class GUI_Github extends JFrame {
             PasswordValidation_RepositoryName();
         }
     }
+    private void GithubLogin(){
+        System.out.println(password_token_text);
+        System.out.println(password_repositoryOwner_text);
+        System.out.println(password_repositoryName_text);
+    }
 
     private void SetPassword(){
         password_token_text = String.valueOf(password_token.getPassword());
-        System.out.println(password_token_text);
         password_repositoryOwner_text = String.valueOf(password_repositoryOwner.getPassword());
-        System.out.println(password_repositoryOwner_text);
         password_repositoryName_text = String.valueOf(password_repositoryName.getPassword());
-        System.out.println(password_repositoryName_text);
         PasswordValidation();
     }
+
+    //Passwords Getters
+    public String getToken() {
+        return password_token_text;
+    }
+
+    public String getRepositoryName() {
+        return password_repositoryName_text;
+    }
+
+    public String getRepositoryOwner() {
+        return password_repositoryOwner_text;
+    }
+
 }
