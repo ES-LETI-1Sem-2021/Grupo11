@@ -101,6 +101,15 @@ public class GUI_Trello extends JFrame {
         PasswordValidation();
     }
 
+    public boolean validateLogin(){
+        if( password_token_text.isEmpty() || password_key_text.isEmpty() || password_user_text.isEmpty()){
+            System.out.println("false");
+            return false;
+        }
+        System.out.println("true");
+        return true;
+    }
+
     //Passwords Getters
     public String getToken() {
         return password_token_text;
