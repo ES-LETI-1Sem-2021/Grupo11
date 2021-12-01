@@ -16,9 +16,6 @@ public class TrelloAPI {
 
     private static String trelloKey;
     private static String trelloAccessToken;
-
-
-
     public static Trello trelloApi;
     public static String username;
 
@@ -38,6 +35,7 @@ public class TrelloAPI {
      */
 
     public String getUsername() {
+
         return this.username;
     }
 
@@ -48,12 +46,12 @@ public class TrelloAPI {
     /**
      * Retorna o Board do User que tiver o nome igual ao parametro boardname
      *
-     * @param username
+     *
      * @param boardname
      * @return
      */
 
-    public Board getBoard(String username, String boardname) {
+    public Board getBoard(String boardname) {
         Board board;
         List<Board> boards = trelloApi.getBoardsByMember(username);
         for (int i = 0; i < boards.size(); i++) {
@@ -77,8 +75,7 @@ public class TrelloAPI {
     public List<Member> getMembers(Board board) {
         List<Member> list = trelloApi.getMembersByBoard(board.getId());
         for (int i = 0; i < list.size(); i++) {
-            //   System.out.println(list.get(i).getFullName());
-            // System.out.println(list.get(i).getId());
+
         }
         return list;
     }
@@ -93,29 +90,11 @@ public class TrelloAPI {
         return trelloApi.getListByBoard(board.getId());
     }
 
-    /**
-     * Retorna a lista do Board que tiver o nome igual ao parametro listna,e
-     *
-     * @param board
-     * @param listname
-     * @return
-     */
-    public org.trello4j.model.List getList(Board board, String listname) {
-        org.trello4j.model.List list;
-        List<org.trello4j.model.List> lists = trelloApi.getListByBoard(board.getId());
-        for (int i = 0; i < lists.size(); i++) {
-            if (lists.get(i).getName().equals(listname)) {
-                list = lists.get(i);
-                return list;
-            }
 
-        }
-        System.out.println("A lista não existe");
-        return null;
-    }
+
 
     /**
-     * Retorna todos os Cards que pertencem ao Board
+     * Retorna todos os Cards que pertencem a Lista list
      *
      * @param list
      * @return
@@ -124,29 +103,10 @@ public class TrelloAPI {
         return trelloApi.getCardsByList(list.getId());
     }
 
-    /**
-     * Retorna o Card do Board que tiver o nome igual ao parametro cardname
-     *
-     * @param list
-     * @param cardname
-     * @return
-     */
-    public Card getCard(org.trello4j.model.List list, String cardname) {
-        Card card;
-        List<Card> cards = getCards(list);
-        for (int i = 0; i < cards.size(); i++) {
-            if (cards.get(i).getName().equals(cardname)) {
-                card = cards.get(i);
 
-                return card;
-            }
-        }
-        System.out.println("O card não existe");
-        return null;
-    }
 
     /**
-     * Retorna todos os cardes completados que contenham uma label com o nome igual ao parametro labelname
+     * Retorna todos os cards completados que contenham uma label com o nome igual ao parametro labelname
      *
      * @param list
      * @param labelname
@@ -158,7 +118,7 @@ public class TrelloAPI {
 
         if (list.getName().equals("Completed")) {
 
-            List<Card> listc = trelloApi.getCardsByList(list.getId());
+            List<Card> listc = getCards(list);
             for (int i = 0; i < listc.size(); i++) {
 
                 List<Card.Label> labelList = listc.get(i).getLabels();
@@ -178,28 +138,10 @@ public class TrelloAPI {
     }
 
 
-  /*  public Date compareDates(Date date1, Date date2) {
-        if (date1.getYear() < date2.getYear()) {
-            return date1;
-        } else {
-            if (date1.getYear() == date2.getYear()) {
-                if (date1.getMonth() < date2.getMonth()) {
-                    return date1;
-                } else {
-                    if (date1.getMonth() == date2.getMonth()) {
-                        if (date1.getDate() < date2.getDate()) {
-                            return date1;
-                        }
-                    }
-                }
-            }
-        }
 
-        return date2;
-    } */
 
     /**
-     * Retorna a datas da duração do Sprint sprint
+     * Retorna duração do Sprint sprint
      *
      * @param board
      * @param sprint
@@ -378,7 +320,14 @@ public class TrelloAPI {
         return hoursWorked;
     }
 
-    public double HumanResorcesCost(Board board,Member member,String sprint){
+    /**
+     * Retorna o montante a pagar pelas horas trabalhadas no Sprint sprint
+     * @param board
+     * @param member
+     * @param sprint
+     * @return
+     */
+    public double HumanResorcesCostBySprint(Board board,Member member,String sprint){
         double hours=getHoursOfWork(board,member,sprint);
         return hours*20;
     }

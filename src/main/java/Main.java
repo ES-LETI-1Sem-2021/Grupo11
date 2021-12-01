@@ -13,28 +13,28 @@ public class Main {
 
         JFrame frame = new GUI("TrelloHub");
         TrelloAPI trello = new TrelloAPI("a68d6a52bb47c46fb8e95a23af622976", "83e8a25eed6608419b70207e4a9aa57c9891771366f3e12b500184e39a611dc5\n", "filipegoncalves79");
-        Board board = trello.getBoard(trello.getUsername(), "Projecto de Engenharia de Software");
+        Board board = trello.getBoard( "Projecto de Engenharia de Software");
         List<org.trello4j.model.List> lista = trello.getLists(board);
         List<Member> membros = trello.getMembers(board);
         String s = trello.getSprintDuration(board, "Sprint #2");
         String endDate = trello.getSprintEndDate(board, "Sprint #2");
         String startDate = trello.getSprintStartDate(board, "Sprint #2");
-        //    System.out.println(s);
-        //  System.out.println(endDate);
-        // System.out.println(startDate);
+           System.out.println(s);
+          System.out.println(endDate);
+         System.out.println(startDate);
         List<String> list = trello.getSprintDesc(board);
        double d= trello.getHoursOfWork(board, membros.get(1),"Sprint #2");
        System.out.println(d);
-       double d2= trello.HumanResorcesCost(board, membros.get(1),"Sprint #2");
+       double d2= trello.HumanResorcesCostBySprint(board, membros.get(1),"Sprint #2");
         System.out.println(d2);
 
-        //  trello.getSprintDates(board);
-
-        //for(int p =0; p<list.size(); p++) System.out.println(list.get(p));
 
 
+        for(int p =0; p<list.size(); p++) System.out.println(list.get(p));
 
-       /* for (int i = 0; i < lista.size(); i++) {
+
+
+        for (int i = 0; i < lista.size(); i++) {
 
             for (int i2 = 1; i2 <= trello.numberOfSprints(board); i2++) {
                 String p = Integer.toString(i2 );
@@ -46,10 +46,10 @@ public class Main {
 
             }
         }
-        }*/
+        }
 
     }
-}
+
 
 
 
