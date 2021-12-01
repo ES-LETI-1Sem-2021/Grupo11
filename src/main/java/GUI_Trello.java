@@ -88,10 +88,10 @@ public class GUI_Trello extends JFrame {
         System.out.println(password_key_text);
         System.out.println(password_user_text);
 
-        Trello trello = new TrelloImpl(password_key_text,password_token_text);
-        List <Board> boards = trello.getBoardsByMember(password_user_text);
-        for(int i=0; i<boards.size(); i++)
-        System.out.println(boards.get(i).getName());
+        TrelloAPI trello = new TrelloAPI(password_key_text,password_token_text,password_user_text);
+
+
+        
     }
 
     private void SetPassword(){
