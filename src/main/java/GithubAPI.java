@@ -37,8 +37,9 @@ public class GithubAPI {
         System.out.println(GitRepo.listTags());
         //commits
         for (int i = 0; i < GitRepo.listCommits().toList().size();i++){
-            System.out.println(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName());
+            System.out.println(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName()+":");
             System.out.println(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate());
+            System.out.println(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage()+"\n\n");
         }
 
 
