@@ -155,8 +155,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.GUI" />
-        <item itemvalue="JUnit.TrelloAPItest.getListsTest" />
         <item itemvalue="JUnit.TrelloAPItest.getMembersTest" />
+        <item itemvalue="JUnit.TrelloAPItest.getListsTest" />
         <item itemvalue="JUnit.TrelloAPItest" />
         <item itemvalue="JUnit.TrelloAPItest.getBoardTest" />
       </list>
@@ -307,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638366882857</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Update do Trello Api">
+      <created>1638372695408</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1638372695408</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
