@@ -1,6 +1,11 @@
+import org.kohsuke.github.GitHub;
+import org.kohsuke.github.GitHubBuilder;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
 
 public class GUI_Github extends JFrame {
     private JPanel mainPanel;
@@ -35,7 +40,11 @@ public class GUI_Github extends JFrame {
         button_login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SetPassword();
-                GithubLogin();
+                try {
+                    GithubLogin();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
     }
@@ -69,10 +78,13 @@ public class GUI_Github extends JFrame {
             PasswordValidation_RepositoryName();
         }
     }
-    private void GithubLogin(){
+    private void GithubLogin() throws IOException {
         System.out.println(password_token_text);
         System.out.println(password_repositoryOwner_text);
         System.out.println(password_repositoryName_text);
+        GithubAPI GAPI = new GithubAPI(password_token_text);
+        GAPI.getProjectDiscription();
+
     }
 
     private void SetPassword(){
