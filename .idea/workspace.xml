@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="Maven com API GitHub">
+    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="API GitHub ja a funcionar parcialmente:&#10;nomes dos participantes nmo projeto.&#10;fichewiro readme.&#10;etiquetas.&#10;commits.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Activities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DataForCSV.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GenerateCSV.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Github.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Github.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GithubAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GithubAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Github$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Github$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Github$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Github$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Github$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Github$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Github$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Github$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Github.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Github.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GithubAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GithubAPI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,14 +91,20 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Pedro Afonso Santana\IdeaProjects\ES-LETI-1Sem-2021-Grupo11\src\main\resources" />
       <recent name="C:\Users\Pedro Afonso Santana\IdeaProjects\ES-LETI-1Sem-2021-Grupo11\Project\Images" />
       <recent name="C:\Users\Pedro Afonso Santana\IdeaProjects\ES-LETI-1Sem-2021-Grupo11\Project" />
       <recent name="C:\Users\Pedro Afonso Santana\IdeaProjects\ES-LETI-1Sem-2021-Grupo11" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -275,7 +281,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637939092564</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="API GitHub ja a funcionar parcialmente:&#10;nomes dos participantes nmo projeto.&#10;fichewiro readme.&#10;etiquetas.&#10;commits.">
+      <created>1638376336750</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1638376336750</updated>
+    </task>
+    <task id="LOCAL-00019" summary="API GitHub ja a funcionar parcialmente:&#10;nomes dos participantes nmo projeto.&#10;fichewiro readme.&#10;etiquetas.&#10;commits.">
+      <created>1638376358267</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1638376358267</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -295,6 +315,7 @@
     <MESSAGE value="update para ficar com mesma versao de colegas" />
     <MESSAGE value="GUI de acesso a github e trello desenvolvida(parcialmente)" />
     <MESSAGE value="Maven com API GitHub" />
-    <option name="LAST_COMMIT_MESSAGE" value="Maven com API GitHub" />
+    <MESSAGE value="API GitHub ja a funcionar parcialmente:&#10;nomes dos participantes nmo projeto.&#10;fichewiro readme.&#10;etiquetas.&#10;commits." />
+    <option name="LAST_COMMIT_MESSAGE" value="API GitHub ja a funcionar parcialmente:&#10;nomes dos participantes nmo projeto.&#10;fichewiro readme.&#10;etiquetas.&#10;commits." />
   </component>
 </project>

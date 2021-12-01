@@ -1,10 +1,8 @@
 import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GitHub;
 import org.kohsuke.github.GitHubBuilder;
-
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 public class GithubAPI {
 
@@ -22,7 +20,7 @@ public class GithubAPI {
 
 
     }
-//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
+//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
 
 
     public void getProjectDiscription() throws IOException {
@@ -39,6 +37,7 @@ public class GithubAPI {
         for (int i = 0; i < GitRepo.listCommits().toList().size();i++){
             System.out.println(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName());
             System.out.println(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate());
+            System.out.println(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage());
         }
 
 
