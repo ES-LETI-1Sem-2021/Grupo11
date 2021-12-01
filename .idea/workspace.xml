@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="+Update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI_Application.java" afterDir="false" />
+    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="GUI de acesso a github e trello desenvolvida(parcialmente)">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_kohsuke_github_api_1_301.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Aplication.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Application.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Aplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Trello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Trello.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TrelloAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TrelloAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Prototipo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Prototipo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,10 +25,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="master" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="fasgs1" />
+        <entry key="$PROJECT_DIR$" value="PAAMT" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,6 +69,9 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/GUI_Trello.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1zT45J2PDRAhfvCCSAQpt6h06Pw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -79,13 +81,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="174" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="210" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="openjdk-17" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -125,20 +128,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrelloAPI_extention" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TrelloAPI_extention" />
-      <module name="Project" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <list>
+      <item itemvalue="Application.GUI" />
+      <item itemvalue="Application.GUI (1)" />
+      <item itemvalue="Application.Main" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.TrelloAPI_extention" />
-        <item itemvalue="Application.GUI (1)" />
         <item itemvalue="Application.GUI" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.GUI (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -238,7 +237,35 @@
       <option name="project" value="LOCAL" />
       <updated>1634582155741</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="msg">
+      <created>1634910714573</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1634910714573</updated>
+    </task>
+    <task id="LOCAL-00014" summary="msg">
+      <created>1634913745433</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1634913745433</updated>
+    </task>
+    <task id="LOCAL-00015" summary="update para ficar com mesma versao de colegas">
+      <created>1637335446626</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1637335446626</updated>
+    </task>
+    <task id="LOCAL-00016" summary="GUI de acesso a github e trello desenvolvida(parcialmente)">
+      <created>1637590992336</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1637590992336</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -255,9 +282,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="msg" />
-    <option name="LAST_COMMIT_MESSAGE" value="msg" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$GUI.ic" NAME="GUI Coverage Results" MODIFIED="1635539307713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <MESSAGE value="update para ficar com mesma versao de colegas" />
+    <MESSAGE value="GUI de acesso a github e trello desenvolvida(parcialmente)" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI de acesso a github e trello desenvolvida(parcialmente)" />
   </component>
 </project>
