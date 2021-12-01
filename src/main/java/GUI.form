@@ -38,7 +38,7 @@
           <enabled value="true"/>
           <foreground color="-1"/>
           <hideActionText value="false"/>
-          <text value="Iniciar Log-in"/>
+          <text value="Iniciar Login"/>
         </properties>
         <clientProperties>
           <hideActionText class="java.lang.Boolean" value="false"/>
@@ -72,7 +72,7 @@
           <background color="-16744760"/>
           <foreground color="-1"/>
           <hideActionText value="true"/>
-          <text value="Log-in GitHub"/>
+          <text value="Login GitHub"/>
         </properties>
       </component>
       <vspacer id="8211b">
@@ -134,7 +134,7 @@
           <background color="-16744760"/>
           <foreground color="-1"/>
           <hideActionText value="true"/>
-          <text value="Log-in Trello"/>
+          <text value="Login Trello"/>
         </properties>
       </component>
       <vspacer id="cc0be">
@@ -199,7 +199,7 @@
           <background color="-16744760"/>
           <foreground color="-1"/>
           <hideActionText value="true"/>
-          <text value="Validar Log-ins"/>
+          <text value="Validar Logins"/>
         </properties>
       </component>
       <component id="f9097" class="javax.swing.JButton" binding="button_new_gui">

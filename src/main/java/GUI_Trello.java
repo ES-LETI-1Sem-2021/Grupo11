@@ -45,7 +45,6 @@ public class GUI_Trello extends JFrame {
         button_login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SetPassword();
-                TrelloLogin();
             }
         });
 
@@ -83,17 +82,6 @@ public class GUI_Trello extends JFrame {
         }
     }
 
-    private void TrelloLogin() {
-        System.out.println(password_token_text);
-        System.out.println(password_key_text);
-        System.out.println(password_user_text);
-
-        Trello trello = new TrelloImpl(password_key_text,password_token_text);
-        List <Board> boards = trello.getBoardsByMember(password_user_text);
-        for(int i=0; i<boards.size(); i++)
-        System.out.println(boards.get(i).getName());
-    }
-
     private void SetPassword(){
         password_token_text = String.valueOf(password_token.getPassword());
         password_key_text = String.valueOf(password_key.getPassword());
@@ -103,10 +91,8 @@ public class GUI_Trello extends JFrame {
 
     public boolean validateLogin(){
         if( password_token_text.isEmpty() || password_key_text.isEmpty() || password_user_text.isEmpty()){
-            System.out.println("false");
             return false;
         }
-        System.out.println("true");
         return true;
     }
 

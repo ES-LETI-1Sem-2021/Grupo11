@@ -18,7 +18,7 @@ public class GUI extends JFrame {
     private JButton button_new_gui;
     public GUI_Trello trello_gui;
     public GUI_Github github_gui;
-    public GUI_Aplication aplication_gui;
+    public GUI_Application application_gui;
 
     public GUI(String title) {
         super(title);
@@ -33,8 +33,8 @@ public class GUI extends JFrame {
         this.github_gui = new GUI_Github("GitHub");
         this.github_gui.setVisible(false);
 
-        this.aplication_gui = new GUI_Aplication("TrelloHub");
-        this.aplication_gui.setVisible(false);
+        this.application_gui = new GUI_Application("TrelloHub");
+        this.application_gui.setVisible(false);
 
         button_github.setVisible(false);
         button_trello.setVisible(false);
@@ -91,17 +91,20 @@ public class GUI extends JFrame {
                 }
                 if (checkBox_github_login.isSelected() || checkBox_trello_login.isSelected()) {
                     button_validate_logins.setVisible(false);
-                    aplication_gui.setVisible(true);
+                    application_gui.setVisible(true);
                     button_new_gui.setVisible(true);
                     button_trello.setVisible(false);
                     button_github.setVisible(false);
+                    application_gui.setTrello(trello_gui.getToken(),trello_gui.getKey(),trello_gui.getUser());
+                    //falta setGitHub
+                    application_gui.setUpApplication();
                 }
             }
         });
 
         button_new_gui.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                aplication_gui.setVisible(true);
+                application_gui.setVisible(true);
             }
         });
     }
@@ -128,14 +131,8 @@ public class GUI extends JFrame {
             return false;
         }
 
-        private void createUIComponents () {
-            // TODO: place custom component creation code here
-        }
-
         private void validLogin_Trello () {
-            if (trello_gui.validateLogin()) {
-                checkBox_trello_login.setSelected(true);
-            }
+            if (trello_gui.validateLogin()) checkBox_trello_login.setSelected(true);
         }
 
         //VER MAIS TARDE

@@ -7,7 +7,6 @@ import org.trello4j.model.Board;
 import org.trello4j.model.Card;
 import org.trello4j.model.Member;
 
-import java.io.IOException;
 import java.util.*;
 
 public class TrelloAPI {
@@ -32,6 +31,10 @@ public class TrelloAPI {
     }
 
 
+    public Trello getTrello(){
+        return trelloApi;
+    }
+
     public Board getBoard(String username, String boardname) {
         Board board;
         List<Board> boards = trelloApi.getBoardsByMember(username);
@@ -41,26 +44,19 @@ public class TrelloAPI {
                 return board;
             }
         }
-
         System.out.println("O boardname introduzido não existe");
-
         return null;
     }
 
     public List<Member> getMembers(Board board) {
         List<Member> list = trelloApi.getMembersByBoard(board.getId());
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).getFullName());
-        }
         return list;
     }
 
 
     public List<org.trello4j.model.List> getLists(Board board) {
         List<org.trello4j.model.List> lists = trelloApi.getListByBoard(board.getId());
-
         return lists;
-
     }
 
 
@@ -81,8 +77,6 @@ public class TrelloAPI {
 
     public List<Card> getCards(org.trello4j.model.List list) {
         List<Card> cards = trelloApi.getCardsByList(list.getId());
-
-
         return cards;
     }
 
@@ -93,7 +87,6 @@ public class TrelloAPI {
         for (int i = 0; i < cards.size(); i++) {
             if (cards.get(i).getName().equals(cardname)) {
                 card = cards.get(i);
-
                 return card;
             }
         }
@@ -103,26 +96,17 @@ public class TrelloAPI {
 
     public List<Card> getItemsCompletedBySprint(org.trello4j.model.List list, String labelname) {
         List<Card> cards = new ArrayList<>();
-
-
         if (list.getName().equals("Completed")) {
-
             List<Card> listc = trelloApi.getCardsByList(list.getId());
             for (int i = 0; i < listc.size(); i++) {
-
                 List<Card.Label> labelList = listc.get(i).getLabels();
                 for (int n = 0; n < labelList.size(); n++) {
-
                     if (labelList.get(n).getName().equals(labelname)) {
                         cards.add(listc.get(i));
                     }
                 }
-
-
             }
-
         }
-
         return cards;
     }
 
@@ -187,7 +171,7 @@ public class TrelloAPI {
 
     public List <String> getSprintDesc(Board board){
         List<Card> cards = null;
-        List <String> descs = new ArrayList<>();
+        List <String> descriptions = new ArrayList<>();
 
 
         List <org.trello4j.model.List> lists = getLists(board);
@@ -196,12 +180,10 @@ public class TrelloAPI {
                 cards=getCards(lists.get(i));
             }
         }
-        for (int i2=0; i2< cards.size(); i2++ ){
-            descs.add(cards.get(i2).getName() + ":" + cards.get(i2).getDesc());
-
+        for (int i=0; i< cards.size(); i++ ){
+            descriptions.add(cards.get(i).getName() + ": \n" + cards.get(i).getDesc());
         }
-
-        return descs;
+        return descriptions;
     }
 
  /*   public void getSprintDates(Board board){
