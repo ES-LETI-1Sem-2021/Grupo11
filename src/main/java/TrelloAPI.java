@@ -16,7 +16,10 @@ public class TrelloAPI {
 
     private static String trelloKey;
     private static String trelloAccessToken;
-    private static Trello trelloApi;
+
+
+
+    public static Trello trelloApi;
     public static String username;
 
 
@@ -30,11 +33,16 @@ public class TrelloAPI {
 
     /**
      * Retorna o nome de utilizador usado no Trello
+     *
      * @return
      */
 
     public String getUsername() {
         return this.username;
+    }
+
+    public static Trello getTrelloApi() {
+        return trelloApi;
     }
 
     /**
@@ -62,20 +70,22 @@ public class TrelloAPI {
 
     /**
      * Retorna os membros que participam do Board
+     *
      * @param board
      * @return
      */
     public List<Member> getMembers(Board board) {
         List<Member> list = trelloApi.getMembersByBoard(board.getId());
         for (int i = 0; i < list.size(); i++) {
-         //   System.out.println(list.get(i).getFullName());
-           // System.out.println(list.get(i).getId());
+            //   System.out.println(list.get(i).getFullName());
+            // System.out.println(list.get(i).getId());
         }
         return list;
     }
 
     /**
      * Retorna todas as listas pertencentes ao Board
+     *
      * @param board
      * @return
      */
@@ -85,6 +95,7 @@ public class TrelloAPI {
 
     /**
      * Retorna a lista do Board que tiver o nome igual ao parametro listna,e
+     *
      * @param board
      * @param listname
      * @return
@@ -105,6 +116,7 @@ public class TrelloAPI {
 
     /**
      * Retorna todos os Cards que pertencem ao Board
+     *
      * @param list
      * @return
      */
@@ -114,6 +126,7 @@ public class TrelloAPI {
 
     /**
      * Retorna o Card do Board que tiver o nome igual ao parametro cardname
+     *
      * @param list
      * @param cardname
      * @return
@@ -134,6 +147,7 @@ public class TrelloAPI {
 
     /**
      * Retorna todos os cardes completados que contenham uma label com o nome igual ao parametro labelname
+     *
      * @param list
      * @param labelname
      * @return
@@ -163,13 +177,8 @@ public class TrelloAPI {
         return cards;
     }
 
-    /**
-     * Retorna a data mais antiga entre as duas
-     * @param date1
-     * @param date2
-     * @return
-     */
-    public Date compareDates(Date date1, Date date2) {
+
+  /*  public Date compareDates(Date date1, Date date2) {
         if (date1.getYear() < date2.getYear()) {
             return date1;
         } else {
@@ -187,10 +196,11 @@ public class TrelloAPI {
         }
 
         return date2;
-    }
+    } */
 
     /**
      * Retorna a datas da duração do Sprint sprint
+     *
      * @param board
      * @param sprint
      * @return
@@ -210,8 +220,9 @@ public class TrelloAPI {
                         for (int i3 = 0; i3 < labels.size(); i3++) {
                             if (labels.get(i3).getName().equals(sprint)) {
                                 String desc = cards.get(i2).getDesc();
-                                String [] arg = desc.split(":");
-                                duration = arg[1];
+                                String[] arg = desc.split(":");
+                                String[] arg2 = arg[1].split(";");
+                                duration = arg2[0];
 
                             }
 
@@ -222,43 +233,45 @@ public class TrelloAPI {
         }
 
 
-
-        return  duration;
+        return duration;
 
     }
 
     /**
      * Retorna a data do fim do Sprint sprint
+     *
      * @param board
      * @param sprint
      * @return
      */
-    public String getSprintEndDate(Board board, String sprint){
-        String endDate="";
-        String duration = getSprintDuration(board,sprint);
-        String [] args  = duration.split(" - ");
-        endDate=args[1];
+    public String getSprintEndDate(Board board, String sprint) {
+        String endDate = "";
+        String duration = getSprintDuration(board, sprint);
+        String[] args = duration.split(" - ");
+        endDate = args[1];
 
         return endDate;
     }
 
     /**
      * Retrona a data do inicio do Sprint sprint
+     *
      * @param board
      * @param sprint
      * @return
      */
-    public String getSprintStartDate(Board board, String sprint){
-        String startDate="";
-        String duration = getSprintDuration(board,sprint);
-        String [] args  = duration.split(" - ");
-        startDate=args[0];
+    public String getSprintStartDate(Board board, String sprint) {
+        String startDate = "";
+        String duration = getSprintDuration(board, sprint);
+        String[] args = duration.split(" - ");
+        startDate = args[0];
 
         return startDate;
     }
 
     /**
      * Retorna as descrições de todas as reuniões feitas em cada sprint
+     *
      * @param board
      * @return
      */
@@ -288,10 +301,9 @@ public class TrelloAPI {
     }
 
 
-
-
     /**
      * Retorna o número  de Sprints do Board
+     *
      * @param board
      * @return
      */
@@ -314,39 +326,65 @@ public class TrelloAPI {
         return n;
     }
 
+    /**
+     * Retorna o número de horas que um membro trabalhou durante o Sprint sprint
+     * @param board
+     * @param member
+     * @param sprint
+     * @return
+     */
 
-    public void getHoursOfWork(Member member) {
+    public double getHoursOfWork(Board board, Member member, String sprint) {
+        double hoursWorked = 0;
+        String id = "";
+        List<org.trello4j.model.List> lists = getLists(board);
+         System.out.println(member.getUsername());
+        for (int i3 = 0; i3 < lists.size(); i3++) {
+            if (lists.get(i3).getName().equals("Completed") || lists.get(i3).getName().equals("Sprint Meetings")) {
+                id = lists.get(i3).getId();
 
+                List<Card> cards = trelloApi.getCardsByMember(member.getId());
+                for (int i2 = 0; i2 < cards.size(); i2++) {
 
-        System.out.println(member.getUsername());
-        List<Card> cards = trelloApi.getCardsByMember(member.getId());
-        for (int i2 = 0; i2 < cards.size(); i2++) {
-            if (cards.get(i2).getName().equals("Informações dos SPRINTS no Projecto")) {
-                List<Action> actions = trelloApi.getActionsByCard(cards.get(i2).getId());
-                for (int i3 = 0; i3 < actions.size(); i3++) {
-                    String l = actions.get(i3).getData().getText();
+                    if (cards.get(i2).getIdList().equals(id)) {
+                        List<Card.Label> labels = cards.get(i2).getLabels();
+                        for (int i5 = 0; i5 < labels.size(); i5++) {
 
-                    if (l != null) {
-                        if (l.contains("plus! @filipegoncalves79 ")) {
-                            String[] lines = l.split("plus! @filipegoncalves79 ");
-                            for (int i4 = 0; i4 < lines.length; i4++) {
-                                String[] hours = lines[i4].split("/");
-                               for(int i5=0; i5< hours.length; i5=i5+2) {
-                                   if(hours[i5]!=null) {
+                            if (labels.get(i5).getName().equals(sprint)) {
+                                System.out.println(cards.get(i2).getName());
+                                String desc = cards.get(i2).getDesc();
+                                String[] hours = desc.split("; ");
 
-                                       System.out.println(hours[i5]);
-                                   }
-                               }
+                                for (int i4 = 0; i4 < hours.length; i4++) {
+                                    if (hours[i4].contains(member.getUsername()) || hours[i4].contains("global")) {
+                                        String[] hour = hours[i4].split(" ");
+                                        for (int i = 0; i < hour.length; i++) {
+                                            if (hour[i].equals("global") || hour[i].equals(member.getUsername())) {
+
+                                                hoursWorked = hoursWorked + Double.valueOf(hour[i + 1]);
+                                                System.out.println(hoursWorked);
+
+                                            }
+                                        }
+                                    }
+                                }
                             }
-
                         }
-
                     }
                 }
             }
 
         }
+        return hoursWorked;
     }
+
+    public double HumanResorcesCost(Board board,Member member,String sprint){
+        double hours=getHoursOfWork(board,member,sprint);
+        return hours*20;
+    }
+
+
+
 }
 
 
