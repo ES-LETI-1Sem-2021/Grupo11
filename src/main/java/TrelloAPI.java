@@ -73,9 +73,7 @@ public class TrelloAPI {
      */
     public List<Member> getMembers(Board board) {
         List<Member> list = trelloApi.getMembersByBoard(board.getId());
-        for (int i = 0; i < list.size(); i++) {
 
-        }
         return list;
     }
 
@@ -104,31 +102,33 @@ public class TrelloAPI {
     /**
      * Retorna todos os cards completados que contenham uma label com o nome igual ao parametro labelname
      *
-     * @param list
+     * @param board
      * @param labelname
      * @return
      */
-    public List<Card> getItemsCompletedBySprint(org.trello4j.model.List list, String labelname) {
+    public List<Card> getItemsCompletedBySprint(Board board, String labelname) {
         List<Card> cards = new ArrayList<>();
+        List <org.trello4j.model.List> lists= getLists(board);
+          for(int i2=0; i2<lists.size(); i2++) {
+              if (lists.get(i2).getName().equals("Completed")) {
+
+                  List<Card> listc = getCards(lists.get(i2));
+                  for (int i = 0; i < listc.size(); i++) {
+
+                      List<Card.Label> labelList = listc.get(i).getLabels();
+                      for (int n = 0; n < labelList.size(); n++) {
+
+                          if (labelList.get(n).getName().equals(labelname)) {
+                              cards.add(listc.get(i));
+
+                          }
+                      }
 
 
-        if (list.getName().equals("Completed")) {
+                  }
 
-            List<Card> listc = getCards(list);
-            for (int i = 0; i < listc.size(); i++) {
-
-                List<Card.Label> labelList = listc.get(i).getLabels();
-                for (int n = 0; n < labelList.size(); n++) {
-
-                    if (labelList.get(n).getName().equals(labelname)) {
-                        cards.add(listc.get(i));
-                    }
-                }
-
-
-            }
-
-        }
+              }
+          }
 
         return cards;
     }
@@ -275,20 +275,22 @@ public class TrelloAPI {
         double hoursWorked = 0;
         String id = "";
         List<org.trello4j.model.List> lists = getLists(board);
-        System.out.println(member.getUsername());
+
         for (int i3 = 0; i3 < lists.size(); i3++) {
-            if (lists.get(i3).getName().equals("Completed") || lists.get(i3).getName().equals("Sprint Meetings")) {
+            if (lists.get(i3).getName().equals("Completed") || lists.get(i3).getName().equals("Sprint Meetings") || lists.get(i3).getName().equals("In Progress")) {
                 id = lists.get(i3).getId();
+
 
                 List<Card> cards = trelloApi.getCardsByMember(member.getId());
                 for (int i2 = 0; i2 < cards.size(); i2++) {
 
                     if (cards.get(i2).getIdList().equals(id)) {
+
                         List<Card.Label> labels = cards.get(i2).getLabels();
                         for (int i5 = 0; i5 < labels.size(); i5++) {
 
                             if (labels.get(i5).getName().equals(sprint)) {
-                                System.out.println(cards.get(i2).getName());
+
                                 String desc = cards.get(i2).getDesc();
                                 String[] hours = desc.split("; ");
 
@@ -297,9 +299,9 @@ public class TrelloAPI {
                                         String[] hour = hours[i4].split(" ");
                                         for (int i = 0; i < hour.length; i++) {
                                             if (hour[i].equals("global") || hour[i].equals(member.getUsername())) {
-
+                                                  //   System.out.println(hour[i]);
                                                 hoursWorked = hoursWorked + Double.valueOf(hour[i + 1]);
-                                                System.out.println(hoursWorked);
+                                               // System.out.println(hoursWorked);
 
                                             }
                                         }
@@ -343,7 +345,7 @@ public class TrelloAPI {
                     List<Card.Label> labels = cards.get(i2).getLabels();
                     for (int i3 = 0; i3 < labels.size(); i3++) {
                         if (labels.get(i3).getName().equals("GitHub Commits")) {
-                            // System.out.println(cards.get(i2).getName());
+
                             commited.add(cards.get(i2));
                         }
                     }

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="Update do Trello Api">
+    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="Finalização da TrelloAPI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TrelloAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TrelloAPI.java" afterDir="false" />
@@ -103,10 +103,8 @@
       <recent name="C:\Users\Pedro Afonso Santana\IdeaProjects\ES-LETI-1Sem-2021-Grupo11" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GUI">
-    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+  <component name="RunManager" selected="JUnit.TrelloAPItest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Project" />
       <method v="2">
@@ -122,31 +120,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrelloAPItest.getBoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TrelloAPItest.TotalCostHoursWorkedForCardsThatNotOriginatedCommitsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TrelloAPItest" />
-      <option name="METHOD_NAME" value="getBoardTest" />
+      <option name="METHOD_NAME" value="TotalCostHoursWorkedForCardsThatNotOriginatedCommitsTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrelloAPItest.getListsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TrelloAPItest.TotalCostHoursWorkedForCardsThatOriginatedCommitsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TrelloAPItest" />
-      <option name="METHOD_NAME" value="getListsTest" />
+      <option name="METHOD_NAME" value="TotalCostHoursWorkedForCardsThatOriginatedCommitsTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrelloAPItest.getMembersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TrelloAPItest.costHoursWorkedForCardsThatNotOriginatedCommitsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TrelloAPItest" />
-      <option name="METHOD_NAME" value="getMembersTest" />
+      <option name="METHOD_NAME" value="costHoursWorkedForCardsThatNotOriginatedCommitsTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -154,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GUI" />
-        <item itemvalue="JUnit.TrelloAPItest.getMembersTest" />
-        <item itemvalue="JUnit.TrelloAPItest.getListsTest" />
         <item itemvalue="JUnit.TrelloAPItest" />
-        <item itemvalue="JUnit.TrelloAPItest.getBoardTest" />
+        <item itemvalue="JUnit.TrelloAPItest.TotalCostHoursWorkedForCardsThatNotOriginatedCommitsTest" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.TrelloAPItest.TotalCostHoursWorkedForCardsThatOriginatedCommitsTest" />
+        <item itemvalue="JUnit.TrelloAPItest.costHoursWorkedForCardsThatNotOriginatedCommitsTest" />
       </list>
     </recent_temporary>
   </component>
