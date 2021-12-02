@@ -13,18 +13,20 @@ public class GithubAPI {
     private static List<String[]> CommitInfo;
     private static List<String[]> MemberInfo;
     private GitHub github;
-
+    GHRepository GitRepo;
 
     public GithubAPI(String password_token_text) throws IOException {
         github = new GitHubBuilder().withOAuthToken(password_token_text).build();
-
+        GitRepo = github.getRepository("miguelrato18/ES-LETI-1Sem-2021-Grupo11");
 
     }
-//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
+//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
 
+/*
+manter por enquanto para referencia
 
     public void getProjectDiscription() throws IOException {
-         GHRepository GitRepo = github.getRepository("miguelrato18/ES-LETI-1Sem-2021-Grupo11");
+
 
 
         //nomes de que ta no project
@@ -41,6 +43,26 @@ public class GithubAPI {
         }
 
 
+    }
+    */
+
+    public String getREADME() throws IOException {
+    return GitRepo.getFileContent("README.md").getContent();
+    }
+
+    public String getCommitInfo() throws IOException {
+        String ret = new String("");
+        for (int i = 0; i < GitRepo.listCommits().toList().size();i++){
+            ret = (ret + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName() + "\n"
+                    + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate() + "\n"
+                    + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage() + "\n" + "\n");
+        }
+        return ret;
+    }
+
+    //por testar
+    public String getTags() throws IOException {
+        return GitRepo.listTags().toString();
     }
 
 }

@@ -83,7 +83,8 @@ public class GUI_Github extends JFrame {
         System.out.println(password_repositoryOwner_text);
         System.out.println(password_repositoryName_text);
         GithubAPI GAPI = new GithubAPI(password_token_text);
-        GAPI.getProjectDiscription();
+        //GAPI.getProjectDiscription(); //mudar
+        GAPI.getCommitInfo();  //mudar
 
     }
 

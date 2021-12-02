@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="API GitHub ja a funcionar parcialmente:&#10;nomes dos participantes nmo projeto.&#10;fichewiro readme.&#10;etiquetas.&#10;commits.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Activities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DataForCSV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GenerateCSV.java" afterDir="false" />
+    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="Gerador de CSV comecado com falta de preencher valores do Trello">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Github.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Github.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GenerateCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GenerateCSV.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GithubAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GithubAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GithubAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GithubAPI.class" afterDir="false" />
     </list>
@@ -295,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638376358267</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Gerador de CSV comecado com falta de preencher valores do Trello">
+      <created>1638381974867</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1638381974867</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -316,6 +320,7 @@
     <MESSAGE value="GUI de acesso a github e trello desenvolvida(parcialmente)" />
     <MESSAGE value="Maven com API GitHub" />
     <MESSAGE value="API GitHub ja a funcionar parcialmente:&#10;nomes dos participantes nmo projeto.&#10;fichewiro readme.&#10;etiquetas.&#10;commits." />
-    <option name="LAST_COMMIT_MESSAGE" value="API GitHub ja a funcionar parcialmente:&#10;nomes dos participantes nmo projeto.&#10;fichewiro readme.&#10;etiquetas.&#10;commits." />
+    <MESSAGE value="Gerador de CSV comecado com falta de preencher valores do Trello" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gerador de CSV comecado com falta de preencher valores do Trello" />
   </component>
 </project>

@@ -11,7 +11,7 @@ public class GenerateCSV{
 
         List<String[]> Data = DataForCSV.CreateData();
 
-        try (CSVWriter writer = new CSVWriter(new FileWriter("C:\\Users\\llord\\Desktop\\test.csv"))) {
+        try (CSVWriter writer = new CSVWriter(new FileWriter("Teste.csv"))) {
             writer.writeAll(Data);
         }
 
