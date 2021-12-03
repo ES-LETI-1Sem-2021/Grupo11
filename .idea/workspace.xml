@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="+GUI_Application Update;&#10;+GUI_Application implementação de métodos ateriormente desenvolvidos">
-      <change afterPath="$PROJECT_DIR$/src/test/java/GUI_ApplicationTestes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TrelloAPITestes.java" afterDir="false" />
+    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="Finalização da TrelloAPI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Application.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Application.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TrelloAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TrelloAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/TrelloAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TrelloAPI.class" afterDir="false" />
     </list>
@@ -31,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="fasgs1" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,6 +64,16 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.jdks/openjdk-17.0.1/lib/src.zip!/java.base/java/util/AbstractList.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/trello4j/trello4j/1.0-SNAPSHOT/trello4j-1.0-SNAPSHOT.jar!/org/trello4j/model/Board.class" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/trello4j/trello4j/1.0-SNAPSHOT/trello4j-1.0-SNAPSHOT.jar!/org/trello4j/TrelloImpl.class" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$USER_HOME$/.jdks/openjdk-17.0.1/lib/src.zip!/java.base/java/util/Date.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/trello4j/trello4j/1.0-SNAPSHOT/trello4j-1.0-SNAPSHOT.jar!/org/trello4j/model/Card.class" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="2" />
+  </component>
   <component name="ProjectId" id="1zT45J2PDRAhfvCCSAQpt6h06Pw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -79,12 +84,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="174" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="jdk.selected.JAVA_MODULE" value="openjdk-17" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -94,20 +103,7 @@
       <recent name="C:\Users\Pedro Afonso Santana\IdeaProjects\ES-LETI-1Sem-2021-Grupo11" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="GUI (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="java.GUI" />
-      <module name="ES-LETI-1Sem-2021-Grupo11" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TrelloAPItest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Project" />
@@ -115,27 +111,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrelloAPI_extention" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TrelloAPI_extention" />
-      <module name="Project" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TrelloAPITestes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TrelloAPItest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TrelloAPITestes" />
+      <option name="MAIN_CLASS_NAME" value="TrelloAPItest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrelloAPITestes.getUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TrelloAPItest.TotalCostHoursWorkedForCardsThatNotOriginatedCommitsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TrelloAPITestes" />
-      <option name="METHOD_NAME" value="getUsername" />
+      <option name="MAIN_CLASS_NAME" value="TrelloAPItest" />
+      <option name="METHOD_NAME" value="TotalCostHoursWorkedForCardsThatNotOriginatedCommitsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrelloAPItest.TotalCostHoursWorkedForCardsThatOriginatedCommitsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TrelloAPItest" />
+      <option name="METHOD_NAME" value="TotalCostHoursWorkedForCardsThatOriginatedCommitsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrelloAPItest.costHoursWorkedForCardsThatNotOriginatedCommitsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TrelloAPItest" />
+      <option name="METHOD_NAME" value="costHoursWorkedForCardsThatNotOriginatedCommitsTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -143,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TrelloAPItest" />
+        <item itemvalue="JUnit.TrelloAPItest.TotalCostHoursWorkedForCardsThatNotOriginatedCommitsTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.TrelloAPITestes" />
-        <item itemvalue="JUnit.TrelloAPITestes.getUsername" />
-        <item itemvalue="Application.TrelloAPI_extention" />
-        <item itemvalue="Application.GUI (1)" />
+        <item itemvalue="JUnit.TrelloAPItest.TotalCostHoursWorkedForCardsThatOriginatedCommitsTest" />
+        <item itemvalue="JUnit.TrelloAPItest.costHoursWorkedForCardsThatNotOriginatedCommitsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -247,7 +256,63 @@
       <option name="project" value="LOCAL" />
       <updated>1634582155741</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update do Trello Api">
+      <created>1637521420144</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1637521420144</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Update do Trello Api">
+      <created>1637521518255</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1637521518255</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Update do Trello Api">
+      <created>1637521539285</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1637521539285</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Update do Trello Api">
+      <created>1637526240266</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1637526240266</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update do Trello Api">
+      <created>1637942230206</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1637942230206</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Update do Trello Api">
+      <created>1638358200109</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1638358200109</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Update do Trello Api">
+      <created>1638366882856</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1638366882857</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Update do Trello Api">
+      <created>1638372695408</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1638372695408</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -264,11 +329,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="msg" />
-    <option name="LAST_COMMIT_MESSAGE" value="msg" />
+    <MESSAGE value="Update do Trello Api" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update do Trello Api" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$Main.ic" NAME="Main Coverage Results" MODIFIED="1638398136800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$GUI.ic" NAME="GUI Coverage Results" MODIFIED="1635539307713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$TrelloAPITestes.ic" NAME="TrelloAPITestes Coverage Results" MODIFIED="1638399881610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$GUI.ic" NAME="GUI Coverage Results" MODIFIED="1638304932653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

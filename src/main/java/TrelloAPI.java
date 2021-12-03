@@ -46,7 +46,6 @@ public class TrelloAPI {
     /**
      * Retorna o Board do User que tiver o nome igual ao parametro boardname
      *
-     *
      * @param boardname
      * @return
      */
@@ -74,9 +73,7 @@ public class TrelloAPI {
      */
     public List<Member> getMembers(Board board) {
         List<Member> list = trelloApi.getMembersByBoard(board.getId());
-        for (int i = 0; i < list.size(); i++) {
 
-        }
         return list;
     }
 
@@ -91,8 +88,6 @@ public class TrelloAPI {
     }
 
 
-
-
     /**
      * Retorna todos os Cards que pertencem a Lista list
      *
@@ -104,39 +99,39 @@ public class TrelloAPI {
     }
 
 
-
     /**
      * Retorna todos os cards completados que contenham uma label com o nome igual ao parametro labelname
      *
-     * @param list
+     * @param board
      * @param labelname
      * @return
      */
-    public List<Card> getItemsCompletedBySprint(org.trello4j.model.List list, String labelname) {
+    public List<Card> getItemsCompletedBySprint(Board board, String labelname) {
         List<Card> cards = new ArrayList<>();
+        List <org.trello4j.model.List> lists= getLists(board);
+          for(int i2=0; i2<lists.size(); i2++) {
+              if (lists.get(i2).getName().equals("Completed")) {
 
-        if (list.getName().equals("Completed")) {
+                  List<Card> listc = getCards(lists.get(i2));
+                  for (int i = 0; i < listc.size(); i++) {
 
-            List<Card> listc = getCards(list);
-            for (int i = 0; i < listc.size(); i++) {
+                      List<Card.Label> labelList = listc.get(i).getLabels();
+                      for (int n = 0; n < labelList.size(); n++) {
 
-                List<Card.Label> labelList = listc.get(i).getLabels();
-                for (int n = 0; n < labelList.size(); n++) {
+                          if (labelList.get(n).getName().equals(labelname)) {
+                              cards.add(listc.get(i));
 
-                    if (labelList.get(n).getName().equals(labelname)) {
-                        cards.add(listc.get(i));
-                    }
-                }
+                          }
+                      }
 
 
-            }
+                  }
 
-        }
+              }
+          }
 
         return cards;
     }
-
-
 
 
     /**
@@ -269,6 +264,7 @@ public class TrelloAPI {
 
     /**
      * Retorna o número de horas que um membro trabalhou durante o Sprint sprint
+     *
      * @param board
      * @param member
      * @param sprint
@@ -279,18 +275,22 @@ public class TrelloAPI {
         double hoursWorked = 0;
         String id = "";
         List<org.trello4j.model.List> lists = getLists(board);
+
         for (int i3 = 0; i3 < lists.size(); i3++) {
-            if (lists.get(i3).getName().equals("Completed") || lists.get(i3).getName().equals("Sprint Meetings")) {
+            if (lists.get(i3).getName().equals("Completed") || lists.get(i3).getName().equals("Sprint Meetings") || lists.get(i3).getName().equals("In Progress")) {
                 id = lists.get(i3).getId();
+
 
                 List<Card> cards = trelloApi.getCardsByMember(member.getId());
                 for (int i2 = 0; i2 < cards.size(); i2++) {
 
                     if (cards.get(i2).getIdList().equals(id)) {
+
                         List<Card.Label> labels = cards.get(i2).getLabels();
                         for (int i5 = 0; i5 < labels.size(); i5++) {
 
                             if (labels.get(i5).getName().equals(sprint)) {
+
                                 String desc = cards.get(i2).getDesc();
                                 String[] hours = desc.split("; ");
 
@@ -299,7 +299,10 @@ public class TrelloAPI {
                                         String[] hour = hours[i4].split(" ");
                                         for (int i = 0; i < hour.length; i++) {
                                             if (hour[i].equals("global") || hour[i].equals(member.getUsername())) {
+                                                  //   System.out.println(hour[i]);
                                                 hoursWorked = hoursWorked + Double.valueOf(hour[i + 1]);
+                                               // System.out.println(hoursWorked);
+
                                             }
                                         }
                                     }
@@ -316,14 +319,266 @@ public class TrelloAPI {
 
     /**
      * Retorna o montante a pagar pelas horas trabalhadas no Sprint sprint
+     *
      * @param board
      * @param member
      * @param sprint
      * @return
      */
-    public double HumanResourcesCostBySprint(Board board, Member member, String sprint){
-        double hours=getHoursOfWork(board,member,sprint);
-        return hours*20;
+    public double HumanResorcesCostBySprint(Board board, Member member, String sprint) {
+        double hours = getHoursOfWork(board, member, sprint);
+        return hours * 20;
     }
 
+    /**
+     * Retorna os cards que originaram commits no GITHUB
+     * @param board
+     * @return
+     */
+    public List<Card> getCardOriginatedCommits(Board board) {
+        List<Card> commited = new ArrayList<Card>();
+        List<org.trello4j.model.List> list = getLists(board);
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).getName().equals("Completed")) {
+                List<Card> cards = getCards(list.get(i));
+                for (int i2 = 0; i2 < cards.size(); i2++) {
+                    List<Card.Label> labels = cards.get(i2).getLabels();
+                    for (int i3 = 0; i3 < labels.size(); i3++) {
+                        if (labels.get(i3).getName().equals("GitHub Commits")) {
+
+                            commited.add(cards.get(i2));
+                        }
+                    }
+                }
+            }
+        }
+        return commited;
+    }
+
+    /**
+     * Retorna os cards que não originaram commits no GITHUB
+     * @param board
+     * @return
+     */
+    public List <Card> getCardNotOriginatedCommits(Board board) {
+        Card.Label label = null;
+
+        List<Card> Notcommited = new ArrayList<Card>();
+
+        List<org.trello4j.model.List> list = getLists(board);
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).getName().equals("Completed")) {
+                List<Card> cards = getCards(list.get(i));
+                for (int i2 = 0; i2 < cards.size(); i2++) {
+                    List<Card.Label> labels = cards.get(i2).getLabels();
+                    for (int i3 = 0; i3 < labels.size(); i3++) {
+                        if (labels.get(i3).getName().equals("GitHub Commits")) {
+                            label=labels.get(i3);
+                        }
+                    }
+                    if(labels.contains(label)==false){
+                        Notcommited.add(cards.get(i2));
+                    }
+                }
+            }
+        }
+
+       return Notcommited;
+
+
+    }
+
+    /**
+     * Retorna o número de cards que originaram commits nno GITHUB
+     * @param board
+     * @return
+     */
+    public int numberOfCardsOriginatedCommits(Board board){
+        int count=0;
+        List <Card> commited = getCardOriginatedCommits(board);
+        for(int i6 = 0;i6<commited.size();i6++)
+            count++;
+
+        return count;
+
+    }
+
+    /**
+     * Retorna o número de cards que não originaram commits nno GITHUB
+     * @param board
+     * @return
+     */
+   public int numberOfCardsNotOriginatedCommits(Board board){
+        int count=0;
+        List <Card> Notcommited = getCardNotOriginatedCommits(board);
+        for(int i6 = 0;i6<Notcommited.size();i6++)
+            count++;
+
+        return count;
+
+    }
+
+    /**
+     * Retorna o número de horas gastas pelo Membro member para realizar as tarefas que originaram Commits no GITHUB
+     * @param board
+     * @param member
+     * @return
+     */
+    public double getHoursWorkedForCardsThatOriginatedCommits(Board board, Member member){
+        List<Card> cards = getCardOriginatedCommits(board);
+        double hoursWorked=0.0;
+        for (int i2 = 0; i2 < cards.size(); i2++) {
+
+
+                        String desc = cards.get(i2).getDesc();
+                        String[] hours = desc.split("; ");
+
+                        for (int i4 = 0; i4 < hours.length; i4++) {
+                            if (hours[i4].contains(member.getUsername()) || hours[i4].contains("global")) {
+                                String[] hour = hours[i4].split(" ");
+                                for (int i = 0; i < hour.length; i++) {
+                                    if (hour[i].equals("global") || hour[i].equals(member.getUsername())) {
+
+                                        hoursWorked = hoursWorked + Double.valueOf(hour[i + 1]);
+
+
+                                    }
+                                }
+                            }
+                        }
+
+                }
+        return hoursWorked;
+            }
+
+    /**
+     * Retorna o número de horas gastas pelo Membro member para realizar as tarefas que não originaram Commits no GITHUB
+     * @param board
+     * @param member
+     * @return
+     */
+    public double getHoursWorkedForCardsThatNotOriginatedCommits(Board board, Member member){
+        List<Card> cards = getCardNotOriginatedCommits(board);
+        double hoursWorked=0.0;
+        for (int i2 = 0; i2 < cards.size(); i2++) {
+
+
+
+
+
+            String desc = cards.get(i2).getDesc();
+            String[] hours = desc.split("; ");
+
+            for (int i4 = 0; i4 < hours.length; i4++) {
+                if (hours[i4].contains(member.getUsername()) || hours[i4].contains("global")) {
+                    String[] hour = hours[i4].split(" ");
+                    for (int i = 0; i < hour.length; i++) {
+                        if (hour[i].equals("global") || hour[i].equals(member.getUsername())) {
+
+                            hoursWorked = hoursWorked + Double.valueOf(hour[i + 1]);
+
+                        }
+                    }
+                }
+            }
+
+        }
+        return hoursWorked;
+
+
+    }
+
+    /**
+     * Retorna o custo monetário a pagar ao Membro member associado ao trabalho que gerou Commits no GITHUB
+     * @param board
+     * @param member
+     * @return
+     */
+    public double costHoursWorkedForCardsThatOriginatedCommits(Board board, Member member){
+
+        return  getHoursWorkedForCardsThatOriginatedCommits(board,member)*20;
+    }
+
+    /**
+     * Retorna o custo monetário a pagar ao Membro member associado ao trabalho que não gerou Commits no GITHUB
+     * @param board
+     * @param member
+     * @return
+     */
+    public double costHoursWorkedForCardsThatNotOriginatedCommits(Board board, Member member){
+        return  getHoursWorkedForCardsThatNotOriginatedCommits(board,member)*20;
+    }
+
+    /**
+     * Retorna o custo monetário total a pagar pela realização das tarefas que geraram commits no GITHUB
+     * @param board
+     * @return
+     */
+    public double TotalCostHoursWorkedForCardsThatOriginatedCommits(Board board){
+        double cost=0;
+        List <Member> members = getMembers(board);
+        for(int i=0; i< members.size(); i++){
+
+            cost = cost + costHoursWorkedForCardsThatOriginatedCommits(board, members.get(i));
+        }
+        return cost;
+    }
+
+    /**
+     * Retorna o custo monetário total a pagar pela realização das tarefas que geraram não commits no GITHUB
+     * @param board
+     * @return
+     */
+    public double TotalCostHoursWorkedForCardsThatNotOriginatedCommits(Board board){
+        double cost=0;
+        List <Member> members = getMembers(board);
+        for(int i=0; i< members.size(); i++){
+            cost = cost + costHoursWorkedForCardsThatNotOriginatedCommits(board, members.get(i));
+        }
+        return cost;
+    }
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
