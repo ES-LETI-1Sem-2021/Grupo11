@@ -151,12 +151,12 @@ public class TrelloAPItest {
 
     }
     @Test
-    public void HumanResorcesCostBySprintTest(){
+    public void HumanResourcesCostBySprintTest(){
         Board board = trello.getBoard( "Projecto de Engenharia de Software" );
         Member member = new Member();
         member.setId("614ddd02472d981f60076600");
         member.setUsername("filipegoncalves79");
-        double cost = trello.HumanResorcesCostBySprint(board,member,"Sprint #2");
+        double cost = trello.HumanResourcesCostBySprint(board,member,"Sprint #2");
         Assertions.assertEquals(400.0,cost);
     }
 
