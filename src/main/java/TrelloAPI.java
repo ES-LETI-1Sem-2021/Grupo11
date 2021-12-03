@@ -325,7 +325,7 @@ public class TrelloAPI {
      * @param sprint
      * @return
      */
-    public double HumanResorcesCostBySprint(Board board, Member member, String sprint) {
+    public double HumanResourcesCostBySprint(Board board, Member member, String sprint) {
         double hours = getHoursOfWork(board, member, sprint);
         return hours * 20;
     }
