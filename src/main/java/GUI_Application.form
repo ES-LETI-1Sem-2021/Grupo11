@@ -129,20 +129,6 @@
           <text value="Atas das Reuniões"/>
         </properties>
       </component>
-      <component id="a87d" class="javax.swing.JButton" binding="Button_6">
-        <constraints>
-          <grid row="7" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="30"/>
-            <preferred-size width="150" height="30"/>
-            <maximum-size width="150" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-16744760"/>
-          <foreground color="-1"/>
-          <text value="Atividades que Originaram Artefactos"/>
-        </properties>
-      </component>
       <component id="abc78" class="javax.swing.JButton" binding="button_4">
         <constraints>
           <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
@@ -165,7 +151,7 @@
           </grid>
         </constraints>
       </vspacer>
-      <component id="11db8" class="javax.swing.JButton" binding="Button_8">
+      <component id="11db8" class="javax.swing.JButton" binding="button_8">
         <constraints>
           <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="150" height="30"/>
@@ -177,34 +163,6 @@
           <background color="-16744760"/>
           <foreground color="-1"/>
           <text value="Commits Info"/>
-        </properties>
-      </component>
-      <component id="a4ad7" class="javax.swing.JButton" binding="Button_9">
-        <constraints>
-          <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="30"/>
-            <preferred-size width="150" height="30"/>
-            <maximum-size width="150" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-16744760"/>
-          <foreground color="-1"/>
-          <text value="Custo por Sprint"/>
-        </properties>
-      </component>
-      <component id="f76dd" class="javax.swing.JButton" binding="Button_7">
-        <constraints>
-          <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="30"/>
-            <preferred-size width="150" height="30"/>
-            <maximum-size width="150" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-16744760"/>
-          <foreground color="-1"/>
-          <text value="Descrição do Projecto"/>
         </properties>
       </component>
       <vspacer id="3b9cf">
@@ -249,48 +207,6 @@
           </grid>
         </constraints>
       </hspacer>
-      <component id="a8578" class="javax.swing.JButton" binding="Button_10">
-        <constraints>
-          <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="30"/>
-            <preferred-size width="150" height="30"/>
-            <maximum-size width="150" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-16744760"/>
-          <foreground color="-1"/>
-          <text value="Total de horas por Sprint"/>
-        </properties>
-      </component>
-      <component id="94c70" class="javax.swing.JButton" binding="Button_11">
-        <constraints>
-          <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="30"/>
-            <preferred-size width="150" height="30"/>
-            <maximum-size width="150" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-16744760"/>
-          <foreground color="-1"/>
-          <text value="Atividades que não Originaram Artefactos"/>
-        </properties>
-      </component>
-      <component id="d60d2" class="javax.swing.JButton" binding="Button_12">
-        <constraints>
-          <grid row="11" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="30"/>
-            <preferred-size width="150" height="30"/>
-            <maximum-size width="150" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-16744760"/>
-          <foreground color="-1"/>
-          <text value="Button"/>
-        </properties>
-      </component>
       <vspacer id="e6a6c">
         <constraints>
           <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
@@ -311,6 +227,76 @@
           <text value="XDXDVamos&#10;Alterar&#10;DepoisXDXD"/>
           <verticalAlignment value="1"/>
           <verticalTextPosition value="1"/>
+        </properties>
+      </component>
+      <component id="a4ad7" class="javax.swing.JButton" binding="button_6">
+        <constraints>
+          <grid row="7" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="30"/>
+            <preferred-size width="150" height="30"/>
+            <maximum-size width="150" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16744760"/>
+          <foreground color="-1"/>
+          <text value="Custo por Sprint"/>
+        </properties>
+      </component>
+      <component id="f76dd" class="javax.swing.JButton" binding="button_9">
+        <constraints>
+          <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="30"/>
+            <preferred-size width="150" height="30"/>
+            <maximum-size width="150" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16744760"/>
+          <foreground color="-1"/>
+          <text value="Descrição do Projecto"/>
+        </properties>
+      </component>
+      <component id="a8578" class="javax.swing.JButton" binding="button_7">
+        <constraints>
+          <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="30"/>
+            <preferred-size width="150" height="30"/>
+            <maximum-size width="150" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16744760"/>
+          <foreground color="-1"/>
+          <text value="Total de horas por Sprint"/>
+        </properties>
+      </component>
+      <component id="94c70" class="javax.swing.JButton" binding="button_11">
+        <constraints>
+          <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="30"/>
+            <preferred-size width="150" height="30"/>
+            <maximum-size width="150" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16744760"/>
+          <foreground color="-1"/>
+          <text value="Atividades que não Originaram Artefactos"/>
+        </properties>
+      </component>
+      <component id="a87d" class="javax.swing.JButton" binding="button_10">
+        <constraints>
+          <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="30"/>
+            <preferred-size width="150" height="30"/>
+            <maximum-size width="150" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16744760"/>
+          <foreground color="-1"/>
+          <text value="Atividades que Originaram Artefactos"/>
         </properties>
       </component>
     </children>

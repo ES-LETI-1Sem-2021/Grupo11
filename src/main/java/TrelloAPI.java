@@ -115,7 +115,6 @@ public class TrelloAPI {
     public List<Card> getItemsCompletedBySprint(org.trello4j.model.List list, String labelname) {
         List<Card> cards = new ArrayList<>();
 
-
         if (list.getName().equals("Completed")) {
 
             List<Card> listc = getCards(list);
@@ -280,7 +279,6 @@ public class TrelloAPI {
         double hoursWorked = 0;
         String id = "";
         List<org.trello4j.model.List> lists = getLists(board);
-         System.out.println(member.getUsername());
         for (int i3 = 0; i3 < lists.size(); i3++) {
             if (lists.get(i3).getName().equals("Completed") || lists.get(i3).getName().equals("Sprint Meetings")) {
                 id = lists.get(i3).getId();
@@ -293,7 +291,6 @@ public class TrelloAPI {
                         for (int i5 = 0; i5 < labels.size(); i5++) {
 
                             if (labels.get(i5).getName().equals(sprint)) {
-                                System.out.println(cards.get(i2).getName());
                                 String desc = cards.get(i2).getDesc();
                                 String[] hours = desc.split("; ");
 
@@ -302,10 +299,7 @@ public class TrelloAPI {
                                         String[] hour = hours[i4].split(" ");
                                         for (int i = 0; i < hour.length; i++) {
                                             if (hour[i].equals("global") || hour[i].equals(member.getUsername())) {
-
                                                 hoursWorked = hoursWorked + Double.valueOf(hour[i + 1]);
-                                                System.out.println(hoursWorked);
-
                                             }
                                         }
                                     }
@@ -327,51 +321,9 @@ public class TrelloAPI {
      * @param sprint
      * @return
      */
-    public double HumanResorcesCostBySprint(Board board,Member member,String sprint){
+    public double HumanResourcesCostBySprint(Board board, Member member, String sprint){
         double hours=getHoursOfWork(board,member,sprint);
         return hours*20;
     }
 
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
