@@ -1,10 +1,14 @@
 
 
+import com.opencsv.CSVWriter;
 import org.trello4j.Trello;
 import org.trello4j.TrelloImpl;
 import org.trello4j.model.*;
 
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
@@ -651,6 +655,46 @@ public class TrelloAPI {
             cost = cost + costHoursWorkedForCardsThatNotOriginatedCommitsByMember(board, members.get(i));
         }
         return cost;
+    }
+
+    public void exportarCSV(Board board) throws IOException {
+        FileWriter fw = new FileWriter(new File("Dados.csv"));
+        CSVWriter cw = new CSVWriter(fw,';', CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
+        List <String[]> data = new ArrayList<String[]>();
+        String [] headers ="Membros,Sprint,Horas de Trabalho por Sprint,Custo dos Recursos Humanos por Sprint,Numero de Atividades que deram origem a commits por membro ,Horas trabalhadas que deram origem a commits por membro,Custo dos Recursos Humanos que deram origem a commits por membro,Numero de Atividades que nao deram origem a commits por membro,Horas trabalhadas que nao deram origem a commits por membro,Custo dos Recursos Humanos que nao deram origem a commits por membro".split(",");
+
+        List <Member> members= getMembers(board);
+        data.add(headers);
+        Double commited=0.0;
+        Double Notcommited=0.0;
+
+
+        for(int i =0; i<members.size(); i++) {
+            for (int i2 = 1; i2 <= numberOfSprints(board); i2++) {
+             String [] item ={members.get(i).getUsername(), Integer.toString(i2), Double.toString(getHoursOfWork(board,members.get(i),
+                     "Sprint #"+Integer.toString(i2) )), Double.toString(HumanResourcesCostBySprint(board, members.get(i),
+                     "Sprint #"+Integer.toString(i2) )),Integer.toString(numberOfCardsOriginatedCommitsByMember(board,
+                     members.get(i))), Double.toString(getHoursWorkedForCardsThatOriginatedCommitsByMember(board, members.get(i))),
+                     Double.toString(costHoursWorkedForCardsThatOriginatedCommitsByMember(board, members.get(i))),
+                     Integer.toString(numberOfCardsNotOriginatedCommitsByMember(board, members.get(i))),
+                     Double.toString(getHoursWorkedForCardsThatNotOriginatedCommitsByMember(board, members.get(i))),
+                     Double.toString(costHoursWorkedForCardsThatNotOriginatedCommitsByMember(board, members.get(i)))};
+             data.add(item);
+            }
+            commited=commited+getHoursWorkedForCardsThatOriginatedCommitsByMember(board, members.get(i));
+            Notcommited=Notcommited+getHoursWorkedForCardsThatNotOriginatedCommitsByMember(board, members.get(i));
+
+        }
+        String [] total = {"Total", "","","",Integer.toString(numberOfCardsOriginatedCommits(board)),Double.toString(commited),
+                Double.toString(TotalCostHoursWorkedForCardsThatOriginatedCommits(board)),Integer.toString(numberOfCardsNotOriginatedCommits(board)),
+        Double.toString(Notcommited),Double.toString(TotalCostHoursWorkedForCardsThatNotOriginatedCommits(board))};
+          data.add(total);
+        cw.writeAll(data);
+        cw.close();
+        fw.close();
+        System.out.println("WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+
+
     }
 
 

@@ -203,14 +203,14 @@ public class GUI_Application extends JFrame{
     private void setProject_productBacklog(){
         for (int j = 1; j <= trello.numberOfSprints(board); j++) {
             product_backlog_per_sprint.add("Sprint #"+j+":");
-            for (int i = 0; i < project_lists.size(); i++) {
-                project_productBacklog = trello.getItemsCompletedBySprint(project_lists.get(i), "Sprint #".concat((String.valueOf(j))));
+
+                project_productBacklog = trello.getItemsCompletedBySprint(board, "Sprint #".concat((String.valueOf(j))));
                 for (int n = 0; n < project_productBacklog.size(); n++) {
                     product_backlog_per_sprint.add("  ->"+project_productBacklog.get(n).getName());
                 }
             }
         }
-    }
+
 
     private void setProject_lists(){
         project_lists = trello.getLists(board);
