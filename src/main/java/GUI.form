@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI">
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="10" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="12" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="1" left="1" bottom="1" right="1"/>
     <constraints>
-      <xy x="20" y="20" width="433" height="517"/>
+      <xy x="20" y="20" width="509" height="587"/>
     </constraints>
     <properties>
       <background color="-1"/>
@@ -37,8 +37,8 @@
           <background color="-16744760"/>
           <enabled value="true"/>
           <foreground color="-1"/>
-          <hideActionText value="true"/>
-          <text value="Iniciar Log-in"/>
+          <hideActionText value="false"/>
+          <text value="Iniciar Login"/>
         </properties>
         <clientProperties>
           <hideActionText class="java.lang.Boolean" value="false"/>
@@ -72,7 +72,7 @@
           <background color="-16744760"/>
           <foreground color="-1"/>
           <hideActionText value="true"/>
-          <text value="Log-in GitHub"/>
+          <text value="Login GitHub"/>
         </properties>
       </component>
       <vspacer id="8211b">
@@ -84,7 +84,7 @@
       </vspacer>
       <vspacer id="8cfb">
         <constraints>
-          <grid row="8" column="2" row-span="2" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+          <grid row="10" column="2" row-span="2" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
             <preferred-size width="-1" height="60"/>
           </grid>
         </constraints>
@@ -98,14 +98,14 @@
       </vspacer>
       <hspacer id="9d8cb">
         <constraints>
-          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="30" height="-1"/>
           </grid>
         </constraints>
       </hspacer>
       <hspacer id="593ad">
         <constraints>
-          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="11" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="5" height="-1"/>
           </grid>
         </constraints>
@@ -134,7 +134,7 @@
           <background color="-16744760"/>
           <foreground color="-1"/>
           <hideActionText value="true"/>
-          <text value="Log-in Trello"/>
+          <text value="Login Trello"/>
         </properties>
       </component>
       <vspacer id="cc0be">
@@ -146,14 +146,14 @@
       </vspacer>
       <vspacer id="86e28">
         <constraints>
-          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+          <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
             <preferred-size width="-1" height="30"/>
           </grid>
         </constraints>
       </vspacer>
       <component id="1ebef" class="javax.swing.JButton" binding="button_GithubRepository">
         <constraints>
-          <grid row="9" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="6" fill="0" indent="0" use-parent-layout="false">
+          <grid row="11" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="6" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="25" height="25"/>
             <preferred-size width="25" height="25"/>
             <maximum-size width="25" height="25"/>
@@ -168,6 +168,51 @@
           <hideActionText value="false"/>
           <icon value="MINI_GITHUB.png"/>
           <text value=""/>
+        </properties>
+      </component>
+      <component id="c77bb" class="javax.swing.JCheckBox" binding="checkBox_github_login">
+        <constraints>
+          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="33ce4" class="javax.swing.JCheckBox" binding="checkBox_trello_login">
+        <constraints>
+          <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <selected value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="dbed9" class="javax.swing.JButton" binding="button_validate_logins">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="70" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16744760"/>
+          <foreground color="-1"/>
+          <hideActionText value="true"/>
+          <text value="Validar Logins"/>
+        </properties>
+      </component>
+      <component id="f9097" class="javax.swing.JButton" binding="button_new_gui">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="70" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16744760"/>
+          <foreground color="-1"/>
+          <hideActionText value="true"/>
+          <text value="Carregue Para Começar"/>
         </properties>
       </component>
     </children>
