@@ -203,6 +203,58 @@ public class TrelloAPItest {
             Assertions.assertEquals(cards.get(i).getId(),cartoes.get(i).getId());
 
     }
+    @Test
+    public void getCardOriginatedCommitsByMemberTest(){
+        Board board = trello.getBoard( "Projecto de Engenharia de Software" );
+        Member member = new Member();
+        member.setId("614ddd02472d981f60076600");
+        member.setUsername("filipegoncalves79");
+        List <Card> cards = new ArrayList<Card>();
+        Card card1 = new Card();
+        Card card2 = new Card();
+        Card card3 = new Card();
+        Card card4 = new Card();
+        Card card5 = new Card();
+        Card card6 = new Card();
+        card1.setId("616057da2c07bc5f1a667b81");
+        card2.setId("6160579f46e7956bf66c913c");
+        card3.setId("61605784c8801973f245bbd3");
+        card4.setId("6188258c01e01b8c5311f261");
+        card5.setId("618828410c579047202c81d5");
+        card6.setId("616055bf28919d0724ac473b");
+        cards.add(card1);
+        cards.add(card2);
+        cards.add(card3);
+        cards.add(card4);
+        cards.add(card5);
+        cards.add(card6);
+        List <Card> cartoes = trello.getCardOriginatedCommitsByMember(board,member);
+        for(int i=0; i<cards.size();i++)
+            Assertions.assertEquals(cards.get(i).getId(),cartoes.get(i).getId());
+
+
+    }
+
+    @Test
+    public void getCardNotOriginatedCommitsByMemberTest(){
+        Board board = trello.getBoard( "Projecto de Engenharia de Software" );
+        Member member = new Member();
+        member.setId("614ddd02472d981f60076600");
+        member.setUsername("filipegoncalves79");
+        List <Card> cards = new ArrayList<Card>();
+        Card card1 = new Card();
+        Card card2 = new Card();
+        card1.setId("616b1898dacc1021b84d939b");
+        card2.setId("61605a7b4361810315a0fda4");
+        cards.add(card1);
+        cards.add(card2);
+        List <Card> cartoes = trello.getCardNotOriginatedCommitsByMember(board,member);
+        for(int i=0; i<cards.size();i++)
+            Assertions.assertEquals(cards.get(i).getId(),cartoes.get(i).getId());
+
+
+
+    }
 
 
     @Test
@@ -221,45 +273,45 @@ public class TrelloAPItest {
     }
 
     @Test
-    public void getHoursWorkedForCardsThatOriginatedCommitsTest(){
+    public void getHoursWorkedForCardsThatOriginatedCommitsTestByMember(){
         Board board = trello.getBoard( "Projecto de Engenharia de Software" );
         Member member = new Member();
         member.setId("614ddd02472d981f60076600");
         member.setUsername("filipegoncalves79");
-        double cost = trello.getHoursWorkedForCardsThatOriginatedCommits(board,member);
+        double cost = trello.getHoursWorkedForCardsThatOriginatedCommitsByMember(board,member);
         Assertions.assertEquals(28.0,cost);
 
     }
 
     @Test
-    public void getHoursWorkedForCardsThatNotOriginatedCommitsTest(){
+    public void getHoursWorkedForCardsThatNotOriginatedCommitsTestByMember(){
         Board board = trello.getBoard( "Projecto de Engenharia de Software" );
         Member member = new Member();
         member.setId("614ddd02472d981f60076600");
         member.setUsername("filipegoncalves79");
-        double cost = trello.getHoursWorkedForCardsThatNotOriginatedCommits(board,member);
+        double cost = trello.getHoursWorkedForCardsThatNotOriginatedCommitsByMember(board,member);
         Assertions.assertEquals(7.0,cost);
 
     }
 
     @Test
-    public void costHoursWorkedForCardsThatOriginatedCommitsTest(){
+    public void costHoursWorkedForCardsThatOriginatedCommitsTestByMember(){
         Board board = trello.getBoard( "Projecto de Engenharia de Software" );
         Member member = new Member();
         member.setId("614ddd02472d981f60076600");
         member.setUsername("filipegoncalves79");
-        double cost = trello.costHoursWorkedForCardsThatOriginatedCommits(board,member);
+        double cost = trello.costHoursWorkedForCardsThatOriginatedCommitsByMember(board,member);
         Assertions.assertEquals(560.0,cost);
 
     }
 
     @Test
-    public void costHoursWorkedForCardsThatNotOriginatedCommitsTest(){
+    public void costHoursWorkedForCardsThatNotOriginatedCommitsTestByMember(){
         Board board = trello.getBoard( "Projecto de Engenharia de Software" );
         Member member = new Member();
         member.setId("614ddd02472d981f60076600");
         member.setUsername("filipegoncalves79");
-        double cost = trello.costHoursWorkedForCardsThatNotOriginatedCommits(board,member);
+        double cost = trello.costHoursWorkedForCardsThatNotOriginatedCommitsByMember(board,member);
         Assertions.assertEquals(140.0,cost);
 
     }
@@ -268,7 +320,7 @@ public class TrelloAPItest {
     public void TotalCostHoursWorkedForCardsThatOriginatedCommitsTest(){
         Board board = trello.getBoard( "Projecto de Engenharia de Software" );
         double cost = trello.TotalCostHoursWorkedForCardsThatOriginatedCommits(board);
-        Assertions.assertEquals(1560.0,cost);
+        Assertions.assertEquals(1620.0,cost);
     }
 
     @Test

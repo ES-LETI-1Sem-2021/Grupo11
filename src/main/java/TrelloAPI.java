@@ -275,35 +275,42 @@ public class TrelloAPI {
         double hoursWorked = 0;
         String id = "";
         List<org.trello4j.model.List> lists = getLists(board);
-
+         System.out.println(member.getUsername());
         for (int i3 = 0; i3 < lists.size(); i3++) {
-            if (lists.get(i3).getName().equals("Completed") || lists.get(i3).getName().equals("Sprint Meetings") || lists.get(i3).getName().equals("In Progress")) {
-                id = lists.get(i3).getId();
+            hoursWorked = getHoursWorked(member, sprint, hoursWorked, lists, i3);
+
+        }
+        return hoursWorked;
+    }
+
+    private double getHoursWorked(Member member, String sprint, double hoursWorked, List<org.trello4j.model.List> lists, int i3) {
+        String id;
+        if (lists.get(i3).getName().equals("Completed") || lists.get(i3).getName().equals("Sprint Meetings") || lists.get(i3).getName().equals("In Progress")) {
+            id = lists.get(i3).getId();
 
 
-                List<Card> cards = trelloApi.getCardsByMember(member.getId());
-                for (int i2 = 0; i2 < cards.size(); i2++) {
+            List<Card> cards = trelloApi.getCardsByMember(member.getId());
+            for (int i2 = 0; i2 < cards.size(); i2++) {
 
-                    if (cards.get(i2).getIdList().equals(id)) {
+                if (cards.get(i2).getIdList().equals(id)) {
 
-                        List<Card.Label> labels = cards.get(i2).getLabels();
-                        for (int i5 = 0; i5 < labels.size(); i5++) {
+                    List<Card.Label> labels = cards.get(i2).getLabels();
+                    for (int i5 = 0; i5 < labels.size(); i5++) {
 
-                            if (labels.get(i5).getName().equals(sprint)) {
+                        if (labels.get(i5).getName().equals(sprint)) {
 
-                                String desc = cards.get(i2).getDesc();
-                                String[] hours = desc.split("; ");
+                            String desc = cards.get(i2).getDesc();
+                            String[] hours = desc.split("; ");
 
-                                for (int i4 = 0; i4 < hours.length; i4++) {
-                                    if (hours[i4].contains(member.getUsername()) || hours[i4].contains("global")) {
-                                        String[] hour = hours[i4].split(" ");
-                                        for (int i = 0; i < hour.length; i++) {
-                                            if (hour[i].equals("global") || hour[i].equals(member.getUsername())) {
-                                                  //   System.out.println(hour[i]);
-                                                hoursWorked = hoursWorked + Double.valueOf(hour[i + 1]);
-                                               // System.out.println(hoursWorked);
+                            for (int i4 = 0; i4 < hours.length; i4++) {
+                                if (hours[i4].contains(member.getUsername()) || hours[i4].contains("global")) {
+                                    String[] hour = hours[i4].split(" ");
+                                    for (int i = 0; i < hour.length; i++) {
+                                        if (hour[i].equals("global") || hour[i].equals(member.getUsername())) {
+                                                System.out.println(hour[i]);
+                                            hoursWorked = hoursWorked + Double.valueOf(hour[i + 1]);
+                                            System.out.println(hoursWorked);
 
-                                            }
                                         }
                                     }
                                 }
@@ -312,7 +319,6 @@ public class TrelloAPI {
                     }
                 }
             }
-
         }
         return hoursWorked;
     }
@@ -356,6 +362,37 @@ public class TrelloAPI {
     }
 
     /**
+     * Devolve a lista com os cards em que o membro participa que  originaram commits
+     * @param board
+     * @param member
+     * @return Lista de Card
+     */
+    public List<Card> getCardOriginatedCommitsByMember(Board board,Member member) {
+        org.trello4j.model.List list = getList(board);
+
+        List<Card> commited = new ArrayList<Card>();
+        List<Card> cards = trelloApi.getCardsByMember(member.getId());
+        for (int i = 0; i < cards.size(); i++) {
+            List<Card.Label> labels = cards.get(i).getLabels();
+
+            for(int i4=0; i4<labels.size();i4++) {
+                if (labels.get(i4).getName().equals("GitHub Commits") && cards.get(i).getIdList().equals(list.getId())) {
+
+                    commited.add(cards.get(i));
+                }
+            }
+
+                    }
+
+
+
+
+
+
+        return commited;
+    }
+
+    /**
      * Retorna os cards que não originaram commits no GITHUB
      * @param board
      * @return
@@ -371,11 +408,7 @@ public class TrelloAPI {
                 List<Card> cards = getCards(list.get(i));
                 for (int i2 = 0; i2 < cards.size(); i2++) {
                     List<Card.Label> labels = cards.get(i2).getLabels();
-                    for (int i3 = 0; i3 < labels.size(); i3++) {
-                        if (labels.get(i3).getName().equals("GitHub Commits")) {
-                            label=labels.get(i3);
-                        }
-                    }
+                    label = getLabel(label, labels);
                     if(labels.contains(label)==false){
                         Notcommited.add(cards.get(i2));
                     }
@@ -388,6 +421,88 @@ public class TrelloAPI {
 
     }
 
+    private Card.Label getLabel(Card.Label label, List<Card.Label> labels) {
+        for (int i3 = 0; i3 < labels.size(); i3++) {
+            if (labels.get(i3).getName().equals("GitHub Commits")) {
+                label = labels.get(i3);
+            }
+        }
+        return label;
+    }
+
+
+    /**
+     * Devolve a lista com os cards em que o membro participa que não originaram commits
+     * @param board
+     * @param member
+     * @return Lista de Card
+     */
+    public List<Card> getCardNotOriginatedCommitsByMember(Board board,Member member) {
+        org.trello4j.model.List list = getList(board);
+
+        Card.Label labelg=null;
+        List<Card> Notcommited = new ArrayList<Card>();
+        List<Card> cards = trelloApi.getCardsByMember(member.getId());
+        for (int i = 0; i < cards.size(); i++) {
+            List<Card.Label> labels = cards.get(i).getLabels();
+
+            labelg = getLabel(labelg, labels);
+
+            if( labels.contains(labelg)==false && cards.get(i).getIdList().equals(list.getId())){
+
+                Notcommited.add(cards.get(i));
+            }
+        }
+
+
+
+
+
+
+        return Notcommited;
+    }
+
+    private org.trello4j.model.List getList(Board board) {
+        List<org.trello4j.model.List> lists = getLists(board);
+        org.trello4j.model.List list = null;
+        for (int i5 = 0; i5 < lists.size(); i5++) {
+            if (lists.get(i5).getName().equals("Completed"))
+                list = lists.get(i5);
+        }
+        return list;
+    }
+
+    /**
+     * Número de cards em que o membro member participa que  originaram commits
+     * @param board
+     * @param member
+     * @return int
+     */
+    public int numberOfCardsOriginatedCommitsByMember(Board board,Member member){
+        int count=0;
+        List <Card> commited = getCardOriginatedCommitsByMember(board,member);
+        for(int i6 = 0;i6<commited.size();i6++)
+            count++;
+
+        return count;
+
+    }
+
+    /**
+     * Número de cards em que o membro member participa que não originaram commits
+     * @param board
+     * @param member
+     * @return int
+     */
+    public int numberOfCardsNotOriginatedCommitsByMember(Board board, Member member){
+        int count=0;
+        List <Card> Notcommited = getCardNotOriginatedCommitsByMember(board,member);
+        for(int i6 = 0;i6<Notcommited.size();i6++)
+            count++;
+
+        return count;
+
+    }
     /**
      * Retorna o número de cards que originaram commits nno GITHUB
      * @param board
@@ -424,8 +539,8 @@ public class TrelloAPI {
      * @param member
      * @return
      */
-    public double getHoursWorkedForCardsThatOriginatedCommits(Board board, Member member){
-        List<Card> cards = getCardOriginatedCommits(board);
+    public double getHoursWorkedForCardsThatOriginatedCommitsByMember(Board board, Member member){
+        List<Card> cards = getCardOriginatedCommitsByMember(board,member);
         double hoursWorked=0.0;
         for (int i2 = 0; i2 < cards.size(); i2++) {
 
@@ -457,8 +572,8 @@ public class TrelloAPI {
      * @param member
      * @return
      */
-    public double getHoursWorkedForCardsThatNotOriginatedCommits(Board board, Member member){
-        List<Card> cards = getCardNotOriginatedCommits(board);
+    public double getHoursWorkedForCardsThatNotOriginatedCommitsByMember(Board board, Member member){
+        List<Card> cards = getCardNotOriginatedCommitsByMember(board,member);
         double hoursWorked=0.0;
         for (int i2 = 0; i2 < cards.size(); i2++) {
 
@@ -494,9 +609,9 @@ public class TrelloAPI {
      * @param member
      * @return
      */
-    public double costHoursWorkedForCardsThatOriginatedCommits(Board board, Member member){
+    public double costHoursWorkedForCardsThatOriginatedCommitsByMember(Board board, Member member){
 
-        return  getHoursWorkedForCardsThatOriginatedCommits(board,member)*20;
+        return  getHoursWorkedForCardsThatOriginatedCommitsByMember(board,member)*20;
     }
 
     /**
@@ -505,8 +620,8 @@ public class TrelloAPI {
      * @param member
      * @return
      */
-    public double costHoursWorkedForCardsThatNotOriginatedCommits(Board board, Member member){
-        return  getHoursWorkedForCardsThatNotOriginatedCommits(board,member)*20;
+    public double costHoursWorkedForCardsThatNotOriginatedCommitsByMember(Board board, Member member){
+        return  getHoursWorkedForCardsThatNotOriginatedCommitsByMember(board,member)*20;
     }
 
     /**
@@ -519,7 +634,7 @@ public class TrelloAPI {
         List <Member> members = getMembers(board);
         for(int i=0; i< members.size(); i++){
 
-            cost = cost + costHoursWorkedForCardsThatOriginatedCommits(board, members.get(i));
+            cost = cost + costHoursWorkedForCardsThatOriginatedCommitsByMember(board, members.get(i));
         }
         return cost;
     }
@@ -533,7 +648,7 @@ public class TrelloAPI {
         double cost=0;
         List <Member> members = getMembers(board);
         for(int i=0; i< members.size(); i++){
-            cost = cost + costHoursWorkedForCardsThatNotOriginatedCommits(board, members.get(i));
+            cost = cost + costHoursWorkedForCardsThatNotOriginatedCommitsByMember(board, members.get(i));
         }
         return cost;
     }
