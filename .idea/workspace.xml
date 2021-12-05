@@ -4,24 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="Finalização da TrelloAPI">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_opencsv_opencsv_5_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_text_1_9.xml" afterDir="false" />
+    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="Exportação para CSV">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Activities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataForCSV.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Application.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Application.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GenerateCSV.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TrelloAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TrelloAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Activities.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataForCSV.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Github.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Github.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GenerateCSV.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GithubAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GithubAPI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TrelloAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TrelloAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/GUI_ApplicationTestes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TrelloAPITestes.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -351,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638636185169</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Finalização da TrelloAPI">
+      <created>1638659352202</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1638659352202</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -370,7 +381,8 @@
     <MESSAGE value="msg" />
     <MESSAGE value="Update do Trello Api" />
     <MESSAGE value="Finalização da TrelloAPI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalização da TrelloAPI" />
+    <MESSAGE value="Exportação para CSV" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exportação para CSV" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$TrelloAPItest_numberOfCardsNotOriginatedCommitsTest.ic" NAME="TrelloAPItest.numberOfCardsNotOriginatedCommitsTest Coverage Results" MODIFIED="1638546237667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
