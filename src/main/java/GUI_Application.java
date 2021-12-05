@@ -1,3 +1,4 @@
+import lombok.SneakyThrows;
 import org.trello4j.model.Board;
 import org.trello4j.model.Card;
 import org.trello4j.model.Member;
@@ -7,6 +8,7 @@ import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,6 +29,7 @@ public class GUI_Application extends JFrame{
     private JPanel mainPanel;
     private JButton button_7;
     private JButton button_11;
+    private JButton button_12;
 
     //Aplication Variables
     private static Card card;
@@ -38,6 +41,7 @@ public class GUI_Application extends JFrame{
     private String github_repositoryName;
     private String boardName;
     public TrelloAPI trello;
+    public GithubAPI github;
     public Board board;
     private List<String> project_membersNames = new ArrayList<String>();
     private List<String> project_sprintDescription = new ArrayList<String>();
@@ -120,18 +124,16 @@ public class GUI_Application extends JFrame{
                     if(i==0)columnNames[i] = "Membros" ;
                     else columnNames[i] = "Sprint #" + i;
                 }
-
-                // Initializing the JTable
                 JTable j = new JTable(ConvertHumanResourcesToTableData(), columnNames);
                 j.setBounds(30, 40, 200, 300);
 
-                // adding it to JScrollPane
                 JScrollPane sp = new JScrollPane(j);
                 f.add(sp);
-                // Frame Size
                 f.setSize(500, 200);
-                // Frame Visible = true
                 f.setVisible(true);
+
+                //TODO VER PIE CHART
+
             }
         });
         button_7.addActionListener(new ActionListener() {
@@ -148,7 +150,55 @@ public class GUI_Application extends JFrame{
                 JOptionPane.showMessageDialog(null, total_de_horas_por_Sprint , "Total de horas por Sprint", 1);
             }
         });
+        button_8.addActionListener(new ActionListener() {
+            @SneakyThrows
+            public void actionPerformed(ActionEvent e) {
+                JPanel panel = new JPanel();
+                JFrame frame = new JFrame("Commits Info");
+                JTextArea commitInfo= new JTextArea(github.getCommitInfo());
+                JScrollPane scrollBar=new JScrollPane(panel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+                frame.add(commitInfo);
+                frame.add(scrollBar);
+                frame.add(panel);
+                frame.setSize(500, 200);
+                frame.setVisible(true);
+              //  UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
+               // JOptionPane.showMessageDialog(null, github.getCommitInfo() , "Commits Info", 1);
+            }
+        });
+        button_9.addActionListener(new ActionListener() {
+            @SneakyThrows
+            public void actionPerformed(ActionEvent e) {
+                UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
+                JOptionPane.showMessageDialog(null, github.getREADME() , "Descrição do Projecto", 1);
+            }
+        });
+        button_10.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
+                JOptionPane.showMessageDialog(null, "A" , "Atividades que Originaram Artefactos", 1);
+            }
+        });
+        button_11.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
+                JOptionPane.showMessageDialog(null, "A"  , "Atividades que não Originaram Artefactos", 1);
+            }
+        });
+        button_12.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
+                JOptionPane.showMessageDialog(null, "A"  , "Exportar para .CVS", 1);
+            }
+        });
+
+
     }
+
+
+
+
+
 
     public void setUpApplication(){
         setProject_name();
@@ -204,7 +254,7 @@ public class GUI_Application extends JFrame{
         for (int j = 1; j <= trello.numberOfSprints(board); j++) {
             product_backlog_per_sprint.add("Sprint #"+j+":");
             for (int i = 0; i < project_lists.size(); i++) {
-                project_productBacklog = trello.getItemsCompletedBySprint(project_lists.get(i), "Sprint #".concat((String.valueOf(j))));
+                project_productBacklog = trello.getItemsCompletedBySprint(/*project_lists.get(i)*/board, "Sprint #".concat((String.valueOf(j))));
                 for (int n = 0; n < project_productBacklog.size(); n++) {
                     product_backlog_per_sprint.add("  ->"+project_productBacklog.get(n).getName());
                 }
@@ -249,10 +299,11 @@ public class GUI_Application extends JFrame{
         trello = new TrelloAPI(trello_key,trello_token,trello_username);
     }
 
-    public void setGitHub(String token, String repositoryOwner, String repositoryName) {
+    public void setGitHub(String token, String repositoryOwner, String repositoryName) throws IOException {
         github_token = token;
         github_repositoryOwner = repositoryOwner;
         github_repositoryName = repositoryName;
+        github = new GithubAPI(github_token,github_repositoryOwner,github_repositoryName);
     }
 
 }

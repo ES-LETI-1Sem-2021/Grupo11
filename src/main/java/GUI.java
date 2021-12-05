@@ -1,3 +1,5 @@
+import lombok.SneakyThrows;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -76,27 +78,26 @@ public class GUI extends JFrame {
             }
         });
         button_validate_logins.addActionListener(new ActionListener() {
+            @SneakyThrows
             public void actionPerformed(ActionEvent e) {
                 validLogin_GitHub();
                 validLogin_Trello();
                 if (checkBox_trello_login.isSelected()) {
                     button_trello.setEnabled(false);
-                    checkBox_trello_login.setVisible(false);
-                    trello_gui.setVisible(false);
                 }
                 if (checkBox_github_login.isSelected()) {
                     button_github.setEnabled(false);
-                    checkBox_github_login.setVisible(false);
-                    github_gui.setVisible(false);
                 }
-                if (checkBox_github_login.isSelected() || checkBox_trello_login.isSelected()) {
+                if (checkBox_github_login.isSelected() && checkBox_trello_login.isSelected()) {
                     button_validate_logins.setVisible(false);
                     application_gui.setVisible(true);
                     button_new_gui.setVisible(true);
+                    checkBox_trello_login.setVisible(false);
+                    checkBox_github_login.setVisible(false);
                     button_trello.setVisible(false);
                     button_github.setVisible(false);
                     application_gui.setTrello(trello_gui.getToken(),trello_gui.getKey(),trello_gui.getUser());
-                    //falta setGitHub
+                    application_gui.setGitHub(github_gui.getToken(),github_gui.getRepositoryOwner(),github_gui.getRepositoryName());
                     application_gui.setUpApplication();
                 }
             }
@@ -108,7 +109,7 @@ public class GUI extends JFrame {
             }
         });
     }
-        //encontrado num forum
+
         public static boolean openWebpage (URI uri){
             Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
             if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
@@ -131,12 +132,11 @@ public class GUI extends JFrame {
             return false;
         }
 
-        private void validLogin_Trello () {
+        public void validLogin_Trello () {
             if (trello_gui.validateLogin()) checkBox_trello_login.setSelected(true);
         }
 
-        //VER MAIS TARDE
-        private void validLogin_GitHub () {
-            checkBox_github_login.setSelected(true);
+        public void validLogin_GitHub () {
+            if(github_gui.validateLogin()) checkBox_github_login.setSelected(true);
         }
     }

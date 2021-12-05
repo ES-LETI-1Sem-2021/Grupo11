@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.trello4j.model.Board;
 import org.trello4j.model.Card;
@@ -9,7 +10,26 @@ import java.util.List;
 
 public class TrelloAPItest {
 
-    TrelloAPI trello =new TrelloAPI("a68d6a52bb47c46fb8e95a23af622976", "83e8a25eed6608419b70207e4a9aa57c9891771366f3e12b500184e39a611dc5\n", "filipegoncalves79");
+    TrelloAPI trello;
+    String key;
+    String token;
+    String username;
+
+    @BeforeEach
+    public void create(){
+        key = "a68d6a52bb47c46fb8e95a23af622976";
+        token = "83e8a25eed6608419b70207e4a9aa57c9891771366f3e12b500184e39a611dc5\n";
+        username ="filipegoncalves79";
+
+        trello = new TrelloAPI(key, token, username);
+    }
+
+
+    @Test
+    public void getUsernameTest(){
+        Assertions.assertEquals(username,trello.getUsername());
+    }
+
     @Test
     public void getBoardTest(){
 
