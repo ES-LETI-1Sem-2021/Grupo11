@@ -16,9 +16,9 @@ public class GUI_Github extends JFrame {
     private JPasswordField password_token;
     private JPasswordField password_repositoryOwner;
     private JPasswordField password_repositoryName;
-    private String password_token_text;
-    private String password_repositoryOwner_text;
-    private String password_repositoryName_text;
+    private String password_token_text = "";
+    private String password_repositoryOwner_text = "";
+    private String password_repositoryName_text = "";
     private JButton button_login;
 
     public GUI_Github(String title){
@@ -40,11 +40,7 @@ public class GUI_Github extends JFrame {
         button_login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SetPassword();
-                try {
-                    GithubLogin();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
+                setVisible(false);
             }
         });
     }
@@ -78,21 +74,19 @@ public class GUI_Github extends JFrame {
             PasswordValidation_RepositoryName();
         }
     }
-    private void GithubLogin() throws IOException {
-        System.out.println(password_token_text);
-        System.out.println(password_repositoryOwner_text);
-        System.out.println(password_repositoryName_text);
-        GithubAPI GAPI = new GithubAPI(password_token_text);
-        //GAPI.getProjectDiscription(); //mudar
-        GAPI.getCommitInfo();  //mudar
-
-    }
 
     private void SetPassword(){
         password_token_text = String.valueOf(password_token.getPassword());
         password_repositoryOwner_text = String.valueOf(password_repositoryOwner.getPassword());
         password_repositoryName_text = String.valueOf(password_repositoryName.getPassword());
         PasswordValidation();
+    }
+
+    public boolean validateLogin(){
+         if( password_token_text.isEmpty() || password_repositoryOwner_text.isEmpty() || password_repositoryName_text.isEmpty()){
+            return false;
+        }
+        return true;
     }
 
     //Passwords Getters

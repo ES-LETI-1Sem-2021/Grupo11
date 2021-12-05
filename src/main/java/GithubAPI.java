@@ -1,68 +1,58 @@
-import org.kohsuke.github.GHRepository;
-import org.kohsuke.github.GitHub;
-import org.kohsuke.github.GitHubBuilder;
+import org.kohsuke.github.*;
+
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Classe que que contém os métodos para obter objetos do Trello
+ */
+
 public class GithubAPI {
 
-    private static int NrActivityWArt;
-    private static int NrActivityWOArt;
     private static String Readme;
-    private static List<String> TagList;
-    private static List<String[]> CommitInfo;
-    private static List<String[]> MemberInfo;
-    private GitHub github;
+    private static List<GHTag> TagList;
+    private final GitHub github;
     GHRepository GitRepo;
 
-    public GithubAPI(String password_token_text) throws IOException {
-        github = new GitHubBuilder().withOAuthToken(password_token_text).build();
-        GitRepo = github.getRepository("miguelrato18/ES-LETI-1Sem-2021-Grupo11");
+    public GithubAPI(String token,String repositoryOwner,String repositoryName) throws IOException {
+        github = new GitHubBuilder().withOAuthToken(token).build();
+        GitRepo = github.getRepository(repositoryOwner + "/" + repositoryName);
 
     }
-//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
 
-/*
-manter por enquanto para referencia
-
-    public void getProjectDiscription() throws IOException {
-
-
-
-        //nomes de que ta no project
-        System.out.println(GitRepo.getCollaboratorNames().toString());
-        //ficheiro readme
-        System.out.println(GitRepo.getFileContent("README.md").getContent());
-        //etiquetas
-        System.out.println(GitRepo.listTags());
-        //commits
-        for (int i = 0; i < GitRepo.listCommits().toList().size();i++){
-            System.out.println(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName());
-            System.out.println(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate());
-            System.out.println(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage());
-        }
-
-
-    }
-    */
+    /**
+     * Devolve numa String o conteudo do ficheiro README.md presente no repositório GitHub
+     *
+     * @return - uma String;
+     */
 
     public String getREADME() throws IOException {
-    return GitRepo.getFileContent("README.md").getContent();
+        Readme = GitRepo.getFileContent("README.md").getContent();
+    return Readme;
     }
 
+    /**
+     * Devolve numa String toda a informação sobre os commits no repositório
+     *
+     * @return - uma String;
+     */
     public String getCommitInfo() throws IOException {
-        String ret = new String("");
-        for (int i = 0; i < GitRepo.listCommits().toList().size();i++){
-            ret = (ret + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName() + "\n"
-                    + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate() + "\n"
-                    + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage() + "\n" + "\n");
+        String commitInfo = "";
+        for (int i = 0; i < GitRepo.listCommits().toList().size();i++) {
+            commitInfo += GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName() + "\n"
+                   + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate() + "\n"
+                   + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage() + "\n\n";
         }
-        return ret;
+        return commitInfo;
     }
 
-    //por testar
-    public String getTags() throws IOException {
-        return GitRepo.listTags().toString();
+    /**
+     * Devolve uma lista de objectos do tipo GHTag
+     *
+     * @return - uma List de GHTag
+     */
+    public List<GHTag> getTags() throws IOException {
+        TagList = GitRepo.listTags().toList();
+        return TagList;
     }
-
 }
