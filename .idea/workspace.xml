@@ -4,53 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="+Update">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_mashape_unirest_unirest_java_1_4_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpasyncclient_4_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_nio_4_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20160212.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/GithubAPITest.java" afterDir="false" />
+    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="+Update: JavaDoc;&#10;         Implementação de funções do GithubAPI na GUI_Application;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Application.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Application.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Github.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Github.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Trello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Trello.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GithubAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GithubAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TrelloAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TrelloAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GithubAPITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GithubAPITest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TrelloAPItest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TrelloAPItest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Github$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Github$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Github.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Github.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Trello$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Trello$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Trello.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Trello.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GithubAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GithubAPI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/TrelloAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TrelloAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/GUI_ApplicationTestes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TrelloAPITestes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TrelloAPItest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TrelloAPItest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +106,7 @@
       <recent name="C:\Users\Pedro Afonso Santana\IdeaProjects\ES-LETI-1Sem-2021-Grupo11" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.TrelloAPItest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Project" />
@@ -169,12 +133,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrelloAPItest.TotalCostHoursWorkedForCardsThatNotOriginatedCommitsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TrelloAPItest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TrelloAPItest" />
-      <option name="METHOD_NAME" value="TotalCostHoursWorkedForCardsThatNotOriginatedCommitsTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -191,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TrelloAPItest" />
+        <item itemvalue="JUnit.GithubAPITest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.GithubAPITest.getTags" />
-        <item itemvalue="JUnit.GithubAPITest" />
         <item itemvalue="JUnit.TrelloAPItest.TotalCostHoursWorkedForCardsThatOriginatedCommitsTest" />
-        <item itemvalue="JUnit.TrelloAPItest.TotalCostHoursWorkedForCardsThatNotOriginatedCommitsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -358,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638474755433</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="+Update: JavaDoc;&#10;         Implementação de funções do GithubAPI na GUI_Application;">
+      <created>1638727467439</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1638727467439</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,11 +347,13 @@
     <MESSAGE value="msg" />
     <MESSAGE value="Update do Trello Api" />
     <MESSAGE value="Finalização da TrelloAPI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalização da TrelloAPI" />
+    <MESSAGE value="+Update: JavaDoc;&#10;         Implementação de funções do GithubAPI na GUI_Application;" />
+    <option name="LAST_COMMIT_MESSAGE" value="+Update: JavaDoc;&#10;         Implementação de funções do GithubAPI na GUI_Application;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$TrelloAPItest.ic" NAME="TrelloAPItest Coverage Results" MODIFIED="1638544554605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$Main.ic" NAME="Main Coverage Results" MODIFIED="1638721607576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$TrelloAPItest.ic" NAME="TrelloAPItest Coverage Results" MODIFIED="1638813327474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$GithubAPITest.ic" NAME="GithubAPITest Coverage Results" MODIFIED="1638813303996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$Main.ic" NAME="Main Coverage Results" MODIFIED="1638813059353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$GUI.ic" NAME="GUI Coverage Results" MODIFIED="1635539307713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$TrelloAPITestes.ic" NAME="TrelloAPITestes Coverage Results" MODIFIED="1638399881610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>

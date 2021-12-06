@@ -153,15 +153,19 @@ public class GUI_Application extends JFrame{
         button_8.addActionListener(new ActionListener() {
             @SneakyThrows
             public void actionPerformed(ActionEvent e) {
-                JPanel panel = new JPanel();
                 JFrame frame = new JFrame("Commits Info");
+                JPanel panel = new JPanel();
                 JTextArea commitInfo= new JTextArea(github.getCommitInfo());
-                JScrollPane scrollBar=new JScrollPane(panel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-                frame.add(commitInfo);
-                frame.add(scrollBar);
-                frame.add(panel);
+                JScrollPane scrollBar= new JScrollPane(commitInfo);
+                scrollBar.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+                commitInfo.setLineWrap(true);
+                commitInfo.setEditable(false);
+
                 frame.setSize(500, 200);
                 frame.setVisible(true);
+
+                frame.add(scrollBar);
               //  UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
                // JOptionPane.showMessageDialog(null, github.getCommitInfo() , "Commits Info", 1);
             }
@@ -253,12 +257,10 @@ public class GUI_Application extends JFrame{
     private void setProject_productBacklog(){
         for (int j = 1; j <= trello.numberOfSprints(board); j++) {
             product_backlog_per_sprint.add("Sprint #"+j+":");
-            for (int i = 0; i < project_lists.size(); i++) {
-                project_productBacklog = trello.getItemsCompletedBySprint(/*project_lists.get(i)*/board, "Sprint #".concat((String.valueOf(j))));
+            project_productBacklog = trello.getItemsCompletedBySprint(board, "Sprint #".concat((String.valueOf(j))));
                 for (int n = 0; n < project_productBacklog.size(); n++) {
                     product_backlog_per_sprint.add("  ->"+project_productBacklog.get(n).getName());
                 }
-            }
         }
     }
 

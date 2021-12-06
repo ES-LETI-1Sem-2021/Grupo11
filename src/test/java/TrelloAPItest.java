@@ -246,7 +246,7 @@ public class TrelloAPItest {
         Member member = new Member();
         member.setId("614ddd02472d981f60076600");
         member.setUsername("filipegoncalves79");
-        double cost = trello.getHoursWorkedForCardsThatOriginatedCommits(board,member);
+        double cost = trello.getHoursWorkedForCardsThatOriginatedCommitsByMember(board,member);
         Assertions.assertEquals(28.0,cost);
 
     }
@@ -257,7 +257,7 @@ public class TrelloAPItest {
         Member member = new Member();
         member.setId("614ddd02472d981f60076600");
         member.setUsername("filipegoncalves79");
-        double cost = trello.getHoursWorkedForCardsThatNotOriginatedCommits(board,member);
+        double cost = trello.getHoursWorkedForCardsThatNotOriginatedCommitsByMember(board,member);
         Assertions.assertEquals(7.0,cost);
 
     }
@@ -268,7 +268,7 @@ public class TrelloAPItest {
         Member member = new Member();
         member.setId("614ddd02472d981f60076600");
         member.setUsername("filipegoncalves79");
-        double cost = trello.costHoursWorkedForCardsThatOriginatedCommits(board,member);
+        double cost = trello.costHoursWorkedForCardsThatOriginatedCommitsByMember(board,member);
         Assertions.assertEquals(560.0,cost);
 
     }
@@ -279,7 +279,7 @@ public class TrelloAPItest {
         Member member = new Member();
         member.setId("614ddd02472d981f60076600");
         member.setUsername("filipegoncalves79");
-        double cost = trello.costHoursWorkedForCardsThatNotOriginatedCommits(board,member);
+        double cost = trello.costHoursWorkedForCardsThatNotOriginatedCommitsByMember(board,member);
         Assertions.assertEquals(140.0,cost);
 
     }
@@ -288,7 +288,7 @@ public class TrelloAPItest {
     public void TotalCostHoursWorkedForCardsThatOriginatedCommitsTest(){
         Board board = trello.getBoard( "Projecto de Engenharia de Software" );
         double cost = trello.TotalCostHoursWorkedForCardsThatOriginatedCommits(board);
-        Assertions.assertEquals(1560.0,cost);
+        Assertions.assertEquals(1620.0,cost);
     }
 
     @Test

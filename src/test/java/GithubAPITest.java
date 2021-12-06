@@ -16,7 +16,7 @@ public class GithubAPITest {
 
     @BeforeEach
     public void create() throws IOException {
-        token = "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";
+        token = "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";
         repositoryOwner = "miguelrato18";
         repositoryName = "ES-LETI-1Sem-2021-Grupo11";
 
