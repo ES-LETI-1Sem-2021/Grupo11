@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Classe que que contém os métodos para obter objetos do Trello
+ * Classe que que contém os métodos para obter objetos do Github
  */
 public class GithubAPI {
 
@@ -32,16 +32,18 @@ public class GithubAPI {
 
 
     /**
-     * Devolve numa String toda a informação sobre os commits no repositório
+     * Devolve numa String toda a informação sobre os commits no repositório do autor fornecido
      *
      * @return - uma String;
      */
-    public String getCommitInfo() throws IOException {
+    public String getCommitInfo(GHUser autor) throws IOException {
         String commitInfo = "";
         for (int i = 0; i < GitRepo.listCommits().toList().size();i++) {
-            commitInfo += GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName() + "\n"
-                   + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate() + "\n"
-                   + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage() + "\n\n";
+            if(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().equals(autor)) {
+                commitInfo += GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName() + ",\n"
+                        + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate() + ",\n"
+                        + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage() + "\n\n";
+            }
         }
         return commitInfo;
     }
@@ -56,4 +58,7 @@ public class GithubAPI {
         TagList = GitRepo.listTags().toList();
         return TagList;
     }
+
+
+
 }
