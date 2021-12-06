@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Classe que que contém os métodos para obter objetos do Trello
+ * Classe que que contém os métodos para obter objetos do Github
  */
 public class GithubAPI {
 
@@ -32,7 +32,7 @@ public class GithubAPI {
 
 
     /**
-     * Devolve numa String toda a informação sobre os commits no repositório
+     * Devolve numa String toda a informação sobre os commits no repositório do autor fornecido
      *
      * @return - uma String;
      */
