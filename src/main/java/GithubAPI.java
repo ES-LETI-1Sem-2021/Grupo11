@@ -6,7 +6,6 @@ import java.util.List;
 /**
  * Classe que que contém os métodos para obter objetos do Trello
  */
-
 public class GithubAPI {
 
     private static String Readme;
@@ -20,16 +19,17 @@ public class GithubAPI {
 
     }
 
+
     /**
      * Devolve numa String o conteudo do ficheiro README.md presente no repositório GitHub
      *
      * @return - uma String;
      */
-
     public String getREADME() throws IOException {
         Readme = GitRepo.getFileContent("README.md").getContent();
     return Readme;
     }
+
 
     /**
      * Devolve numa String toda a informação sobre os commits no repositório
@@ -45,6 +45,7 @@ public class GithubAPI {
         }
         return commitInfo;
     }
+
 
     /**
      * Devolve uma lista de objectos do tipo GHTag
