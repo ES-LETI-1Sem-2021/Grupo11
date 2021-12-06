@@ -10,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class GUI_Application extends JFrame{
@@ -29,6 +28,7 @@ public class GUI_Application extends JFrame{
     private JPanel mainPanel;
     private JButton button_7;
     private JButton button_11;
+    private JButton button_13;
     private JButton button_12;
 
     //Aplication Variables
@@ -47,14 +47,20 @@ public class GUI_Application extends JFrame{
     private List<String> project_sprintDescription = new ArrayList<String>();
     private List<String> product_backlog_per_sprint = new ArrayList<String>();
     private List<String> project_sprintDates = new ArrayList<String>();
+    private List<String> cardsNotOriginatedCommitsNames = new ArrayList<String>();
+    private List<String> cardsOriginatedCommitsNames = new ArrayList<String>();
     private List<Double> project_sprintHoursOfWork = new ArrayList<Double>();
     private List<Double> project_humanResourcesCost = new ArrayList<Double>();
+    private List<Card> project_cardNotOriginatedCommits;
+    private List<Card> project_cardOriginatedCommits;
     private List<Member> project_members;
     private List<org.trello4j.model.List> project_lists;
     private List<Card> project_productBacklog;
     private String total_de_horas_por_Sprint;
     private String datas_dos_sprints;
     private String product_backlog;
+    private String notOriginatedCommits;
+    private String originatedCommits;
     private String membros_do_projecto_Names;
     private String atas_das_reunioes;
     private String project_startDate;
@@ -118,19 +124,18 @@ public class GUI_Application extends JFrame{
         });
         button_6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JFrame f = new JFrame("Custo por Sprint");
+                JFrame frame = new JFrame("Custo por Sprint");
                 String[] columnNames = new String[trello.numberOfSprints(board)+1];
                 for(int i=0; i<=trello.numberOfSprints(board);i++){
                     if(i==0)columnNames[i] = "Membros" ;
                     else columnNames[i] = "Sprint #" + i;
                 }
-                JTable j = new JTable(ConvertHumanResourcesToTableData(), columnNames);
-                j.setBounds(30, 40, 200, 300);
-
-                JScrollPane sp = new JScrollPane(j);
-                f.add(sp);
-                f.setSize(500, 200);
-                f.setVisible(true);
+                JTable table = new JTable(ConvertHumanResourcesToTableData(), columnNames);
+                table.setBounds(30, 40, 200, 300);
+                JScrollPane scrollBar = new JScrollPane(table);
+                frame.add(scrollBar);
+                frame.setSize(500, 200);
+                frame.setVisible(true);
 
                 //TODO VER PIE CHART
 
@@ -158,16 +163,11 @@ public class GUI_Application extends JFrame{
                 JTextArea commitInfo= new JTextArea(github.getCommitInfo());
                 JScrollPane scrollBar= new JScrollPane(commitInfo);
                 scrollBar.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-
                 commitInfo.setLineWrap(true);
                 commitInfo.setEditable(false);
-
                 frame.setSize(500, 200);
                 frame.setVisible(true);
-
                 frame.add(scrollBar);
-              //  UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
-               // JOptionPane.showMessageDialog(null, github.getCommitInfo() , "Commits Info", 1);
             }
         });
         button_9.addActionListener(new ActionListener() {
@@ -179,17 +179,25 @@ public class GUI_Application extends JFrame{
         });
         button_10.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                originatedCommits = cardsOriginatedCommitsNames.toString().replace("[","").replace("]","").replace(", ","\n");
                 UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
-                JOptionPane.showMessageDialog(null, "A" , "Atividades que Originaram Artefactos", 1);
+                JOptionPane.showMessageDialog(null, originatedCommits , "Atividades que Originaram Artefactos", 1);
             }
         });
         button_11.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                notOriginatedCommits = cardsNotOriginatedCommitsNames.toString().replace("[","").replace("]","").replace(", ","\n");
                 UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
-                JOptionPane.showMessageDialog(null, "A"  , "Atividades que não Originaram Artefactos", 1);
+                JOptionPane.showMessageDialog(null, notOriginatedCommits  , "Atividades que não Originaram Artefactos", 1);
             }
         });
         button_12.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
+                JOptionPane.showMessageDialog(null, "A"  , "Etiquetas do Repositório", 1);
+            }
+        });
+        button_13.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
                 JOptionPane.showMessageDialog(null, "A"  , "Exportar para .CVS", 1);
@@ -198,10 +206,6 @@ public class GUI_Application extends JFrame{
 
 
     }
-
-
-
-
 
 
     public void setUpApplication(){
@@ -215,6 +219,8 @@ public class GUI_Application extends JFrame{
         setProject_sprintDates();
         setProject_sprintHoursOfWork();
         setProject_humanResourcesCost();
+        setProject_cardOriginatedCommits();
+        setProject_cardNotOriginatedCommits();
     }
     private String[][] ConvertHumanResourcesToTableData(){
         String[][] tableData = new String[project_members.size()][trello.numberOfSprints(board)+1];
@@ -225,6 +231,20 @@ public class GUI_Application extends JFrame{
             }
         }
         return tableData;
+    }
+
+    private void setProject_cardOriginatedCommits(){
+        project_cardOriginatedCommits = trello.getCardOriginatedCommits(board);
+        for(int i=0; i<project_cardOriginatedCommits.size(); i++){
+            cardsOriginatedCommitsNames.add(project_cardOriginatedCommits.get(i).getName());
+        }
+    }
+
+    private void setProject_cardNotOriginatedCommits(){
+        project_cardNotOriginatedCommits = trello.getCardNotOriginatedCommits(board);
+        for(int i=0; i<project_cardNotOriginatedCommits.size(); i++){
+            cardsNotOriginatedCommitsNames.add(project_cardNotOriginatedCommits.get(i).getName());
+        }
     }
 
     private void formatSprintDescription(){
@@ -292,6 +312,7 @@ public class GUI_Application extends JFrame{
            project_membersNames.add(project_members.get(i).getFullName());
         }
     }
+
 
     //Passwords Setters
     public void setTrello(String token, String key, String username) {
