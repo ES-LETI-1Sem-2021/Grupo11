@@ -9,7 +9,7 @@ import java.util.List;
 public class GithubAPI {
 
     private static String Readme;
-    private static List<GHTag> TagList;
+    private static List<GHTag> tagList;
     private final GitHub github;
     GHRepository GitRepo;
 
@@ -30,13 +30,28 @@ public class GithubAPI {
     return Readme;
     }
 
-
     /**
-     * Devolve numa String toda a informação sobre os commits no repositório do autor fornecido
+     * Devolve numa String toda a informação sobre os commits no repositório
      *
      * @return - uma String;
      */
-    public String getCommitInfo(GHUser autor) throws IOException {
+    public String getCommitInfo() throws IOException {
+        String commitInfo = "";
+        for (int i = 0; i < GitRepo.listCommits().toList().size();i++) {
+            commitInfo += GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName() + "\n"
+                          + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate() + "\n"
+                          + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage() + "\n\n";
+        }
+        return commitInfo;
+    }
+
+
+    /**
+     * Devolve numa String toda a informação sobre os commits no repositório do autor fornecido
+     * @param autor
+     * @return - uma String;
+     */
+    public String getCommitInfoByMember(GHUser autor) throws IOException {
         String commitInfo = "";
         for (int i = 0; i < GitRepo.listCommits().toList().size();i++) {
             if(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().equals(autor)) {
@@ -55,8 +70,8 @@ public class GithubAPI {
      * @return - uma List de GHTag
      */
     public List<GHTag> getTags() throws IOException {
-        TagList = GitRepo.listTags().toList();
-        return TagList;
+        tagList = GitRepo.listTags().toList();
+        return tagList;
     }
 
 

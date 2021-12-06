@@ -1,4 +1,5 @@
 import lombok.SneakyThrows;
+import org.kohsuke.github.GHTag;
 import org.trello4j.model.Board;
 import org.trello4j.model.Card;
 import org.trello4j.model.Member;
@@ -49,6 +50,7 @@ public class GUI_Application extends JFrame{
     private List<String> project_sprintDates = new ArrayList<String>();
     private List<String> cardsNotOriginatedCommitsNames = new ArrayList<String>();
     private List<String> cardsOriginatedCommitsNames = new ArrayList<String>();
+    private List<String> project_githubTagsNames = new ArrayList<String>();
     private List<Double> project_sprintHoursOfWork = new ArrayList<Double>();
     private List<Double> project_humanResourcesCost = new ArrayList<Double>();
     private List<Card> project_cardNotOriginatedCommits;
@@ -56,9 +58,11 @@ public class GUI_Application extends JFrame{
     private List<Member> project_members;
     private List<org.trello4j.model.List> project_lists;
     private List<Card> project_productBacklog;
+    private List<GHTag> project_githubTags;
     private String total_de_horas_por_Sprint;
     private String datas_dos_sprints;
     private String product_backlog;
+    private String githubTagsNames;
     private String notOriginatedCommits;
     private String originatedCommits;
     private String membros_do_projecto_Names;
@@ -193,8 +197,9 @@ public class GUI_Application extends JFrame{
         });
         button_12.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                githubTagsNames = project_githubTagsNames.toString().replace("[","").replace("]","").replace(", ","\n");
                 UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
-                JOptionPane.showMessageDialog(null, "A"  , "Etiquetas do Repositório", 1);
+                JOptionPane.showMessageDialog(null, githubTagsNames  , "Etiquetas do Repositório", 1);
             }
         });
         button_13.addActionListener(new ActionListener() {
@@ -203,12 +208,10 @@ public class GUI_Application extends JFrame{
                 JOptionPane.showMessageDialog(null, "A"  , "Exportar para .CVS", 1);
             }
         });
-
-
     }
 
 
-    public void setUpApplication(){
+    public void setUpApplication() throws IOException {
         setProject_name();
         setProject_board();
         setProject_members();
@@ -221,6 +224,7 @@ public class GUI_Application extends JFrame{
         setProject_humanResourcesCost();
         setProject_cardOriginatedCommits();
         setProject_cardNotOriginatedCommits();
+        setProject_githubTags();
     }
     private String[][] ConvertHumanResourcesToTableData(){
         String[][] tableData = new String[project_members.size()][trello.numberOfSprints(board)+1];
@@ -231,6 +235,13 @@ public class GUI_Application extends JFrame{
             }
         }
         return tableData;
+    }
+
+    private void setProject_githubTags() throws IOException {
+        project_githubTags = github.getTags();
+        for(int i =0; i< project_githubTags.size();i++){
+            project_githubTagsNames.add(project_githubTags.get(i).getName());
+        }
     }
 
     private void setProject_cardOriginatedCommits(){

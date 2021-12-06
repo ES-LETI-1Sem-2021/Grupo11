@@ -6,16 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="+Update;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Application.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Application.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GithubAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GithubAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$10.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$11.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TrelloAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TrelloAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TrelloAPItest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TrelloAPItest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GithubAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GithubAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/GithubAPITest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/GithubAPITest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638814470563</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="+Update;">
+      <created>1638819629087</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1638819629087</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
