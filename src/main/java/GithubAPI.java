@@ -36,12 +36,14 @@ public class GithubAPI {
      *
      * @return - uma String;
      */
-    public String getCommitInfo() throws IOException {
+    public String getCommitInfo(GHUser autor) throws IOException {
         String commitInfo = "";
         for (int i = 0; i < GitRepo.listCommits().toList().size();i++) {
-            commitInfo += GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName() + "\n"
-                   + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate() + "\n"
-                   + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage() + "\n\n";
+            if(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().equals(autor)) {
+                commitInfo += GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName() + ",\n"
+                        + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate() + ",\n"
+                        + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage() + "\n\n";
+            }
         }
         return commitInfo;
     }
@@ -56,4 +58,7 @@ public class GithubAPI {
         TagList = GitRepo.listTags().toList();
         return TagList;
     }
+
+
+
 }
