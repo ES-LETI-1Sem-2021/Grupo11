@@ -78,12 +78,11 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx -->
+        <!-- https://mvnrepository.com/artifact/org.jfree/jfreechart -->
         <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>javafx</artifactId>
-            <version>2.2.3</version>
+            <groupId>org.jfree</groupId>
+            <artifactId>jfreechart</artifactId>
+            <version>1.5.3</version>
         </dependency>
-
     </dependencies>
 </project>

@@ -1,4 +1,9 @@
+import com.opencsv.CSVWriter;
 import lombok.SneakyThrows;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
 import org.kohsuke.github.GHTag;
 import org.trello4j.model.Board;
 import org.trello4j.model.Card;
@@ -9,15 +14,17 @@ import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Classe que cria e executa ações da GUI Application
  * contendo métodos e funções para a sua execução.
  */
-
 public class GUI_Application extends JFrame{
 
     //GUI Objects
@@ -124,6 +131,9 @@ public class GUI_Application extends JFrame{
         });
         button_6.addActionListener(e -> {
             JFrame frame = new JFrame("Custo por Sprint");
+            JFrame framePiechartSprint1 = new JFrame("Custo Sprint #1");
+            JFrame framePiechartSprint2 = new JFrame("Custo Sprint #2");
+            JFrame framePiechartSprint3 = new JFrame("Custo Sprint #3");
             String[] columnNames = new String[trello.numberOfSprints(board)+1];
             for(int i=0; i<=trello.numberOfSprints(board);i++){
                 if(i==0)columnNames[i] = "Membros" ;
@@ -133,11 +143,28 @@ public class GUI_Application extends JFrame{
             table.setBounds(30, 40, 200, 300);
             JScrollPane scrollBar = new JScrollPane(table);
             frame.add(scrollBar);
+
+            JFreeChart pieChartSprint1 = ChartFactory.createPieChart("", pieChartDataSet(1), true, true, false);
+            JFreeChart pieChartSprint2 = ChartFactory.createPieChart("", pieChartDataSet(2), true, true, false);
+            JFreeChart pieChartSprint3 = ChartFactory.createPieChart("", pieChartDataSet(3), true, true, false);
+
+            ChartPanel chartPanelSprint1 = new ChartPanel(pieChartSprint1);
+            framePiechartSprint1.add(chartPanelSprint1);
+            framePiechartSprint1.setSize(500, 250);
+            framePiechartSprint1.setVisible(true);
+
+            ChartPanel chartPanelSprint2 = new ChartPanel(pieChartSprint2);
+            framePiechartSprint2.add(chartPanelSprint2);
+            framePiechartSprint2.setSize(500, 250);
+            framePiechartSprint2.setVisible(true);
+
+            ChartPanel chartPanelSprint3 = new ChartPanel(pieChartSprint3);
+            framePiechartSprint3.add(chartPanelSprint3);
+            framePiechartSprint3.setSize(500, 250);
+            framePiechartSprint3.setVisible(true);
+
             frame.setSize(500, 200);
             frame.setVisible(true);
-
-            //TODO VER PIE CHART
-
         });
         button_7.addActionListener(e -> {
             for( int i = 1; i<= trello.numberOfSprints(board); i++){
@@ -188,8 +215,14 @@ public class GUI_Application extends JFrame{
             JOptionPane.showMessageDialog(null, githubTagsNames  , "Etiquetas do Repositório", JOptionPane.INFORMATION_MESSAGE);
         });
         button_13.addActionListener(e -> {
+            char charDelimiter = JOptionPane.showInputDialog(null, "Por favor insira Caracter delimitador utilizado pelo EXCEL no seu PC", "",JOptionPane.WARNING_MESSAGE).charAt(0);
+            try {
+                exportarCSV(board,charDelimiter);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
             UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
-            JOptionPane.showMessageDialog(null, "A Exportar para .CVS"  , "Exportar para .CVS", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Parametros Exportados para ficheiro Dados.csv"  , "Exportar para .CVS", JOptionPane.INFORMATION_MESSAGE);
         });
     }
 
@@ -254,6 +287,22 @@ public class GUI_Application extends JFrame{
         atas_das_reunioes = atas_das_reunioes.replace(": \n",": \n         ");
         atas_das_reunioes = atas_das_reunioes.replace(",  Duração:", ".         Duração:");
         atas_das_reunioes = atas_das_reunioes.replace(".", ".\n         ");
+    }
+
+
+    /**
+     * Função que coverte as lista project_Members, lista project_humanResourcesCost
+     * no formato necessario para criar um PieChart.
+     *
+     * @param sprintNumber - Numero do Sprint;
+     * @return - um DefaultPieDataset;
+     */
+    private DefaultPieDataset pieChartDataSet(int sprintNumber){
+        var dataset = new DefaultPieDataset();
+            for (int j = 0; j < project_members.size(); j++) {
+                dataset.setValue((project_membersNames.get(j)),project_humanResourcesCost.get(((sprintNumber-1)*project_members.size())+j).intValue());
+            }
+        return dataset;
     }
 
 
@@ -388,6 +437,56 @@ public class GUI_Application extends JFrame{
         for(int i=0; i<project_members.size(); i++){
            project_membersNames.add(project_members.get(i).getFullName());
         }
+    }
+
+
+    /**
+     * Exporta a informação pretendida para um ficheiro .csv .
+     *
+     * @param board - Objecto do tipo Board;
+     * @param charDelimiter - Objecto do tipo char;
+     * @throws IOException;
+     */
+    public void exportarCSV(Board board,char charDelimiter) throws IOException {
+        FileWriter fw = new FileWriter(new File("Dados.csv"));
+        CSVWriter cw = new CSVWriter(fw,charDelimiter, CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
+        List <String[]> data = new ArrayList<String[]>();
+
+        String [] headers ="Membros,Sprint,Horas de Trabalho por Sprint,Custo dos Recursos Humanos por Sprint,Numero de Atividades que deram origem a commits por membro ,Horas trabalhadas que deram origem a commits por membro,Custo dos Recursos Humanos que deram origem a commits por membro,Numero de Atividades que nao deram origem a commits por membro,Horas trabalhadas que nao deram origem a commits por membro,Custo dos Recursos Humanos que nao deram origem a commits por membro".split(",");
+
+        List <Member> members= trello.getMembers(board);
+        data.add(headers);
+        Double committed=0.0;
+        Double notCommitted=0.0;
+
+        for(int i =0; i<members.size(); i++) {
+            for (int i2 = 1; i2 <=trello.numberOfSprints(board); i2++) {
+                String [] item ={members.get(i).getUsername(), Integer.toString(i2), Double.toString(trello.getHoursOfWork(board,members.get(i),
+                        "Sprint #"+Integer.toString(i2) )), Double.toString(trello.HumanResourcesCostBySprint(board, members.get(i),
+                        "Sprint #"+Integer.toString(i2) )),Integer.toString(trello.numberOfCardsOriginatedCommitsByMember(board,
+                        members.get(i))), Double.toString(trello.getHoursWorkedForCardsThatOriginatedCommitsByMember(board, members.get(i))),
+                        Double.toString(trello.costHoursWorkedForCardsThatOriginatedCommitsByMember(board, members.get(i))),
+                        Integer.toString(trello.numberOfCardsNotOriginatedCommitsByMember(board, members.get(i))),
+                        Double.toString(trello.getHoursWorkedForCardsThatNotOriginatedCommitsByMember(board, members.get(i))),
+                        Double.toString(trello.costHoursWorkedForCardsThatNotOriginatedCommitsByMember(board, members.get(i)))};
+                data.add(item);
+            }
+            committed=committed+trello.getHoursWorkedForCardsThatOriginatedCommitsByMember(board, members.get(i));
+            notCommitted=notCommitted+trello.getHoursWorkedForCardsThatNotOriginatedCommitsByMember(board, members.get(i));
+        }
+        String [] total = {"Total", "","","",Integer.toString(trello.numberOfCardsOriginatedCommits(board)),Double.toString(committed),
+                Double.toString(trello.TotalCostHoursWorkedForCardsThatOriginatedCommits(board)),Integer.toString(trello.numberOfCardsNotOriginatedCommits(board)),
+                Double.toString(notCommitted),Double.toString(trello.TotalCostHoursWorkedForCardsThatNotOriginatedCommits(board))};
+        data.add(total);
+
+        String [] space = {"", "","","","","", "","", "",""};
+        data.add(space);
+        String [] headersGit ="Author,Data do Commit,Info do Commit".split(",");
+        data.add(headersGit);
+
+        cw.writeAll(data);
+        cw.close();
+        fw.close();
     }
 
 
