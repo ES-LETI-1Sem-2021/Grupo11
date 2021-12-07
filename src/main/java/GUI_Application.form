@@ -299,20 +299,6 @@
           <text value="Atividades que Originaram Artefactos"/>
         </properties>
       </component>
-      <component id="1a492" class="javax.swing.JButton" binding="button_12">
-        <constraints>
-          <grid row="11" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="30"/>
-            <preferred-size width="150" height="30"/>
-            <maximum-size width="150" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-16744760"/>
-          <foreground color="-1"/>
-          <text value="Exportar para .CVS"/>
-        </properties>
-      </component>
     </children>
   </grid>
 </form>

@@ -32,17 +32,36 @@ public class GithubAPI {
 
 
     /**
-     * Devolve numa String toda a informação sobre os commits no repositório
+     * Devolve numa String toda a informação sobre os commits no repositório.
      *
      * @return - uma String;
+     * @throws IOException;
      */
-    public String getCommitInfo(GHUser autor) throws IOException {
+    public String getCommitInfo() throws IOException {
         String commitInfo = "";
         for (int i = 0; i < GitRepo.listCommits().toList().size();i++) {
-            if(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().equals(autor)) {
-                commitInfo += GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName() + ",\n"
-                        + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate() + ",\n"
-                        + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage() + "\n\n";
+            commitInfo += GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName() + "\n"
+                    + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate() + "\n"
+                    + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage() + "\n\n";
+        }
+        return commitInfo;
+    }
+
+
+    /**
+     * Devolve numa String toda a informação sobre os commits no repositório do autor fornecido.
+     *
+     * @param autor - Objecto do tipo GHUser;
+     * @return - uma String;
+     * @throws IOException;
+     */
+    public String getCommitInfoByMember(GHUser autor) throws IOException {
+        String commitInfo = "";
+        for (int i = 0; i < GitRepo.listCommits().toList().size();i++) {
+            if(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName().equals(autor.getName())) {
+                commitInfo += GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName() + ","
+                        + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate() + ","
+                       /* + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage()*/ ;
             }
         }
         return commitInfo;
