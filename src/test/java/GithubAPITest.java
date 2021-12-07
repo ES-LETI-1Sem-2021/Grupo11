@@ -39,9 +39,11 @@ public class GithubAPITest {
         Assertions.assertEquals(readme, github.getREADME());
     }
 
+    //TODO TESTS para as funções:getCommitInfo e getCommitInfoByMember
+
     @Test
     public void getTags() throws IOException {
-        List<String> tags = new ArrayList<String>();
+        List<String> tags = new ArrayList<>();
         tags.add("test");
 
         List<GHTag> githubtag = github.getTags();

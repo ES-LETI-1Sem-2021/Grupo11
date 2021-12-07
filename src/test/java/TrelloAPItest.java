@@ -56,7 +56,7 @@ public class TrelloAPItest {
          member2.setId("614ddd02472d981f60076600");
          member3.setId("61604e0c5d60e53926dacf2a");
          member4.setId("614df15185a0dc62ff3ffae9");
-        List<Member> members = new ArrayList<Member>();
+        List<Member> members = new ArrayList<>();
         members.add(member1);
         members.add(member2);
         members.add(member3);
@@ -97,7 +97,7 @@ public class TrelloAPItest {
     @Test
     public void getItemsCompletedBySprintTest(){
         Board board = trello.getBoard( "Projecto de Engenharia de Software" );
-        List <Card> cards = new ArrayList<Card>();
+        List <Card> cards = new ArrayList<>();
         Card card1 = new Card();
         Card card2 = new Card();
         Card card3 = new Card();
@@ -139,7 +139,7 @@ public class TrelloAPItest {
     @Test
     public void getSprintDescTest(){
         Board board = trello.getBoard( "Projecto de Engenharia de Software" );
-        List <String> desc = new ArrayList<String>();
+        List <String> desc = new ArrayList<>();
         desc.add("Sprint Planning: Reunião com o objectivo de planear as quais as tarefas a ser realisadas/desenvolvidas durante o Sprint 3, as tarefas a realizar são Informações estatisticas do Projecto, Informações/Tarefas relativas ao GitHub, Testes unitários e acabar as tarefas não desenvolvidas no sprint 2,  Duração: 23/11/2021 - 07/12/2021; global 2 hours.\n");
         desc.add("Sprint Retrospective: Neste sprint ficou por fazer a Implementação das API de acesso ao Github e ficou por acabar o desenvolvimento dos metodos para obter as Informações dos SPRINTS no Projecto; global 0.5 hours.");
         desc.add("Sprint Review: Neste srprint foi feita a Implementação das API de acesso ao Trello, foi acabada a GUI para as Login Keys do Trello/Github e foram implementados os metodos para obter as Informações basicas do Projecto; global 0.5 hours.");
@@ -167,7 +167,7 @@ public class TrelloAPItest {
         member.setId("614ddd02472d981f60076600");
         member.setUsername("filipegoncalves79");
         double hours = trello.getHoursOfWork(board,member,"Sprint #2");
-        Assertions.assertEquals(20.0,hours);
+        Assertions.assertEquals(28.0,hours);
 
     }
     @Test
@@ -177,13 +177,13 @@ public class TrelloAPItest {
         member.setId("614ddd02472d981f60076600");
         member.setUsername("filipegoncalves79");
         double cost = trello.HumanResourcesCostBySprint(board,member,"Sprint #2");
-        Assertions.assertEquals(400.0,cost);
+        Assertions.assertEquals(560.0,cost);
     }
 
     @Test
     public void getCardOriginatedCommitsTest(){
         Board board = trello.getBoard( "Projecto de Engenharia de Software" );
-        List <Card> cards = new ArrayList<Card>();
+        List <Card> cards = new ArrayList<>();
         Card card1 = new Card();
         Card card2 = new Card();
         Card card3 = new Card();
@@ -211,7 +211,7 @@ public class TrelloAPItest {
     @Test
     public void getCardNotOriginatedCommitsTest(){
         Board board = trello.getBoard( "Projecto de Engenharia de Software" );
-        List <Card> cards = new ArrayList<Card>();
+        List <Card> cards = new ArrayList<>();
         Card card1 = new Card();
         Card card2 = new Card();
         card1.setId("616b1898dacc1021b84d939b");
@@ -229,7 +229,7 @@ public class TrelloAPItest {
     public void numberOfCardsOriginatedCommitsTest(){
         Board board = trello.getBoard( "Projecto de Engenharia de Software" );
         int n = trello.numberOfCardsOriginatedCommits(board);
-        Assertions.assertEquals(6,n);
+        Assertions.assertEquals(7,n);
     }
 
     @Test
@@ -247,7 +247,7 @@ public class TrelloAPItest {
         member.setId("614ddd02472d981f60076600");
         member.setUsername("filipegoncalves79");
         double cost = trello.getHoursWorkedForCardsThatOriginatedCommitsByMember(board,member);
-        Assertions.assertEquals(28.0,cost);
+        Assertions.assertEquals(36.0,cost);
 
     }
 
@@ -269,7 +269,7 @@ public class TrelloAPItest {
         member.setId("614ddd02472d981f60076600");
         member.setUsername("filipegoncalves79");
         double cost = trello.costHoursWorkedForCardsThatOriginatedCommitsByMember(board,member);
-        Assertions.assertEquals(560.0,cost);
+        Assertions.assertEquals(720.0,cost);
 
     }
 
@@ -288,7 +288,7 @@ public class TrelloAPItest {
     public void TotalCostHoursWorkedForCardsThatOriginatedCommitsTest(){
         Board board = trello.getBoard( "Projecto de Engenharia de Software" );
         double cost = trello.TotalCostHoursWorkedForCardsThatOriginatedCommits(board);
-        Assertions.assertEquals(1620.0,cost);
+        Assertions.assertEquals(2060.0,cost);
     }
 
     @Test

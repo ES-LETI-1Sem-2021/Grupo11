@@ -5,9 +5,10 @@ import org.trello4j.model.*;
 
 import java.util.*;
 import java.util.List;
-
+//TODO Ver JAVADOC :)
 /**
- * Classe que que contém os métodos para obter objetos do Trello usando a API trello4j
+ * Classe que que contém os métodos para obter objetos do Trello
+ * e adquirir informação usando a API trello4j.
  */
 public class TrelloAPI {
 
@@ -25,7 +26,7 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna o nome de utilizador usado no Trello
+     * Retorna o nome de utilizador usado no Trello.
      *
      * @return - a String username;
      */
@@ -35,9 +36,9 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna a instância da Api do trello
+     * Retorna a instância da Api do trello.
      *
-     * @return - O objecto trelloAPI;
+     * @return - O objecto trelloAPI {@link Trello};
      */
     public Trello getTrelloApi() {
         return trelloApi;
@@ -45,15 +46,14 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna o Board do User que tiver o nome igual ao parametro boardName
+     * Retorna o Board do User que tiver o nome igual ao parametro boardName.
      *
      * @param boardName - Nome do board;
-     * @return - O objecto Board;
+     * @return - O objecto Board {@link Board};
      */
     public Board getBoard(String boardName) {
         Board board;
         List<Board> boards = trelloApi.getBoardsByMember(username);
-
         for (int i = 0; i < boards.size(); i++) {
             if (boards.get(i).getName().equals(boardName)) {
                 board = boards.get(i);
@@ -66,7 +66,7 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna os membros que participam do Board
+     * Retorna os membros que participam do Board.
      *
      * @param board - Objecto do tipo Board;
      * @return - uma List de Member;
@@ -77,7 +77,7 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna todas as listas pertencentes ao Board
+     * Retorna todas as listas pertencentes ao Board.
      *
      * @param board - Objecto do tipo Board;
      * @return - uma List de org.trello4j.model.List;
@@ -91,16 +91,17 @@ public class TrelloAPI {
      * Retorna todos os Cards que pertencem a Lista list
      *
      * @param list - Objecto do tipo org.trello4j.model.List;
-     * @return - uma List de Card;
+     * @return - uma List de Card ;
      */
     public List<Card> getCards(org.trello4j.model.List list) {
         return trelloApi.getCardsByList(list.getId());
     }
 
     /**
+     * Retorna a lista "Completed" do Board.
      *
-     * @param board
-     * @return
+     * @param board - Objecto do tipo Board;
+     * @return - um org.trello4j.model.List {@link org.trello4j.model.List};
      */
     private org.trello4j.model.List getListCompleted(Board board) {
         List<org.trello4j.model.List> lists = getLists(board);
@@ -114,7 +115,7 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna todos os cards completados que contenham uma label com o nome igual ao parametro labelName
+     * Retorna todos os cards completados que contenham uma label com o nome igual ao parametro labelName.
      *
      * @param board - Objecto do tipo Board;
      * @param labelName - nome da label;
@@ -142,7 +143,7 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna duração do Sprint sprint
+     * Retorna duração do Sprint sprint.
      *
      * @param board - Objecto do tipo Board;
      * @param sprint - Objecto do tipo Sprint;
@@ -228,9 +229,10 @@ public class TrelloAPI {
 
     /**
      *
-     * @param cards
-     * @param lists
-     * @return
+     *
+     * @param cards - Lista de objecto do tipo Card;
+     * @param lists - Lista de objecto do tipo org.trello4j.model.List;
+     * @return - uma List de Card;
      */
     private List<Card> getCards(List<Card> cards, List<org.trello4j.model.List> lists) {
         for (int i = 0; i < lists.size(); i++) {
@@ -239,13 +241,14 @@ public class TrelloAPI {
         return cards;
     }
 
-
+    //TODO VER COM O FILIPE O CODIGO EM CIMA E EM BAIXO
     /**
      *
-     * @param cards
-     * @param lists
+     *
+     * @param cards - Lista de objecto do tipo Card;
+     * @param lists - Lista de objecto do tipo org.trello4j.model.List;
      * @param i
-     * @return
+     * @return - uma List de Card;
      */
     private List<Card> getCards(List<Card> cards, List<org.trello4j.model.List> lists, int i) {
         if (lists.get(i).getName().equals("Sprint Meetings")) {
@@ -256,7 +259,7 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna o número  de Sprints do Board
+     * Retorna o número  de Sprints do Board.
      *
      * @param board - Objecto do tipo Board;
      * @return - um Int;
@@ -280,7 +283,7 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna o número de horas que um membro trabalhou durante o Sprint sprint
+     * Retorna o número de horas que um membro trabalhou durante o Sprint sprint.
      *
      * @param board - Objecto do tipo Board;
      * @param member - Objecto do tipo Member;
@@ -326,7 +329,7 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna o montante a pagar pelas horas trabalhadas no Sprint sprint
+     * Retorna o montante a pagar pelas horas trabalhadas no Sprint sprint.
      *
      * @param board - Objecto do tipo Board;
      * @param member - Objecto do tipo Member;
@@ -340,13 +343,13 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna os cards que originaram commits no GITHUB
+     * Retorna os cards que originaram commits no GITHUB.
      *
      * @param board - Objecto do tipo Board;
      * @return - List de Card;
      */
     public List<Card> getCardOriginatedCommits(Board board) {
-        List<Card> committed = new ArrayList<Card>();
+        List<Card> committed = new ArrayList<>();
         List<org.trello4j.model.List> list = getLists(board);
         for (int i = 0; i < list.size(); i++) {
             if(list.get(i).getName().equals("Completed")) {
@@ -366,14 +369,15 @@ public class TrelloAPI {
 
 
     /**
-     * Devolve a lista com os cards em que o membro participa que  originaram commits
-     * @param board
-     * @param member
-     * @return Lista de Card
+     * Devolve a lista com os cards em que o membro participa que originaram commits.
+     *
+     * @param board - Objecto do tipo Board;
+     * @param member - Objecto do tipo Member;
+     * @return - uma List de Card
      */
     public List<Card> getCardOriginatedCommitsByMember(Board board,Member member) {
         org.trello4j.model.List list = getListCompleted(board);
-        List<Card> committed = new ArrayList<Card>();
+        List<Card> committed = new ArrayList<>();
         List<Card> cards = trelloApi.getCardsByMember(member.getId());
         for (int i = 0; i < cards.size(); i++) {
             List<Card.Label> labels = cards.get(i).getLabels();
@@ -388,14 +392,14 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna os cards que não originaram commits no GITHUB
+     * Retorna os cards que não originaram commits no GITHUB.
      *
      * @param board - Objecto do tipo Board;
-     * @return - List de Card;
+     * @return - uma List de Card;
      */
     public List <Card> getCardNotOriginatedCommits(Board board) {
         Card.Label label = null;
-        List<Card> notCommitted = new ArrayList<Card>();
+        List<Card> notCommitted = new ArrayList<>();
 
         List<org.trello4j.model.List> list = getLists(board);
         for (int i = 0; i < list.size(); i++) {
@@ -419,10 +423,11 @@ public class TrelloAPI {
 
 
     /**
+     * Retorna o Label de uma Card
      *
-     * @param label
-     * @param labels
-     * @return
+     * @param label - Objecto do tipo Card.Label {@link Card.Label}
+     * @param labels - uma List de Card.Label
+     * @return - um label;
      */
     private Card.Label getLabel(Card.Label label, List<Card.Label> labels) {
         for (int i3 = 0; i3 < labels.size(); i3++) {
@@ -435,15 +440,16 @@ public class TrelloAPI {
 
 
     /**
+     * Devolve a lista com os cards em que o membro participa que não originarou commits.
      *
-     * @param board
-     * @param member
-     * @return
+     * @param board - Objecto do tipo Board;
+     * @param member - Objecto do tipo Member;
+     * @return - uma List de Card;
      */
     public List<Card> getCardNotOriginatedCommitsByMember(Board board,Member member) {
         org.trello4j.model.List list = getListCompleted(board);
         Card.Label labelg = null;
-        List<Card> notCommitted = new ArrayList<Card>();
+        List<Card> notCommitted = new ArrayList<>();
         List<Card> cards = trelloApi.getCardsByMember(member.getId());
         for (int i = 0; i < cards.size(); i++) {
             List<Card.Label> labels = cards.get(i).getLabels();
@@ -457,10 +463,11 @@ public class TrelloAPI {
 
 
     /**
-     * Número de cards em que o membro member participa que  originaram commits
-     * @param board
-     * @param member
-     * @return int
+     * Número de cards em que o membro member participa que  originaram commits.
+     *
+     * @param board - Objecto do tipo Board;
+     * @param member - Objecto do tipo Member;
+     * @return int - um int;
      */
     public int numberOfCardsOriginatedCommitsByMember(Board board,Member member){
         int count=0;
@@ -472,10 +479,11 @@ public class TrelloAPI {
 
 
     /**
-     * Número de cards em que o membro member participa que não originaram commits
-     * @param board
-     * @param member
-     * @return int
+     * Número de cards em que o membro member participa que não originaram commits.
+     *
+     * @param board - Objecto do tipo Board;
+     * @param member - Objecto do tipo Member;
+     * @return int - um int;
      */
     public int numberOfCardsNotOriginatedCommitsByMember(Board board, Member member){
         int count=0;
@@ -487,7 +495,7 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna o número de cards que originaram commits nno GITHUB
+     * Retorna o número de cards que originaram commits nno GITHUB.
      *
      * @param board - Objecto do tipo Board;
      * @return - um int;

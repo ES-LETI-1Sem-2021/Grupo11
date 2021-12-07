@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Classe que que contém os métodos para obter objetos do Github
+ * Classe que que contém os métodos para obter objetos do Github.
  */
 public class GithubAPI {
 
@@ -21,7 +21,7 @@ public class GithubAPI {
 
 
     /**
-     * Devolve numa String o conteudo do ficheiro README.md presente no repositório GitHub
+     * Devolve numa String o conteudo do ficheiro README.md presente no repositório GitHub.
      *
      * @return - uma String;
      */
@@ -31,7 +31,7 @@ public class GithubAPI {
     }
 
     /**
-     * Devolve numa String toda a informação sobre os commits no repositório
+     * Devolve numa String toda a informação sobre os commits no repositório.
      *
      * @return - uma String;
      */
@@ -47,14 +47,15 @@ public class GithubAPI {
 
 
     /**
-     * Devolve numa String toda a informação sobre os commits no repositório do autor fornecido
-     * @param autor
+     * Devolve numa String toda a informação sobre os commits no repositório do autor fornecido.
+     *
+     * @param autor - Objecto do tipo GHUser;
      * @return - uma String;
      */
     public String getCommitInfoByMember(GHUser autor) throws IOException {
         String commitInfo = "";
         for (int i = 0; i < GitRepo.listCommits().toList().size();i++) {
-            if(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().equals(autor)) {
+            if(GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName().equals(autor.getName())) {
                 commitInfo += GitRepo.listCommits().toList().get(i).getCommitShortInfo().getAuthor().getName() + ",\n"
                         + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getCommitDate() + ",\n"
                         + GitRepo.listCommits().toList().get(i).getCommitShortInfo().getMessage() + "\n\n";
@@ -65,9 +66,9 @@ public class GithubAPI {
 
 
     /**
-     * Devolve uma lista de objectos do tipo GHTag
+     * Devolve uma lista de objectos do tipo GHTag.
      *
-     * @return - uma List de GHTag
+     * @return - uma List de GHTag {@link GHTag};
      */
     public List<GHTag> getTags() throws IOException {
         tagList = GitRepo.listTags().toList();

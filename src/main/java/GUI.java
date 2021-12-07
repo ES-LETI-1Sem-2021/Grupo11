@@ -5,6 +5,11 @@ import java.awt.*;
 import java.awt.event.*;
 import java.net.*;
 
+//TODO Verificar mais tarde
+/**
+ * Classe que cria e executa ações da GUI Principal
+ * contendo metudos e funções para a sua execução.
+ */
 public class GUI extends JFrame {
     private JPanel mainPanel;
     private JLabel GithubImg;
@@ -45,37 +50,25 @@ public class GUI extends JFrame {
         button_new_gui.setVisible(false);
         button_validate_logins.setVisible(false);
 
-        iniciarLogInButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                iniciarLogInButton.setVisible(false);
-                checkBox_trello_login.setVisible(true);
-                checkBox_github_login.setVisible(true);
-                button_github.setVisible(true);
-                button_trello.setVisible(true);
-                button_validate_logins.setVisible(true);
+        iniciarLogInButton.addActionListener(e -> {
+            iniciarLogInButton.setVisible(false);
+            checkBox_trello_login.setVisible(true);
+            checkBox_github_login.setVisible(true);
+            button_github.setVisible(true);
+            button_trello.setVisible(true);
+            button_validate_logins.setVisible(true);
+        });
+        button_trello.addActionListener(e -> trello_gui.setVisible(true));
+        button_github.addActionListener(e -> github_gui.setVisible(true));
+        button_GithubRepository.addActionListener(e -> {
+            URI uri;
+            try {
+                uri = new URI("https://github.com/miguelrato18/ES-LETI-1Sem-2021-Grupo11");
+                openWebpage(uri);
+            } catch (URISyntaxException ex) {
+                ex.printStackTrace();
             }
-        });
-        button_trello.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                trello_gui.setVisible(true);
-                }
-        });
-        button_github.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                github_gui.setVisible(true);
-               }
-        });
-        button_GithubRepository.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                URI uri;
-                try {
-                    uri = new URI("https://github.com/miguelrato18/ES-LETI-1Sem-2021-Grupo11");
-                    openWebpage(uri);
-                } catch (URISyntaxException ex) {
-                    ex.printStackTrace();
-                }
 
-            }
         });
         button_validate_logins.addActionListener(new ActionListener() {
             @SneakyThrows
@@ -102,12 +95,7 @@ public class GUI extends JFrame {
                 }
             }
         });
-
-        button_new_gui.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                application_gui.setVisible(true);
-            }
-        });
+        button_new_gui.addActionListener(e -> application_gui.setVisible(true));
     }
 
         public static boolean openWebpage (URI uri){
@@ -132,11 +120,19 @@ public class GUI extends JFrame {
             return false;
         }
 
-        public void validLogin_Trello () {
-            if (trello_gui.validateLogin()) checkBox_trello_login.setSelected(true);
-        }
 
-        public void validLogin_GitHub () {
-            if(github_gui.validateLogin()) checkBox_github_login.setSelected(true);
-        }
+    /**
+     * Metodo que caso a função trello_gui.validateLogin()==True Passa o valor da checkBox_trello_login para TRUE
+     */
+    public void validLogin_Trello () {
+        if (trello_gui.validateLogin()) checkBox_trello_login.setSelected(true);
     }
+
+
+    /**
+     * Metodo que caso a função trello_gui.validateLogin()==True Passa o valor da checkBox_trello_login para TRUE
+     */
+    public void validLogin_GitHub () {
+        if(github_gui.validateLogin()) checkBox_github_login.setSelected(true);
+    }
+}
