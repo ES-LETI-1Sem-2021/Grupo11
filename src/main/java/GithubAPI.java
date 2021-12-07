@@ -24,6 +24,7 @@ public class GithubAPI {
      * Devolve numa String o conteudo do ficheiro README.md presente no repositório GitHub.
      *
      * @return - uma String;
+     * @throws IOException;
      */
     public String getREADME() throws IOException {
         Readme = GitRepo.getFileContent("README.md").getContent();
@@ -34,6 +35,7 @@ public class GithubAPI {
      * Devolve numa String toda a informação sobre os commits no repositório.
      *
      * @return - uma String;
+     * @throws IOException;
      */
     public String getCommitInfo() throws IOException {
         String commitInfo = "";
@@ -51,6 +53,7 @@ public class GithubAPI {
      *
      * @param autor - Objecto do tipo GHUser;
      * @return - uma String;
+     * @throws IOException;
      */
     public String getCommitInfoByMember(GHUser autor) throws IOException {
         String commitInfo = "";
@@ -69,12 +72,11 @@ public class GithubAPI {
      * Devolve uma lista de objectos do tipo GHTag.
      *
      * @return - uma List de GHTag {@link GHTag};
+     * @throws IOException;
      */
     public List<GHTag> getTags() throws IOException {
         tagList = GitRepo.listTags().toList();
         return tagList;
     }
-
-
 
 }

@@ -147,7 +147,7 @@ public class TrelloAPItest {
         desc.add("Sprint Retrospective: Por carga horária excessiva, ficou por fazer parte da GUI para as Login Keys do Trello/Github, sendo que o protótipo foi apenas criado e implementado, ficando por aperfeiçoar. Estas funcionalidades serão implementadas no sprint#2. Por isso será necessário passar a ter em conta as atividades das restantes cadeiras, de forma a termos uma visão mais realista no planeamento do trabalho; global 0.5 hours.");
         desc.add("Sprint Review: Neste srprint foi feita a organização do trello e a escolha da framework para desenvolvimento da GUI. Ficou por fazer parte da GUI para as Login Keys do Trello/Github, sendo o protótipo foi apenas criado e implementado, ficando por aperfeiçoar; global 0.5 hours.");
         desc.add("Sprint Planning: Reunião com o objectivo de planear as quais as tarefas a ser realisadas/desenvolvidas durante o Sprint 1, as tarefas a realizar são Estudo da Framework para o desenvolvimento da GUI,  Organização do Trello e GUI para as Login Keys do Trello/Github,  Duração: 09/10/2021 - 23/09/2021; global 2 hours.");
-        List <String> s = trello.getSprintDesc(board);
+        List <String> s = trello.getSprintDescription(board);
         for(int i=0; i<s.size(); i++){
             Assertions.assertEquals(desc.get(i),s.get(i));
         }

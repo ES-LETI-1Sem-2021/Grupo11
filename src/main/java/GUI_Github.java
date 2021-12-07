@@ -3,7 +3,7 @@ import javax.swing.*;
 
 /**
  * Classe que cria e executa ações da GUI de Login do GitHub
- * contendo metudos e funções para a sua execução.
+ * contendo métodos e funções para a sua execução.
  */
 public class GUI_Github extends JFrame {
     private JPanel mainPanel;
@@ -19,6 +19,12 @@ public class GUI_Github extends JFrame {
     private String password_repositoryName_text = "";
     private JButton button_login;
 
+
+    /**
+     * Contrutor de objectos do tipo GUI_Github, onde é dado como parametro o titulo da GUI.
+     *
+     * @param title - Objecto do tipo String;
+     */
     public GUI_Github(String title){
         super(title);
         this.setSize(500, 500);
@@ -37,7 +43,7 @@ public class GUI_Github extends JFrame {
 
 
     /**
-     * Metudo que verifica se a password_token_text está vazia.
+     * Método que verifica se a password_token_text está vazia.
      * Caso esteja pede ao utilizador para inserir um valor para o mesmo.
      */
     private void PasswordValidation_Token(){
@@ -49,7 +55,7 @@ public class GUI_Github extends JFrame {
 
 
     /**
-     * Metudo que verifica se a password_repositoryOwner_text está vazia.
+     * Método que verifica se a password_repositoryOwner_text está vazia.
      * Caso esteja pede ao utilizador para inserir um valor para o mesmo.
      */
     private void PasswordValidation_RepositoryOwner() {
@@ -61,7 +67,7 @@ public class GUI_Github extends JFrame {
 
 
     /**
-     * Metudo que verifica se a password_repositoryName_text está vazia.
+     * Método que verifica se a password_repositoryName_text está vazia.
      * Caso esteja pede ao utilizador para inserir um valor para o mesmo.
      */
     private void PasswordValidation_RepositoryName() {
@@ -73,8 +79,8 @@ public class GUI_Github extends JFrame {
 
 
     /**
-     * Metudo que enquanto os valores das variaveis password_token_text, password_repositoryOwner_text
-     * e password_repositoryName_text forem vazios, executa os seguintes metudos:
+     * Método que enquanto os valores das variaveis password_token_text, password_repositoryOwner_text
+     * e password_repositoryName_text forem vazios, executa os seguintes métodos:
      *  -> PasswordValidation_Token();
      *  -> PasswordValidation_RepositoryOwner();
      *  -> PasswordValidation_RepositoryName().
@@ -89,9 +95,9 @@ public class GUI_Github extends JFrame {
 
 
     /**
-     * Metudo que atribui valores ás variaveis password_token_text, password_repositoryOwner_text
+     * Método que atribui valores ás variaveis password_token_text, password_repositoryOwner_text
      * e password_repositoryName_text.
-     * Executa tambem o metudo: PasswordValidation().
+     * Executa tambem o método: PasswordValidation().
      */
     private void SetPassword(){
         password_token_text = String.valueOf(password_token.getPassword());

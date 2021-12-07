@@ -23,10 +23,17 @@ public class GUI extends JFrame {
     private JCheckBox checkBox_trello_login;
     private JButton button_validate_logins;
     private JButton button_new_gui;
+
     public GUI_Trello trello_gui;
     public GUI_Github github_gui;
     public GUI_Application application_gui;
 
+
+    /**
+     * Contrutor de objectos do tipo GUI, onde é dado como parametro o titulo da GUI.
+     *
+     * @param title - Objecto do tipo String;
+     */
     public GUI(String title) {
         super(title);
         this.setVisible(true);

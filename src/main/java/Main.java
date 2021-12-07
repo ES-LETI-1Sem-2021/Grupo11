@@ -6,5 +6,3 @@ public class Main {
         JFrame frame = new GUI("TrelloHub");
     }
 }
-
-

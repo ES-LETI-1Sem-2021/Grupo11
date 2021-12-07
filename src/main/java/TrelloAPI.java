@@ -215,11 +215,11 @@ public class TrelloAPI {
      * @param board - Objecto do tipo Board;
      * @return - uma List de Strings
      */
-    public List<String> getSprintDesc(Board board) {
-        List<Card> cards = null;
+    public List<String> getSprintDescription(Board board) {
+        List<Card> cards = new ArrayList<>();
         List<String> description = new ArrayList<>();
         List<org.trello4j.model.List> lists = getLists(board);
-        cards = getCards(cards, lists);
+        cards = getSprintDescriptionCardsAux(cards, lists);
         for (int i2 = 0; i2 < cards.size(); i2++) {
             description.add(cards.get(i2).getName() + ": " + cards.get(i2).getDesc());
         }
@@ -228,29 +228,29 @@ public class TrelloAPI {
 
 
     /**
-     *
+     * Função auxiciliar da getSprintDescription.
      *
      * @param cards - Lista de objecto do tipo Card;
      * @param lists - Lista de objecto do tipo org.trello4j.model.List;
      * @return - uma List de Card;
      */
-    private List<Card> getCards(List<Card> cards, List<org.trello4j.model.List> lists) {
+    private List<Card> getSprintDescriptionCardsAux(List<Card> cards, List<org.trello4j.model.List> lists) {
         for (int i = 0; i < lists.size(); i++) {
-            cards = getCards(cards, lists, i);
+            cards = getSprintDescriptionCardsAux(cards, lists, i);
         }
         return cards;
     }
 
-    //TODO VER COM O FILIPE O CODIGO EM CIMA E EM BAIXO
+
     /**
-     *
+     * Função auxiciliar da função auxciliar da getSprintDescription.
      *
      * @param cards - Lista de objecto do tipo Card;
      * @param lists - Lista de objecto do tipo org.trello4j.model.List;
      * @param i
      * @return - uma List de Card;
      */
-    private List<Card> getCards(List<Card> cards, List<org.trello4j.model.List> lists, int i) {
+    private List<Card> getSprintDescriptionCardsAux(List<Card> cards, List<org.trello4j.model.List> lists, int i) {
         if (lists.get(i).getName().equals("Sprint Meetings")) {
             cards = getCards(lists.get(i));
         }
@@ -369,7 +369,7 @@ public class TrelloAPI {
 
 
     /**
-     * Devolve a lista com os cards em que o membro participa que originaram commits.
+     * Retorna a lista com os cards em que o membro participa que originaram commits.
      *
      * @param board - Objecto do tipo Board;
      * @param member - Objecto do tipo Member;
@@ -423,7 +423,7 @@ public class TrelloAPI {
 
 
     /**
-     * Retorna o Label de uma Card
+     * Retorna o Label de uma Card.
      *
      * @param label - Objecto do tipo Card.Label {@link Card.Label}
      * @param labels - uma List de Card.Label
@@ -440,7 +440,7 @@ public class TrelloAPI {
 
 
     /**
-     * Devolve a lista com os cards em que o membro participa que não originarou commits.
+     * Retorna a lista com os cards em que o membro participa que não originarou commits.
      *
      * @param board - Objecto do tipo Board;
      * @param member - Objecto do tipo Member;
@@ -463,7 +463,7 @@ public class TrelloAPI {
 
 
     /**
-     * Número de cards em que o membro member participa que  originaram commits.
+     * Retorna o número de cards em que o membro member participa que  originaram commits.
      *
      * @param board - Objecto do tipo Board;
      * @param member - Objecto do tipo Member;
@@ -479,7 +479,7 @@ public class TrelloAPI {
 
 
     /**
-     * Número de cards em que o membro member participa que não originaram commits.
+     * Retorna o número de cards em que o membro member participa que não originaram commits.
      *
      * @param board - Objecto do tipo Board;
      * @param member - Objecto do tipo Member;

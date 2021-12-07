@@ -4,7 +4,7 @@ import javax.swing.*;
 
 /**
  * Classe que cria e executa ações da GUI de Login do Trello
- * contendo metudos e funções para a sua execução.
+ * contendo métodos e funções para a sua execução.
  */
 public class GUI_Trello extends JFrame {
     private JPanel mainPanel;
@@ -21,6 +21,12 @@ public class GUI_Trello extends JFrame {
     private JButton button_login;
     private Trello trello;
 
+
+    /**
+     * Contrutor de objectos do tipo GUI_Trello, onde é dado como parametro o titulo da GUI.
+     *
+     * @param title - Objecto do tipo String;
+     */
     public GUI_Trello(String title){
         super(title);
         this.setSize(500, 500);
@@ -35,13 +41,11 @@ public class GUI_Trello extends JFrame {
             SetPassword();
             setVisible(false);
         });
-
-
-
     }
 
+
     /**
-     * Metudo que verifica se a password_token_text está vazia.
+     * Método que verifica se a password_token_text está vazia.
      * Caso esteja pede ao utilizador para inserir um valor para o mesmo.
      */
     private void PasswordValidation_Token(){
@@ -53,7 +57,7 @@ public class GUI_Trello extends JFrame {
 
 
     /**
-     * Metudo que verifica se a password_key_text está vazia.
+     * Método que verifica se a password_key_text está vazia.
      * Caso esteja pede ao utilizador para inserir um valor para o mesmo.
      */
     private void PasswordValidation_Key(){
@@ -65,7 +69,7 @@ public class GUI_Trello extends JFrame {
 
 
     /**
-     * Metudo que verifica se a password_user_text está vazia.
+     * Método que verifica se a password_user_text está vazia.
      * Caso esteja pede ao utilizador para inserir um valor para o mesmo.
      */
     private void PasswordValidation_User(){
@@ -78,8 +82,8 @@ public class GUI_Trello extends JFrame {
 
 
     /**
-     * Metudo que enquanto os valores das variaveis password_token_text, password_key_text
-     * e password_user_text forem vazios, executa os seguintes metudos:
+     * Método que enquanto os valores das variaveis password_token_text, password_key_text
+     * e password_user_text forem vazios, executa os seguintes métodos:
      *  -> PasswordValidation_Token();
      *  -> PasswordValidation_Key();
      *  -> PasswordValidation_User().
@@ -94,7 +98,7 @@ public class GUI_Trello extends JFrame {
 
 
     /**
-     * Metudo que atribui valores ás variaveis password_token_text, password_key_text
+     * Método que atribui valores ás variaveis password_token_text, password_key_text
      * e password_user_text.
      * Executa tambem o metudo: PasswordValidation().
      */
@@ -146,5 +150,4 @@ public class GUI_Trello extends JFrame {
     public String getUser() {
         return password_user_text;
     }
-
 }

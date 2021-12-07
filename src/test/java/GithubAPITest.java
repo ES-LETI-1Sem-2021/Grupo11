@@ -42,7 +42,7 @@ public class GithubAPITest {
     //TODO TESTS para as funções:getCommitInfo e getCommitInfoByMember
 
     @Test
-    public void getTags() throws IOException {
+    public void getTagstest() throws IOException {
         List<String> tags = new ArrayList<>();
         tags.add("test");
 

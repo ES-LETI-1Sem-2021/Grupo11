@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * Classe que cria e executa ações da GUI Application
- * contendo metudos e funções para a sua execução.
+ * contendo métodos e funções para a sua execução.
  */
 
 public class GUI_Application extends JFrame{
@@ -49,15 +49,15 @@ public class GUI_Application extends JFrame{
     public GithubAPI github;
 
     public Board board;
-    private final List<String> project_membersNames = new ArrayList<>(); //TODO VERIFICAR SE FUNCIONA COM FINAL
+    private final List<String> project_membersNames = new ArrayList<>();
     private List<String> project_sprintDescription = new ArrayList<>();
-    private final List<String> product_backlog_per_sprint = new ArrayList<>(); //TODO VERIFICAR SE FUNCIONA COM FINAL
-    private final List<String> project_sprintDates = new ArrayList<>(); //TODO VERIFICAR SE FUNCIONA COM FINAL
-    private final List<String> cardsNotOriginatedCommitsNames = new ArrayList<>(); //TODO VERIFICAR SE FUNCIONA COM FINAL
-    private final List<String> cardsOriginatedCommitsNames = new ArrayList<>(); //TODO VERIFICAR SE FUNCIONA COM FINAL
-    private final List<String> project_githubTagsNames = new ArrayList<>(); //TODO VERIFICAR SE FUNCIONA COM FINAL
-    private final List<Double> project_sprintHoursOfWork = new ArrayList<>(); //TODO VERIFICAR SE FUNCIONA COM FINAL
-    private final List<Double> project_humanResourcesCost = new ArrayList<>(); //TODO VERIFICAR SE FUNCIONA COM FINAL
+    private final List<String> product_backlog_per_sprint = new ArrayList<>();
+    private final List<String> project_sprintDates = new ArrayList<>();
+    private final List<String> cardsNotOriginatedCommitsNames = new ArrayList<>();
+    private final List<String> cardsOriginatedCommitsNames = new ArrayList<>();
+    private final List<String> project_githubTagsNames = new ArrayList<>();
+    private final List<Double> project_sprintHoursOfWork = new ArrayList<>();
+    private final List<Double> project_humanResourcesCost = new ArrayList<>();
     private List<Card> project_cardNotOriginatedCommits;
     private List<Card> project_cardOriginatedCommits;
     private List<Member> project_members;
@@ -75,6 +75,12 @@ public class GUI_Application extends JFrame{
     private String atas_das_reunioes;
     private String project_startDate;
 
+
+    /**
+     * Contrutor de objectos do tipo GUI_Application, onde é dado como parametro o titulo da GUI.
+     *
+     * @param title - Objecto do tipo String;
+     */
     public GUI_Application(String title){
         super(title);
         this.setSize(500, 500);
@@ -189,7 +195,7 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que executa os seguintes metudos:
+     * Método que executa os seguintes métodos:
      * -> setProject_name();
      * -> setProject_board();
      * -> setProject_members();
@@ -203,6 +209,7 @@ public class GUI_Application extends JFrame{
      * -> setProject_cardOriginatedCommits();
      * ->  setProject_cardNotOriginatedCommits();
      * -> setProject_githubTags();
+     * @throws IOException;
      */
     public void setUpApplication() throws IOException {
         setProject_name();
@@ -240,7 +247,7 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que formata a String atas_das_reunioes, subestituindo as seguintes partes da String
+     * Método que formata a String atas_das_reunioes, subestituindo as seguintes partes da String
      * ": \n", ",  Duração:" e "." por ": \n         ", ".         Duração:" e ".\n         " respetivamente.
      */
     private void formatSprintDescription(){
@@ -251,7 +258,7 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que atribui valores á lista project_githubTags.
+     * Método que atribui valores á lista project_githubTags.
      */
     private void setProject_githubTags() throws IOException {
         project_githubTags = github.getTags();
@@ -262,7 +269,7 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que atribui valores à lista project_cardOriginatedCommits.
+     * Método que atribui valores à lista project_cardOriginatedCommits.
      */
     private void setProject_cardOriginatedCommits(){
         project_cardOriginatedCommits = trello.getCardOriginatedCommits(board);
@@ -273,7 +280,7 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que atribui valores à lista project_cardNotOriginatedCommits.
+     * Método que atribui valores à lista project_cardNotOriginatedCommits.
      */
     private void setProject_cardNotOriginatedCommits(){
         project_cardNotOriginatedCommits = trello.getCardNotOriginatedCommits(board);
@@ -284,7 +291,7 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que atribui valores à lista project_humanResourcesCost.
+     * Método que atribui valores à lista project_humanResourcesCost.
      */
     private void setProject_humanResourcesCost(){
         for (int i = 1; i <= trello.numberOfSprints(board); i++){
@@ -296,7 +303,7 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que atribui valores à lista project_sprintHoursOfWork.
+     * Método que atribui valores à lista project_sprintHoursOfWork.
      */
     private void setProject_sprintHoursOfWork(){
         for (int i = 1; i <= trello.numberOfSprints(board); i++){
@@ -308,7 +315,7 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que atribui valores à lista project_sprintDates.
+     * Método que atribui valores à lista project_sprintDates.
      */
     private void setProject_sprintDates(){
         for (int i = 1; i <= trello.numberOfSprints(board); i++){
@@ -318,7 +325,7 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que atribui valores à lista product_backlog_per_sprint.
+     * Método que atribui valores à lista product_backlog_per_sprint.
      */
     private void setProject_productBacklog(){
         for (int j = 1; j <= trello.numberOfSprints(board); j++) {
@@ -332,7 +339,7 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que define a lista project_lists.
+     * Método que define a lista project_lists.
      */
     private void setProject_lists(){
         project_lists = trello.getLists(board);
@@ -340,7 +347,7 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que atribui valores à lista project_name.
+     * Método que atribui valores à lista project_name.
      */
     private void setProject_name(){
         List<Board> boards = trello.getTrelloApi().getBoardsByMember(trello_username);
@@ -350,7 +357,7 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que atribui valor ao objecto board.
+     * Método que atribui valor ao objecto board.
      */
     private void setProject_board(){
         board = trello.getBoard(boardName);
@@ -358,7 +365,7 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que define a lista project_startDate.
+     * Método que define a lista project_startDate.
      */
     private void setProject_startDate(){
         project_startDate = trello.getSprintStartDate(board,"Sprint #1");
@@ -366,15 +373,15 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que define a lista project_sprintDescription.
+     * Método que define a lista project_sprintDescription.
      */
     private void setProject_sprintDescription(){
-        project_sprintDescription = trello.getSprintDesc(board);
+        project_sprintDescription = trello.getSprintDescription(board);
     }
 
 
     /**
-     * Metudo que atribui valores à lista project_membersNames.
+     * Método que atribui valores à lista project_membersNames.
      */
     private void setProject_members(){
         project_members = trello.getMembers(board);
@@ -386,7 +393,7 @@ public class GUI_Application extends JFrame{
 
     //Passwords Setters
     /**
-     * Metudo que atribui valores ás variaveis token, key e username.
+     * Método que atribui valores ás variaveis token, key e username.
      * Criando tamebem o objecto trello.
      *
      * @param token - Token do Trello;
@@ -402,12 +409,13 @@ public class GUI_Application extends JFrame{
 
 
     /**
-     * Metudo que atribui valores ás variaveis token, repositoryOwner e repositoryName.
+     * Método que atribui valores ás variaveis token, repositoryOwner e repositoryName.
      * Criando tamebem o objecto github.
      *
      * @param token - Token do github;
      * @param repositoryOwner - Nome do dono do Repositório;
      * @param repositoryName - Nome do Repositório;
+     * @throws IOException;
      */
     public void setGitHub(String token, String repositoryOwner, String repositoryName) throws IOException {
         github_token = token;
