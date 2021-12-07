@@ -4,34 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="Exportação para CSV">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Activities.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataForCSV.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Application.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Application.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI_Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI_Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GenerateCSV.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GithubAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GithubAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TrelloAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TrelloAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Activities.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataForCSV.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GenerateCSV.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GithubAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GithubAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TrelloAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TrelloAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/GithubAPITest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/GithubAPITest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TrelloAPItest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TrelloAPItest.class" afterDir="false" />
-    </list>
+    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="Exportação para CSV" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -374,7 +347,28 @@
       <option name="project" value="LOCAL" />
       <updated>1638710565768</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Exportação para CSV">
+      <created>1638914218054</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1638914218054</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Exportação para CSV">
+      <created>1638914318973</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1638914318973</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Exportação para CSV">
+      <created>1638914350846</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1638914350846</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
