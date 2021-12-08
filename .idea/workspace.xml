@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="Update do Trello Api">
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="+update: - Criação de graficos do tipo PieChart;&#10;         - Criação da função que exporta para .csv;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GithubAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GithubAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GithubAPITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GithubAPITest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TrelloAPItest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TrelloAPItest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Activities.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataForCSV.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GenerateCSV.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/GithubAPITest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/GithubAPITest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TrelloAPItest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TrelloAPItest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\Pedro Afonso Santana\Desktop\Coberage Report\Covarage Report - all" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -22,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="PAAMT" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,11 +76,9 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/.jdks/openjdk-17.0.1/lib/src.zip!/java.base/java/util/AbstractList.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="jar://$MAVEN_REPOSITORY$/org/trello4j/trello4j/1.0-SNAPSHOT/trello4j-1.0-SNAPSHOT.jar!/org/trello4j/model/Board.class" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/trello4j/trello4j/1.0-SNAPSHOT/trello4j-1.0-SNAPSHOT.jar!/org/trello4j/TrelloImpl.class" root0="FORCE_HIGHLIGHTING" />
-    <setting file="jar://$USER_HOME$/.jdks/openjdk-17.0.1/lib/src.zip!/java.base/java/util/Date.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/trello4j/trello4j/1.0-SNAPSHOT/trello4j-1.0-SNAPSHOT.jar!/org/trello4j/model/Card.class" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/trello4j/trello4j/1.0-SNAPSHOT/trello4j-1.0-SNAPSHOT.jar!/org/trello4j/model/Board.class" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1zT45J2PDRAhfvCCSAQpt6h06Pw" />
   <component name="ProjectViewState">
@@ -75,12 +88,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="174" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="jdk.selected.JAVA_MODULE" value="openjdk-17" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Coberage Report/Covarage Report - all" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -90,33 +110,59 @@
       <recent name="C:\Users\Pedro Afonso Santana\IdeaProjects\ES-LETI-1Sem-2021-Grupo11" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GUI">
-    <configuration name="GUI (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="java.GUI" />
-      <module name="ES-LETI-1Sem-2021-Grupo11" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Project" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GithubAPITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GithubAPITest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GithubAPITest.getCommitInfoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GithubAPITest" />
+      <option name="METHOD_NAME" value="getCommitInfoTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrelloAPItest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TrelloAPItest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrelloAPItest.getCardOriginatedCommitsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TrelloAPItest" />
+      <option name="METHOD_NAME" value="getCardOriginatedCommitsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GUI" />
-        <item itemvalue="Application.GUI (1)" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.GithubAPITest" />
+        <item itemvalue="JUnit.TrelloAPItest" />
+        <item itemvalue="JUnit.TrelloAPItest.getCardOriginatedCommitsTest" />
+        <item itemvalue="JUnit.GithubAPITest.getCommitInfoTest" />
       </list>
     </recent_temporary>
   </component>
@@ -237,7 +283,98 @@
       <option name="project" value="LOCAL" />
       <updated>1637521539285</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Update do Trello Api">
+      <created>1637526240266</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1637526240266</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update do Trello Api">
+      <created>1637942230206</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1637942230206</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Update do Trello Api">
+      <created>1638358200109</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1638358200109</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Update do Trello Api">
+      <created>1638366882856</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1638366882857</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Update do Trello Api">
+      <created>1638372695408</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1638372695408</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Finalização da TrelloAPI">
+      <created>1638474755433</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1638474755433</updated>
+    </task>
+    <task id="LOCAL-00022" summary="+Update: JavaDoc;&#10;         Implementação de funções do GithubAPI na GUI_Application;">
+      <created>1638727467439</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1638727467439</updated>
+    </task>
+    <task id="LOCAL-00023" summary="+Update;">
+      <created>1638814470563</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1638814470563</updated>
+    </task>
+    <task id="LOCAL-00024" summary="+Update;">
+      <created>1638819629087</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1638819629087</updated>
+    </task>
+    <task id="LOCAL-00025" summary="+Update;">
+      <created>1638821387362</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1638821387362</updated>
+    </task>
+    <task id="LOCAL-00026" summary="+Code Warning fixs;">
+      <created>1638842012763</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1638842012763</updated>
+    </task>
+    <task id="LOCAL-00027" summary="+Code Warning fixs;">
+      <created>1638883206967</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1638883206967</updated>
+    </task>
+    <task id="LOCAL-00028" summary="+update: - Criação de graficos do tipo PieChart;&#10;         - Criação da função que exporta para .csv;">
+      <created>1638917068524</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1638917068524</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,9 +393,17 @@
     <MESSAGE value="msg" />
     <MESSAGE value="Update do Trello Api" />
     <MESSAGE value="Finalização da TrelloAPI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalização da TrelloAPI" />
+    <MESSAGE value="+Update: JavaDoc;&#10;         Implementação de funções do GithubAPI na GUI_Application;" />
+    <MESSAGE value="+Update;" />
+    <MESSAGE value="+Code Warning fixs;" />
+    <MESSAGE value="+update: - Criação de graficos do tipo PieChart;&#10;         - Criação da função que exporta para .csv;" />
+    <option name="LAST_COMMIT_MESSAGE" value="+update: - Criação de graficos do tipo PieChart;&#10;         - Criação da função que exporta para .csv;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$GUI.ic" NAME="GUI Coverage Results" MODIFIED="1638304932653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$TrelloAPItest.ic" NAME="TrelloAPItest Coverage Results" MODIFIED="1638919563658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$GithubAPITest.ic" NAME="GithubAPITest Coverage Results" MODIFIED="1638920304287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$Main.ic" NAME="Main Coverage Results" MODIFIED="1638921139773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$GUI.ic" NAME="GUI Coverage Results" MODIFIED="1635539307713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ES_LETI_1Sem_2021_Grupo11$TrelloAPITestes.ic" NAME="TrelloAPITestes Coverage Results" MODIFIED="1638399881610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
