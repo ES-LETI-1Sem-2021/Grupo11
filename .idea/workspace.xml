@@ -7,17 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="+update: - Criação de graficos do tipo PieChart;&#10;         - Criação da função que exporta para .csv;">
+    <list default="true" id="57d4349a-38f9-4142-bbf2-ea1c9d787486" name="Changes" comment="+update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GithubAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GithubAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GithubAPITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GithubAPITest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TrelloAPItest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TrelloAPItest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Activities.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataForCSV.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI_Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI_Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GenerateCSV.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/GithubAPITest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/GithubAPITest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TrelloAPItest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TrelloAPItest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +51,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1634406353" />
+                    <option name="lastUsedInstant" value="1638922212" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="PAAMT" />

@@ -1,0 +1,16 @@
+Membros,Sprint,Horas de Trabalho por Sprint,Custo dos Recursos Humanos por Sprint,Numero de Atividades que deram origem a commits por membro ,Horas trabalhadas que deram origem a commits por membro,Custo dos Recursos Humanos que deram origem a commits por membro,Numero de Atividades que nao deram origem a commits por membro,Horas trabalhadas que nao deram origem a commits por membro,Custo dos Recursos Humanos que nao deram origem a commits por membro
+danielmoreiracampos1,1,18.0,360.0,6,36.0,720.0,2,7.0,140.0
+danielmoreiracampos1,2,11.0,220.0,6,36.0,720.0,2,7.0,140.0
+danielmoreiracampos1,3,23.0,460.0,6,36.0,720.0,2,7.0,140.0
+filipegoncalves79,1,18.0,360.0,8,60.0,1200.0,2,7.0,140.0
+filipegoncalves79,2,28.0,560.0,8,60.0,1200.0,2,7.0,140.0
+filipegoncalves79,3,30.0,600.0,8,60.0,1200.0,2,7.0,140.0
+miguelrato7,1,18.0,360.0,6,36.0,720.0,2,7.0,140.0
+miguelrato7,2,11.0,220.0,6,36.0,720.0,2,7.0,140.0
+miguelrato7,3,23.0,460.0,6,36.0,720.0,2,7.0,140.0
+pedroafonsosantana,1,18.0,360.0,8,59.0,1180.0,2,7.0,140.0
+pedroafonsosantana,2,27.0,540.0,8,59.0,1180.0,2,7.0,140.0
+pedroafonsosantana,3,30.0,600.0,8,59.0,1180.0,2,7.0,140.0
+Total,,,,9,191.0,3820.0,2,28.0,560.0
+,,,,,,,,,
+Author,Data do Commit,Info do Commit
