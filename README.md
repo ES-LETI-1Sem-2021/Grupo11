@@ -9,4 +9,5 @@
    
 ### Funcionalidades por Implementar/Incompletas:
 > - Exportação dos dados referentes aos commits para o ficheiro .csv
+> bom dia
 
