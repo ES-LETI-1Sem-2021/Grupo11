@@ -3,6 +3,7 @@ import lombok.SneakyThrows;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.net.*;
 
 //TODO Verificar mais tarde
@@ -97,8 +98,18 @@ public class GUI extends JFrame {
                     button_trello.setVisible(false);
                     button_github.setVisible(false);
                     application_gui.setTrello(trello_gui.getToken(),trello_gui.getKey(),trello_gui.getUser());
-                    application_gui.setGitHub(github_gui.getToken(),github_gui.getRepositoryOwner(),github_gui.getRepositoryName());
-                    application_gui.setUpApplication();
+                    try {
+						application_gui.setGitHub(github_gui.getToken(),github_gui.getRepositoryOwner(),github_gui.getRepositoryName());
+					} catch (IOException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+					}
+                    try {
+						application_gui.setUpApplication();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
                 }
             }
         });

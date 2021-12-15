@@ -1,5 +1,7 @@
 import com.opencsv.CSVWriter;
 import lombok.SneakyThrows;
+import lombok.experimental.var;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -182,7 +184,13 @@ public class GUI_Application extends JFrame{
             @SneakyThrows
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame("Commits Info");
-                JTextArea commitInfo= new JTextArea(github.getCommitInfo());
+                JTextArea commitInfo = null;
+				try {
+					commitInfo = new JTextArea(github.getCommitInfo());
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
                 JScrollPane scrollBar= new JScrollPane(commitInfo);
                 scrollBar.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
                 commitInfo.setLineWrap(true);
@@ -196,7 +204,15 @@ public class GUI_Application extends JFrame{
             @SneakyThrows
             public void actionPerformed(ActionEvent e) {
                 UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 15)));
-                JOptionPane.showMessageDialog(null, github.getREADME() , "Descrição do Projecto", JOptionPane.INFORMATION_MESSAGE);
+                try {
+					JOptionPane.showMessageDialog(null, github.getREADME() , "Descrição do Projecto", JOptionPane.INFORMATION_MESSAGE);
+				} catch (HeadlessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
             }
         });
         button_10.addActionListener(e -> {
@@ -298,11 +314,11 @@ public class GUI_Application extends JFrame{
      * @return - um DefaultPieDataset;
      */
     private DefaultPieDataset pieChartDataSet(int sprintNumber){
-        var dataset = new DefaultPieDataset();
+        var dataset = (var) new DefaultPieDataset();
             for (int j = 0; j < project_members.size(); j++) {
-                dataset.setValue((project_membersNames.get(j)),project_humanResourcesCost.get(((sprintNumber-1)*project_members.size())+j).intValue());
+                ((DefaultPieDataset) dataset).setValue((project_membersNames.get(j)),project_humanResourcesCost.get(((sprintNumber-1)*project_members.size())+j).intValue());
             }
-        return dataset;
+        return (DefaultPieDataset) dataset;
     }
 
 
